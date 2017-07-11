@@ -1,0 +1,179 @@
+{
+    "id":"archaeology",
+    "display_name":"Achaeology Find",
+    "version": "1",
+    "scope": "Public",
+    "description":"Metadata related to artefacts found on archaeological digs.",
+    "readme_template": {
+        "template_directory": "Public/templates/archaeology",
+        "template_name": "archaeology_readme.html.mustache",
+        "partials_directory": "Public/templates/partials"
+    },
+    "packaged_metadata_template": {
+        "template_directory": "Public/templates/archaeology",
+        "template_name": "archaeology_metadata.xml.mustache",
+        "partials_directory": null
+    },
+    "exported_metadata_template": {
+        "template_directory": "Public/templates/archaeology",
+        "template_name": "archaeology_metadata.xml.mustache",
+        "partials_directory": null
+    },
+    "metadata_categories":[
+        {
+            "id":"summary",
+            "display_name":"Dig Summary",
+            "description":null,
+            "category_nodes":[
+                {
+                    "type":"metadata_field",
+                    "metadata_field":{
+                        "id":"dignumber",
+                        "display_name":"Dig ID number",
+                        "description":"Id number of the dig.",
+                        "tooltip":"Dig ID number",
+                        "mandatory":true,
+                        "min_occurs":1,
+                        "max_occurs":1,
+                        "field":{
+                            "type":"text_field",
+                            "text_field":{
+                                "char_limit":null,
+                                "placeholder":"",
+                                "value":null
+                            }
+                        }
+                    }
+                },
+                {
+                    "type":"metadata_field",
+                    "metadata_field":{
+                        "id":"description",
+                        "display_name":"Description",
+                        "description":"Description of the dig.",
+                        "tooltip": "",
+                        "mandatory":false,
+                        "min_occurs":1,
+                        "max_occurs":1,
+                        "field":{
+                            "type":"text_field",
+                            "text_field":{
+                                "char_limit":null,
+                                "placeholder":"",
+                                "value":null
+                            }
+                        }
+                    }
+                },
+                {
+                    "type":"metadata_field",
+                    "metadata_field":{
+                        "id":"location",
+                        "display_name":"Dig Location",
+                        "description":"Location of the dig site.",
+                        "tooltip": "",
+                        "mandatory":false,
+                        "min_occurs":1,
+                        "max_occurs":1,
+                        "field":{
+                            "type":"text_field",
+                            "text_field":{
+                                "char_limit":null,
+                                "placeholder":"",
+                                "value":null
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id":"finds",
+            "display_name":"Finds",
+            "description":null,
+            "category_nodes":[
+                { 
+                    "type":"metadata_group",
+                    "metadata_group":{
+                        "id":"artefacts",
+                        "display_name":"Artefact",
+                        "description":"Found Artefact",
+                        "tooltip":"An artefact found on the dig site",
+                        "min_occurs":1,
+                        "max_occurs":1000000,
+                        "metadata_fields":[
+                            {
+                                "id":"artefactid",
+                                "display_name":"ID",
+                                "description":"Artefact ID",
+                                "tooltip":"ID of the Artefact",
+                                "mandatory":true,
+                                "min_occurs":1,
+                                "max_occurs":1,
+                                "field":{
+                                    "type":"text_field",
+                                    "text_field":{
+                                        "char_limit":null,
+                                        "placeholder":"",
+                                        "value":null
+                                    }
+                                }
+                            },
+                            {
+                                "id":"description",
+                                "display_name":"Description",
+                                "description":"Description of the artefact",
+                                "tooltip":"",
+                                "mandatory":false,
+                                "min_occurs":1,
+                                "max_occurs":1,
+                                "field":{
+                                    "type":"text_field",
+                                    "text_field":{
+                                        "char_limit":null,
+                                        "placeholder":"",
+                                        "value":null
+                                    }
+                                }
+                            },
+                            {
+                                "id":"datefound",
+                                "display_name":"Date Found",
+                                "mandatory":true,
+                                "description":"Current date",
+                                "tooltip":"Current date",
+                                "min_occurs":1,
+                                "max_occurs":1,
+                                "field":{
+                                    "type":"date_field",
+                                    "date_field":{
+                                        "min_date":"1900-01-01",
+                                        "max_date":"3000-12-31",
+                                        "value":"today"
+                                    }
+                                }
+                            },
+                            {
+                                "id":"keyword",
+                                "display_name":"Keywords",
+                                "description":"Keywords to classify the artefact.",
+                                "tooltip":"Classifying keywords",
+                                "mandatory":false,
+                                "min_occurs":0,
+                                "max_occurs":10000,
+                                "field":{
+                                    "type":"text_field",
+                                    "text_field":{
+                                        "char_limit":null,
+                                        "placeholder":"",
+                                        "value":null
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

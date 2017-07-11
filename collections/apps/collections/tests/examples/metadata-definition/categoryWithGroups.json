@@ -1,0 +1,75 @@
+{
+  "id":"categoryGrants",
+  "display_name":"Research Grants",
+  "description":null,
+  "category_nodes":[
+    {
+      "type":"metadata_group",
+      "metadata_group":{
+        "id":"researchGrants",
+        "display_name":"Grants",
+        "description":"Grants",
+        "tooltip":"Details of any grants of funding supporting the creation of this data set",
+        "min_occurs":0,
+        "max_occurs":1000000,
+        "xml_element":{
+          "namespace_abbr":"collections",
+          "name":"grants",
+          "xml_attributes":[
+
+          ]
+        },
+        "metadata_fields":[
+          {
+            "id":"grantId",
+            "display_name":"Grant Number",
+            "description":"Grant Number",
+            "tooltip":"The number or code uniquely identifying the grant",
+            "mandatory":false,
+            "min_occurs":1,
+            "max_occurs":1,
+            "xml_element":{
+              "namespace_abbr":"collections",
+              "name":"grantID",
+              "xml_attributes":[
+
+              ]
+            },
+            "field":{
+              "type":"text_field",
+              "text_field":{
+                "char_limit":null,
+                "placeholder":"",
+                "value":null
+              }
+            }
+          },
+          {
+            "id":"grantFundingBody",
+            "display_name":"Funding Body",
+            "description":"Funding Body",
+            "tooltip":"The name of the funding body, e.g. ARC or NHMRC",
+            "mandatory":false,
+            "min_occurs":1,
+            "max_occurs":1,
+            "xml_element":{
+              "namespace_abbr":"collections",
+              "name":"fundingBody",
+              "xml_attributes":[
+
+              ]
+            },
+            "field":{
+              "type":"text_field",
+              "text_field":{
+                "char_limit":null,
+                "placeholder":"",
+                "value":null
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

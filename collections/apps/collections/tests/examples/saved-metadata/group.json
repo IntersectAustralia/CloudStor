@@ -1,0 +1,62 @@
+{
+  "occurrences": {
+    "creators_1489568864562": {
+      "fields": {
+        "creatorAffiliation": {
+          "occurrences": {
+            "creatorAffiliation_1489577393207": "Intersect"
+          }
+        },
+        "creatorOU": {
+          "occurrences": {
+            "creatorOU_1489576965933": "operations"
+          }
+        },
+        "email": {
+          "occurrences": {
+            "email_1489565349674": "d@d.com"
+          }
+        },
+        "familyName": {
+          "occurrences": {
+            "familyName_1489569585834": "davidson"
+          }
+        },
+        "givenName": {
+          "occurrences": {
+            "givenName_1489577445793": "dave"
+          }
+        }
+      }
+    },
+    "creators_1489573768799": {
+      "fields": {
+        "creatorAffiliation": {
+          "occurrences": {
+            "creatorAffiliation_1489574292961": "Intersect"
+          }
+        },
+        "creatorOU": {
+          "occurrences": {
+            "creatorOU_1489569388749": "ERA"
+          }
+        },
+        "email": {
+          "occurrences": {
+            "email_1489562573126": "b@b.com"
+          }
+        },
+        "familyName": {
+          "occurrences": {
+            "familyName_1489573029924": "bobson"
+          }
+        },
+        "givenName": {
+          "occurrences": {
+            "givenName_1489571145997": "bob"
+          }
+        }
+      }
+    }
+  }
+}

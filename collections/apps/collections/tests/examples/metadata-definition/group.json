@@ -1,0 +1,137 @@
+{
+  "id":"creators",
+  "display_name":"Creator",
+  "description":"Creator",
+  "tooltip":"The person or persons primarily responsible for contributing to the creation of the data set",
+  "min_occurs":1,
+  "max_occurs":1000000,
+  "xml_element":{
+    "namespace_abbr":"collections",
+    "name":"creator",
+    "xml_attributes":[
+
+    ]
+  },
+  "metadata_fields":[
+    {
+      "id":"givenName",
+      "display_name":"Given Name",
+      "description":"Creator given name",
+      "tooltip":"Given name or forename",
+      "mandatory":true,
+      "min_occurs":1,
+      "max_occurs":1,
+      "xml_element":{
+        "namespace_abbr":"collections",
+        "name":"givenName",
+        "xml_attributes":[
+
+        ]
+      },
+      "field":{
+        "type":"text_field",
+        "text_field":{
+          "char_limit":null,
+          "placeholder":"",
+          "value":null
+        }
+      }
+    },
+    {
+      "id":"familyName",
+      "display_name":"Family Name",
+      "description":"Creator family name",
+      "tooltip":"Family name or surname",
+      "mandatory":true,
+      "min_occurs":1,
+      "max_occurs":1,
+      "xml_element":{
+        "namespace_abbr":"collections",
+        "name":"familyName",
+        "xml_attributes":[
+
+        ]
+      },
+      "field":{
+        "type":"text_field",
+        "text_field":{
+          "char_limit":null,
+          "placeholder":"",
+          "value":null
+        }
+      }
+    },
+    {
+      "id":"email",
+      "display_name":"Email Address",
+      "description":"Creator email address",
+      "tooltip":"Institutional email address",
+      "mandatory":true,
+      "min_occurs":1,
+      "max_occurs":1,
+      "xml_element":{
+        "namespace_abbr":"collections",
+        "name":"email",
+        "xml_attributes":[
+
+        ]
+      },
+      "field":{
+        "type":"text_field",
+        "text_field":{
+          "char_limit":null,
+          "placeholder":"",
+          "value":null
+        }
+      }
+    },
+    {
+      "id":"creatorAffiliation",
+      "display_name":"Affiliated University or Institution",
+      "description":"Affiliation",
+      "tooltip":"The university or research institute where the person is employed or affiliated",
+      "mandatory":true,
+      "min_occurs":1,
+      "max_occurs":1,
+      "xml_element":{
+        "namespace_abbr":"collections",
+        "name":"affiliation",
+        "xml_attributes":[
+
+        ]
+      },
+      "field":{
+        "type":"text_field",
+        "text_field":{
+          "char_limit":null,
+          "placeholder":"",
+          "value":null
+        }
+      }
+    },
+    {
+      "id":"creatorOU",
+      "display_name":"Faculty, School, Centre or Organisational Unit",
+      "description":"Organisational Unit",
+      "tooltip":"The organisational unit where the person is employed or affiliated",
+      "mandatory":false,
+      "min_occurs":0,
+      "max_occurs":1,
+      "xml_element":{
+        "namespace_abbr":"collections",
+        "name":"OU",
+        "xml_attributes":[
+
+        ]
+      },
+      "field":{
+        "type":"text_field",
+        "text_field":{
+          "char_limit":null,
+          "placeholder":"",
+          "value":null
+        }
+      }
+    }
+  ]
+}

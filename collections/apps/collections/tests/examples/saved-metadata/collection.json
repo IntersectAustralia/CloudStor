@@ -1,0 +1,205 @@
+{
+  "categories": {
+    "categoryAccessRights": {
+      "fields": {
+        "accessRights": {
+          "occurrences": {
+            "accessRights_1489569864341": "Open"
+          }
+        }
+      },
+      "groups": []
+    },
+    "categoryCollectionInformation": {
+      "fields": [],
+      "groups": {
+        "collectionInformation": {
+          "occurrences": {
+            "collectionInformation_1489564730459": {
+              "fields": {
+                "description": {
+                  "occurrences": {
+                    "description_1489563539709": "some description"
+                  }
+                },
+                "extent": {
+                  "occurrences": {
+                    "extent_1489578499928": "none"
+                  }
+                },
+                "forCode": {
+                  "occurrences": {
+                    "forCode_1489565342506": "FOR123",
+                    "forCode_1489571027509": "FOR456"
+                  }
+                },
+                "keyword": {
+                  "occurrences": {
+                    "keyword_1489562237108": "a key"
+                  }
+                },
+                "title": {
+                  "occurrences": {
+                    "title_1489570426701": "my collection"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "categoryContact": {
+      "fields": [],
+      "groups": {
+        "contact": {
+          "occurrences": {
+            "contact_1489563098948": {
+              "fields": {
+                "contactAffiliation": {
+                  "occurrences": {
+                    "contactAffiliation_1489566431980": "Intersect"
+                  }
+                },
+                "contactEmail": {
+                  "occurrences": {
+                    "contactEmail_1489576170065": "j@j.com"
+                  }
+                },
+                "contactFamilyName": {
+                  "occurrences": {
+                    "contactFamilyName_1489563913739": "johnson"
+                  }
+                },
+                "contactGivenName": {
+                  "occurrences": {
+                    "contactGivenName_1489569750475": "john"
+                  }
+                },
+                "contactOU": {
+                  "occurrences": {
+                    "contactOU_1489572967809": "Engineering"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "categoryCreators": {
+      "fields": [],
+      "groups": {
+        "creators": {
+          "occurrences": {
+            "creators_1489568864562": {
+              "fields": {
+                "creatorAffiliation": {
+                  "occurrences": {
+                    "creatorAffiliation_1489577393207": "Intersect"
+                  }
+                },
+                "creatorOU": {
+                  "occurrences": {
+                    "creatorOU_1489576965933": "operations"
+                  }
+                },
+                "email": {
+                  "occurrences": {
+                    "email_1489565349674": "d@d.com"
+                  }
+                },
+                "familyName": {
+                  "occurrences": {
+                    "familyName_1489569585834": "davidson"
+                  }
+                },
+                "givenName": {
+                  "occurrences": {
+                    "givenName_1489577445793": "dave"
+                  }
+                }
+              }
+            },
+            "creators_1489573768799": {
+              "fields": {
+                "creatorAffiliation": {
+                  "occurrences": {
+                    "creatorAffiliation_1489574292961": "Intersect"
+                  }
+                },
+                "creatorOU": {
+                  "occurrences": {
+                    "creatorOU_1489569388749": "ERA"
+                  }
+                },
+                "email": {
+                  "occurrences": {
+                    "email_1489562573126": "b@b.com"
+                  }
+                },
+                "familyName": {
+                  "occurrences": {
+                    "familyName_1489573029924": "bobson"
+                  }
+                },
+                "givenName": {
+                  "occurrences": {
+                    "givenName_1489571145997": "bob"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "categoryGrants": {
+      "fields": [],
+      "groups": {
+        "researchGrants": {
+          "occurrences": {
+            "researchGrants_1489571309045": {
+              "fields": {
+                "grantFundingBody": {
+                  "occurrences": {
+                    "grantFundingBody_1489574328861": "Government"
+                  }
+                },
+                "grantId": {
+                  "occurrences": {
+                    "grantId_1489574117457": "12345"
+                  }
+                }
+              }
+            },
+            "researchGrants_1489576351277": {
+              "fields": {
+                "grantFundingBody": {
+                  "occurrences": {
+                    "grantFundingBody_1489577188611": "Private"
+                  }
+                },
+                "grantId": {
+                  "occurrences": {
+                    "grantId_1489566643965": "67890"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "categoryRetention": {
+      "fields": {
+        "minimumRetention": {
+          "occurrences": {
+            "minimumRetention_1489578725754": "10"
+          }
+        }
+      },
+      "groups": []
+    }
+  }
+}

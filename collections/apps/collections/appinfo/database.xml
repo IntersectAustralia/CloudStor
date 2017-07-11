@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ [database.xml]
+  ~ Collections - Research data packaging for the rest of us
+  ~ Copyright (C) 2017 Intersect Australia Ltd (https://intersect.org.au)
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<database>
+    <name>*dbname*</name>
+    <create>true</create>
+    <overwrite>false</overwrite>
+    <charset>utf8</charset>
+
+    <!--                              -->
+    <!--  Crates                      -->
+    <!--                              -->
+    <table>
+        <name>*dbprefix*crateit_crates</name>
+        <declaration>
+            <field>
+                <name>id</name>
+                <type>integer</type>
+                <default>0</default>
+                <notnull>true</notnull>
+                <autoincrement>1</autoincrement>
+            </field>
+            <field>
+                <name>user_id</name>
+                <type>text</type>
+                <notnull>true</notnull>
+                <length>64</length>
+            </field>
+            <field>
+                <name>name</name>
+                <type>text</type>
+                <notnull>true</notnull>
+                <length>128</length>
+            </field>
+            <field>
+                <name>metadata_schema</name>
+                <type>text</type>
+                <notnull>false</notnull>
+                <!-- ToDo: inspect maximum column length, as db update will fail if metadata string exceeds column length-->
+                <length>100000</length>
+            </field>
+            <field>
+                <name>saved_metadata</name>
+                <type>text</type>
+                <notnull>true</notnull>
+                <!-- ToDo: inspect maximum column length, as db update will fail if metadata string exceeds column length-->
+                <length>100000</length>
+            </field>
+            <field>
+                <name>size</name>
+                <type>text</type>
+                <default>0</default>
+                <notnull>true</notnull>
+            </field>
+            <field>
+                <name>root_folder_id</name>
+                <type>integer</type>
+                <notnull>true</notnull>
+            </field>
+        </declaration>
+    </table>
+
+    <!--                              -->
+    <!--  Folders                     -->
+    <!--                              -->
+    <table>
+        <name>*dbprefix*crateit_folders</name>
+        <declaration>
+            <field>
+                <name>id</name>
+                <type>integer</type>
+                <default>0</default>
+                <notnull>true</notnull>
+                <autoincrement>1</autoincrement>
+            </field>
+            <field>
+                <name>name</name>
+                <type>text</type>
+                <notnull>true</notnull>
+                <length>600</length>
+            </field>
+            <field>
+                <name>parent_folder_id</name>
+                <type>integer</type>
+            </field>
+        </declaration>
+    </table>
+
+    <!--                              -->
+    <!--  Files                       -->
+    <!--                              -->
+    <table>
+        <name>*dbprefix*crateit_files</name>
+        <declaration>
+            <field>
+                <name>id</name>
+                <type>integer</type>
+                <default>0</default>
+                <notnull>true</notnull>
+                <autoincrement>1</autoincrement>
+            </field>
+            <field>
+                <name>name</name>
+                <type>text</type>
+                <notnull>true</notnull>
+                <length>600</length>
+            </field>
+            <field>
+                <name>parent_folder_id</name>
+                <type>integer</type>
+                <notnull>true</notnull>
+            </field>
+            <field>
+                <name>owncloud_id</name>
+                <type>integer</type>
+                <notnull>true</notnull>
+            </field>
+            <field>
+                <name>size</name>
+                <type>text</type>
+                <default>0</default>
+                <notnull>true</notnull>
+            </field>
+            <field>
+                <name>checksum</name>
+                <type>text</type>
+                <notnull>true</notnull>
+                <length>600</length>
+            </field>
+            <field>
+                <name>modified_time</name>
+                <type>timestamp</type>
+                <notnull>true</notnull>
+            </field>
+            <field>
+                <name>mime_type</name>
+                <type>text</type>
+                <notnull>true</notnull>
+            </field>
+        </declaration>
+    </table>
+
+    <!--                              -->
+    <!--  Selected Crate              -->
+    <!--                              -->
+    <table>
+        <name>*dbprefix*crateit_selected_crates</name>
+        <declaration>
+            <field>
+                <name>id</name>
+                <type>integer</type>
+                <default>0</default>
+                <notnull>true</notnull>
+                <autoincrement>1</autoincrement>
+            </field>
+            <field>
+                <name>user_id</name>
+                <type>text</type>
+                <notnull>true</notnull>
+                <length>64</length>
+            </field>
+            <field>
+                <name>crate_id</name>
+                <type>integer</type>
+                <notnull>true</notnull>
+            </field>
+        </declaration>
+    </table>
+
+    <!--                              -->
+    <!--  Packaging Job               -->
+    <!--                              -->
+    <table>
+        <name>*dbprefix*crateit_packaging_jobs</name>
+        <declaration>
+            <field>
+                <name>id</name>
+                <type>integer</type>
+                <default>0</default>
+                <notnull>true</notnull>
+                <autoincrement>1</autoincrement>
+            </field>
+            <field>
+                <name>user_id</name>
+                <type>text</type>
+                <notnull>true</notnull>
+                <length>64</length>
+            </field>
+            <field>
+                <name>collection_id</name>
+                <type>integer</type>
+                <notnull>true</notnull>
+            </field>
+            <field>
+                <name>collection_name</name>
+                <type>text</type>
+                <notnull>true</notnull>
+                <length>128</length>
+            </field>
+            <field>
+                <name>initiation_time</name>
+                <type>timestamp</type>
+                <notnull>true</notnull>
+            </field>
+            <field>
+                <name>status</name>
+                <type>text</type>
+                <length>128</length>
+            </field>
+        </declaration>
+    </table>
+
+</database>

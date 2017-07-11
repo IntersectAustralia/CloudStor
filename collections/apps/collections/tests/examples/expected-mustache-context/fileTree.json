@@ -1,0 +1,45 @@
+[
+  {
+    "directoryContents": [
+      {
+        "directoryContents": [
+          {
+            "directoryContents": null,
+            "name": "manual.pdf",
+            "path": "Documents/Instructions/manual.pdf"
+          }
+        ],
+        "name": "Instructions",
+        "path": "Documents/Instructions"
+      }
+    ],
+    "name": "Documents",
+    "path": "Documents"
+  },
+  {
+    "directoryContents": [],
+    "name": "emptyDirectory",
+    "path": "emptyDirectory"
+  },
+  {
+    "directoryContents": [
+      {
+        "directoryContents": null,
+        "name": "Paris.jpg",
+        "path": "Photos/Paris.jpg"
+      },
+      {
+        "directoryContents": null,
+        "name": "Squirrel.jpg",
+        "path": "Photos/Squirrel.jpg"
+      }
+    ],
+    "name": "Photos",
+    "path": "Photos"
+  },
+  {
+    "directoryContents": null,
+    "name": "README.txt",
+    "path": "README.txt"
+  }
+]

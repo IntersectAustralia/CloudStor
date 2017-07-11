@@ -1,0 +1,381 @@
+{
+    "id":"test",
+    "display_name":"Test metadata schema",
+    "version": "2.0.1",
+    "scope": "Visible",
+    "description":"This is seed data for QA and the automated tests",
+    "readme_template": {
+        "template_directory": "Public/templates",
+        "template_name": "test_schema_readme.html.mustache",
+        "partials_directory": "Public/templates/partials"
+    },
+    "packaged_metadata_template": {
+        "template_directory": "Public/templates",
+        "template_name": "test_schema_metadata.xml.mustache",
+        "partials_directory": null
+    },
+    "exported_metadata_template": {
+        "template_directory": "Public/templates",
+        "template_name": "test_schema_metadata.xml.mustache",
+        "partials_directory": null
+    },
+    "metadata_categories":[
+        {
+            "id":"collectionInformation",
+            "display_name":"Collection Information",
+            "description":null,
+            "category_nodes": [
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id":"title",
+                        "display_name":"Title",
+                        "mandatory":true,
+                        "description":"The Collection title",
+                        "tooltip":"The Collection title",
+                        "min_occurs":1,
+                        "max_occurs":1,
+                        "field":{
+                            "type":"text_field",
+                            "text_field":{
+                                "char_limit":150,
+                                "placeholder":"Enter a title for this Collection",
+                                "value":null
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id":"description",
+                        "display_name":"Description",
+                        "mandatory":true,
+                        "description":"A description of the Collection",
+                        "tooltip":"A description of the Collection",
+                        "min_occurs":1,
+                        "max_occurs":2,
+                        "field":{
+                            "type":"text_field",
+                            "text_field":{
+                                "char_limit":150,
+                                "placeholder":"Enter a description of the research data package for this Collection",
+                                "value":"New Collection"
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id":"language",
+                        "display_name":"Language",
+                        "mandatory":true,
+                        "description":"The ISO639-3 language used within the Collection",
+                        "tooltip":"ISO639-3 language used",
+                        "min_occurs":2,
+                        "max_occurs":2,
+                        "field":{
+                            "type":"text_field",
+                            "text_field":{
+                                "char_limit":150,
+                                "placeholder":"Enter a ISO639-3 language code",
+                                "value":"English"
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id":"mandatoryMin",
+                        "display_name":"Mandatory Min Occurrences",
+                        "mandatory":true,
+                        "description":"A set of mandatory occurrences with no default value",
+                        "tooltip":"Mandatory Occurrences with no default value",
+                        "min_occurs":2,
+                        "max_occurs":4,
+                        "field":{
+                            "type":"text_field",
+                            "text_field":{
+                                "char_limit":150,
+                                "placeholder":"",
+                                "value":null
+                            }
+                        }
+                    }
+                }
+
+            ]
+        },
+        {
+            "id":"dataCreators",
+            "display_name":"Data Creators",
+            "description":null,
+            "category_nodes": [
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id":"creator",
+                        "display_name":"Creator",
+                        "mandatory":false,
+                        "description":"Information about the data creator",
+                        "tooltip":"Data creator contact details",
+                        "min_occurs":1,
+                        "max_occurs":10,
+                        "field":{
+                            "type":"text_field",
+                            "text_field":{
+                                "char_limit":150,
+                                "placeholder":"Enter some contact information identifying the data creator",
+                                "value":null
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "metadata_group",
+                    "metadata_group": {
+                        "id": "creators",
+                        "display_name": "Creators",
+                        "description": "A set of metadata describing a creator",
+                        "tooltip": "Data creator details",
+                        "min_occurs": 1,
+                        "max_occurs": 5,
+                        "metadata_fields": [
+                            {
+                                "id": "given_name",
+                                "display_name": "Given name",
+                                "description": "Creator given name",
+                                "tooltip": null,
+                                "min_occurs": 1,
+                                "max_occurs": 1,
+                                "mandatory": false,
+                                "field":{
+                                    "type":"text_field",
+                                    "text_field":{
+                                        "char_limit":150,
+                                        "placeholder":"Creator given name",
+                                        "value":null
+                                    }
+                                }
+                            },
+                            {
+                                "id":"phone",
+                                "display_name":"Phone Number",
+                                "description":"Creator phone number",
+                                "tooltip":"Creator's primary phone number",
+                                "min_occurs":1,
+                                "max_occurs":1,
+                                "mandatory":true,
+                                "field":{
+                                    "type":"text_field",
+                                    "text_field":{
+                                        "char_limit":10,
+                                        "placeholder":"Creator phone number",
+                                        "value":null
+                                    }
+                                }
+                            },
+                            {
+                                "id": "email",
+                                "display_name": "Email Address",
+                                "description": "Creator email address",
+                                "tooltip": null,
+                                "min_occurs": 1,
+                                "max_occurs": 5,
+                                "mandatory": true,
+                                "field":{
+                                    "type":"text_field",
+                                    "text_field":{
+                                        "char_limit":150,
+                                        "placeholder":"Creator email address",
+                                        "value":null
+                                    }
+                                }
+                            },
+                            {
+                                "id":"dateOfBirth",
+                                "display_name":"Date of birth",
+                                "mandatory":true,
+                                "description":"Creator date of birth",
+                                "tooltip":"Date of birth",
+                                "min_occurs":1,
+                                "max_occurs":1,
+                                "field":{
+                                    "type":"date_field",
+                                    "date_field":{
+                                        "min_date":"1900-01-01",
+                                        "max_date":"3000-12-31",
+                                        "value":"today"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id":"collaborator",
+                        "display_name":"Collaborator",
+                        "mandatory":false,
+                        "description":"Information about a data collaborator",
+                        "tooltip":"Data collaborator contact details",
+                        "min_occurs":1,
+                        "max_occurs":10,
+                        "field":{
+                            "type":"text_field",
+                            "text_field":{
+                                "char_limit":150,
+                                "placeholder":"Enter some contact information identifying a data collaborator",
+                                "value":null
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id":"grants",
+            "display_name":"Grants",
+            "description":null,
+            "category_nodes": [
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id":"forCode",
+                        "display_name":"FOR code",
+                        "mandatory":false,
+                        "description":"Fields of Research code",
+                        "tooltip":"Fields of Research code",
+                        "min_occurs":1,
+                        "max_occurs":1,
+                        "field":{
+                            "type":"text_field",
+                            "text_field":{
+                                "char_limit":150,
+                                "placeholder":"Enter the relevant Fields of Research code",
+                                "value":null
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "metadata_group",
+                    "metadata_group": {
+                        "id": "embargo",
+                        "display_name": "Embargo",
+                        "description": "Embargo information",
+                        "tooltip": "",
+                        "min_occurs": 1,
+                        "max_occurs": 3,
+                        "metadata_fields": [
+                            {
+                                "id": "embargoDetails",
+                                "display_name": "Embargo Details",
+                                "description": "",
+                                "tooltip": null,
+                                "min_occurs": 1,
+                                "max_occurs": 2,
+                                "mandatory": true,
+                                "field":{
+                                    "type":"text_field",
+                                    "text_field":{
+                                        "char_limit":null,
+                                        "placeholder":"",
+                                        "value":null
+                                    }
+                                }
+                            },
+                            {
+                                "id": "retention",
+                                "display_name": "Retention Period",
+                                "description": "",
+                                "tooltip": null,
+                                "min_occurs": 1,
+                                "max_occurs": 1,
+                                "mandatory": false,
+                                "field":{
+                                    "type":"text_field",
+                                    "text_field":{
+                                        "char_limit":null,
+                                        "placeholder":"",
+                                        "value":null
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id":"dates",
+            "display_name":"Dates",
+            "description":null,
+            "category_nodes": [
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id":"currentDate",
+                        "display_name":"Current date",
+                        "mandatory":true,
+                        "description":"Current date",
+                        "tooltip":"Current date",
+                        "min_occurs":1,
+                        "max_occurs":1,
+                        "field":{
+                            "type":"date_field",
+                            "date_field":{
+                                "min_date":"1900-01-01",
+                                "max_date":"3000-12-31",
+                                "value":"today"
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id":"additionalDates",
+                        "display_name":"Additional dates",
+                        "mandatory":false,
+                        "description":"Additional dates",
+                        "tooltip":"Additional dates",
+                        "min_occurs":2,
+                        "max_occurs":5,
+                        "field":{
+                            "type":"date_field",
+                            "date_field":{
+                                "min_date":"1900-01-01",
+                                "max_date":"3000-12-31",
+                                "value":"today"
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id":"noDefaultDate",
+                        "display_name":"No Default Date",
+                        "mandatory":true,
+                        "description":"Mandatory date with no default value",
+                        "tooltip":"A mandatory date with no default value",
+                        "min_occurs":2,
+                        "max_occurs":3,
+                        "field":{
+                            "type":"date_field",
+                            "date_field":{
+                                "min_date":"1900-01-01",
+                                "max_date":"3000-12-31",
+                                "value":null
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

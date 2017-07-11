@@ -1,0 +1,2 @@
+*:test_visible_schema.json
+test_username_2:test_visible_schema.json
