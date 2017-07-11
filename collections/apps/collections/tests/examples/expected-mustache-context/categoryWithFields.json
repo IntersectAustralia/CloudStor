@@ -1,0 +1,16 @@
+{
+  "categoryAccessRights": {
+    "displayName": "Access Rights",
+    "metadataFields": {
+      "accessRights": {
+        "displayName": "Access Rights",
+        "occurrences": [
+          {
+            "value": "Open"
+          }
+        ]
+      }
+    },
+    "metadataGroups": []
+  }
+}

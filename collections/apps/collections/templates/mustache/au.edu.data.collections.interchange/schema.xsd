@@ -1,0 +1,55 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- au.edu.data.Collections.interchange schema v1.0 -->
+  <xs:element name="metadata">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="collections:type" type="xs:string"/>
+        <xs:element name="collections:identifier" type="xs:string"/>
+        <xs:element name="collections:datePackaged" type="xs:dateTime"/>
+        <xs:element name="collections:collectionInformation" minOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="collections:title" minOccurs="1" type="xs:string"/>
+              <xs:element name="collections:description" minOccurs="1" maxOccurs="1000000" type="xs:string"/>
+              <xs:element name="collections:keyword" minOccurs="1" maxOccurs="10000" type="xs:string"/>
+              <xs:element name="collections:FORCode" minOccurs="0" maxOccurs="10000" type="xs:string"/>
+              <xs:element name="collections:extent" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="collections:primaryContact" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="collections:givenName" type="xs:string"/>
+              <xs:element name="collections:familyName" type="xs:string"/>
+              <xs:element name="collections:email" type="xs:string"/>
+              <xs:element name="collections:affiliation" type="xs:string"/>
+              <xs:element name="collections:OU" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="collections:creator" minOccurs="1" maxOccurs="1000000">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="collections:givenName" minOccurs="1" type="xs:string"/>
+              <xs:element name="collections:familyName" minOccurs="1" type="xs:string"/>
+              <xs:element name="collections:email" minOccurs="1" type="xs:string"/>
+              <xs:element name="collections:affiliation" minOccurs="1" type="xs:string"/>
+              <xs:element name="collections:OU" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="collections:grants" minOccurs="1" maxOccurs="1000000">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="collections:grantID" type="xs:string"/>
+              <xs:element name="collections:fundingBody" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="collections:rightsStatement" minOccurs="1" type="xs:string"/>
+        <xs:element name="collections:retentionPeriod" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

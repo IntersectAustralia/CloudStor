@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns:collections="https://schema.intersect.org.au/Collections/metadata/1.0/schema.xsd">
+    <collections:type>dataset</collections:type>
+    <collections:identifier>{{package.guid}}</collections:identifier>
+    <collections:datePackaged>{{package.date.iso}}</collections:datePackaged>
+
+    {{#metadataCategories}}
+
+        <!-- Dig Summary -->
+        {{#summary}}
+            <collections:dig>
+                {{#metadataFields}}
+                    {{#dignumber}}
+                        {{#occurrences}}
+                            <collections:id>{{value}}</collections:id>
+                        {{/occurrences}}
+                    {{/dignumber}}
+                    {{#description}}
+                        {{#occurrences}}
+                            <collections:description>{{value}}</collections:description>
+                        {{/occurrences}}
+                    {{/description}}
+                    {{#location}}
+                        {{#occurrences}}
+                            <collections:location>{{value}}</collections:location>
+                        {{/occurrences}}
+                    {{/location}}
+                {{/metadataFields}}
+            </collections:dig>
+        {{/summary}}
+
+        <!-- Artefacts Found -->
+        {{#finds}}
+            {{#metadataGroups}}
+                {{#artefacts}}
+                    {{#occurrences}}
+                        <collections:artefact>
+                            {{#.}}
+                                {{#metadataFields}}
+                                    {{#artefactid}}
+                                        {{#occurrences}}
+                                            <collections:id>{{value}}</collections:id>
+                                        {{/occurrences}}
+                                    {{/artefactid}}
+                                    {{#description}}
+                                        {{#occurrences}}
+                                            <collections:description>{{value}}</collections:description>
+                                        {{/occurrences}}
+                                    {{/description}}
+                                    {{#datefound}}
+                                        {{#occurrences}}
+                                            <collections:date>{{value}}</collections:date>
+                                        {{/occurrences}}
+                                    {{/datefound}}
+                                    {{#keyword}}
+                                        <collections:keywords>
+                                            {{#occurrences}}
+                                                <collections:keyword>{{value}}</collections:keyword>
+                                            {{/occurrences}}
+                                        </collections:keywords>
+                                    {{/keyword}}
+                                {{/metadataFields}}
+                            {{/.}}
+                        </collections:artefact>
+                    {{/occurrences}}
+                {{/artefacts}}
+            {{/metadataGroups}}
+        {{/finds}}
+    {{/metadataCategories}}
+</metadata>

@@ -1,0 +1,24 @@
+{
+  "id":"description",
+  "display_name":"Description",
+  "description":"Collection description",
+  "tooltip":"Details of the contents of the data set",
+  "mandatory":true,
+  "min_occurs":1,
+  "max_occurs":1000000,
+  "xml_element":{
+    "namespace_abbr":"collections",
+    "name":"description",
+    "xml_attributes":[
+
+    ]
+  },
+  "field":{
+    "type":"text_field",
+    "text_field":{
+      "char_limit":null,
+      "placeholder":"",
+      "value":null
+    }
+  }
+}

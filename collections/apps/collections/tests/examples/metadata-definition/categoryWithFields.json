@@ -1,0 +1,34 @@
+{
+  "id":"categoryAccessRights",
+  "display_name":"Access Rights",
+  "description":null,
+  "category_nodes":[
+    {
+      "type":"metadata_field",
+      "metadata_field":{
+        "id":"accessRights",
+        "display_name":"Access Rights",
+        "description":"Access rights",
+        "tooltip":"Information about who can access this information and under what conditions",
+        "mandatory":true,
+        "min_occurs":1,
+        "max_occurs":1,
+        "xml_element":{
+          "namespace_abbr":"collections",
+          "name":"rightsStatement",
+          "xml_attributes":[
+
+          ]
+        },
+        "field":{
+          "type":"text_field",
+          "text_field":{
+            "char_limit":null,
+            "placeholder":"Describe how this data set will be made available open conditional or restricted and describe any conditions or restrictions to access",
+            "value":null
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,416 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "https://schema.intersect.org.au/Collections/metadata/1.1/schema_spec.json",
+    "title": "Collections Metadata Schema Specification v1.1",
+    "description": "This schema defines the syntax of a valid metadata model for use within the Collections application",
+    "type": "object",
+    "required": [
+        "id",
+        "display_name",
+        "version",
+        "scope",
+        "description",
+        "packaged_metadata_template",
+        "exported_metadata_template",
+        "readme_template",
+        "metadata_categories"
+    ],
+    "properties": {
+        "id": {
+            "title": "Schema id",
+            "description": "The unique identifier of the schema",
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9]+(?:(?:-|\\.)[a-zA-Z0-9]+)*$"
+        },
+        "display_name": {
+            "title": "Schema display name",
+            "description": "The name of the schema to be displayed within the application",
+            "type": "string"
+        },
+        "version": {
+            "title": "Schema version",
+            "description": "Current version of this schema",
+            "type": "string",
+            "pattern": "^[0-9]+(?:\\.[0-9]+){0,2}$"
+        },
+        "scope" : {
+          "title": "Scope",
+          "description": "The University, Faculty, or Organisation that the schema relates to",
+          "type":"string"
+        },
+        "description": {
+            "title": "Schema description",
+            "description": "Description of the schema",
+            "type": "string"
+        },
+        "packaged_metadata_template": {
+            "title": "Packaged metadata template",
+            "description": "Mustache template to use for the metadata XML file within a packaged collection",
+            "type": "object",
+            "required": [
+                "template_directory",
+                "template_name",
+                "partials_directory"
+            ],
+            "properties": {
+                "template_directory": {
+                    "title": "Packaged metadata template directory path",
+                    "description": "Path to the parent directory of the packaged metadata template file",
+                    "type": "string"
+                },
+                "template_name": {
+                    "title": "Packaged metadata template file basename",
+                    "description": "Basename of the packaged metadata template file",
+                    "type": "string"
+                },
+                "partials_directory": {
+                    "title": "Packaged metadata template partials directory path",
+                    "description": "Path to the partials directory for the packaged metadata template file or null if no partials used",
+                    "type": ["string", "null"]
+                }
+            },
+            "additionalProperties": false
+        },
+        "exported_metadata_template": {
+            "title": "Exported metadata template",
+            "description": "Mustache template to use for the exported collection metadata XML file",
+            "type": "object",
+            "required": [
+                "template_directory",
+                "template_name",
+                "partials_directory"
+            ],
+            "properties": {
+                "template_directory": {
+                    "title": "Exported metadata template directory path",
+                    "description": "Path to the parent directory of the exported metadata template file",
+                    "type": "string"
+                },
+                "template_name": {
+                    "title": "Exported metadata template file basename",
+                    "description": "Basename of the exported metadata template file",
+                    "type": "string"
+                },
+                "partials_directory": {
+                    "title": "Exported metadata template partials directory path",
+                    "description": "Path to the partials directory for the exported metadata template file or null if no partials used",
+                    "type": ["string", "null"]
+                }
+            },
+            "additionalProperties": false
+        },
+        "readme_template": {
+            "title": "README template",
+            "description": "Mustache template to use for the Collection README file",
+            "type": "object",
+            "required": [
+                "template_directory",
+                "template_name",
+                "partials_directory"
+            ],
+            "properties": {
+                "template_directory": {
+                    "title": "README template directory path",
+                    "description": "Path to the parent directory of the README template file",
+                    "type": "string"
+                },
+                "template_name": {
+                    "title": "README template file basename",
+                    "description": "Basename of the README template file",
+                    "type": "string"
+                },
+                "partials_directory": {
+                    "title": "README template partials directory path",
+                    "description": "Path to the partials directory for the README template file or null if no partials used",
+                    "type": ["string", "null"]
+                }
+            },
+            "additionalProperties": false
+        },
+        "metadata_categories": {
+            "title": "Crate metadata categories",
+            "description": "A set of metadata categories to display within the application metadata UI",
+            "type": "array",
+            "items": { "$ref": "#/definitions/metadata_category" }
+        }
+    },
+    "additionalProperties": true,
+
+    "definitions": {
+        "metadata_category": {
+            "title": "Crate metadata category",
+            "description": "A category of metadata which describes the crate",
+            "type": "object",
+            "required": [
+                "id",
+                "display_name",
+                "description",
+                "category_nodes"
+            ],
+            "properties": {
+                "id": {
+                    "title": "Category id",
+                    "description": "The unique identifier for the category",
+                    "type": "string",
+                    "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$"
+                },
+                "display_name": {
+                    "title": "Category display name",
+                    "description": "The category name to be displayed within the application",
+                    "type": "string"
+                },
+                "description": {
+                    "title": "Category description",
+                    "description": "Description of the metadata category",
+                    "type": ["string", "null"]
+                },
+                "category_nodes": {
+                    "title": "Category metadata nodes",
+                    "description": "A set of metadata to be displayed within this metadata category",
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/category_node" }
+                }
+            },
+            "additionalProperties": false
+        },
+
+        "category_node": {
+            "title": "Metadata category node",
+            "description": "A metadata node contained within a category, either a metadata group or field",
+            "type": "object",
+            "required": [
+                "type"
+            ],
+            "properties": {
+                "type": {
+                    "title": "Metadata category node type",
+                    "description": "The type of metadata node to display within the metadata category",
+                    "type": "string",
+                    "enum": ["metadata_group", "metadata_field"]
+                }
+            },
+            "patternProperties": {
+                "^metadata_(group|field)$": {
+                    "title": "Metadata category node type specification",
+                    "description": "Specification of the metadata category node",
+                    "oneOf": [
+                        { "$ref": "#/definitions/metadata_group" },
+                        { "$ref": "#/definitions/metadata_field" }
+                    ]
+                }
+            },
+            "minProperties": 2,
+            "maxProperties": 2,
+            "additionalProperties": false
+        },
+
+        "metadata_node": {
+          "title": "Metadata node",
+            "description": "A set of generic metadata node properties",
+            "type": "object",
+            "required": [
+                "id",
+                "display_name",
+                "description",
+                "tooltip",
+                "min_occurs",
+                "max_occurs"
+            ],
+            "properties": {
+                "id": {
+                    "title": "Node id",
+                    "description": "The unique identifier for the node",
+                    "type": "string",
+                    "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$"
+                },
+                "display_name": {
+                    "title": "Display name",
+                    "description": "The node name to be displayed within the application",
+                    "type": "string"
+                },
+                "description": {
+                    "title": "Description",
+                    "description": "Description of the metadata node",
+                    "type": ["string", "null"]
+                },
+                "tooltip": {
+                    "title": "Tooltip",
+                    "description": "The tooltip to display when hovering over the name of the node within the application",
+                    "type": ["string", "null"]
+                },
+                "min_occurs": {
+                    "title": "Minimum occurrences",
+                    "description": "Minimum number of node occurrences to display within the application",
+                    "type": "integer",
+                    "minimum": 0,
+                    "exclusiveMinimum": false
+                },
+                "max_occurs": {
+                    "title": "Maximum occurrences",
+                    "description": "Maximum number of node occurrences to display within the application",
+                    "type": "integer",
+                    "minimum": 0,
+                    "exclusiveMinimum": true
+                }
+            }
+        },
+
+        "metadata_group": {
+            "title": "Metadata group",
+            "description": "A group of metadata fields",
+            "allOf": [
+                { "$ref": "#/definitions/metadata_node" },
+                {
+                    "required": [
+                        "metadata_fields"
+                    ],
+                    "properties": {
+                        "metadata_fields": {
+                            "title": "Group metadata fields",
+                            "description": "A set of metadata fields to be displayed within this metadata group",
+                            "type": "array",
+                            "items": { "$ref": "#/definitions/metadata_field" }
+                        }
+                    }
+                }
+            ],
+            "properties": {
+                "id": {},
+                "display_name": {},
+                "description": {},
+                "tooltip": {},
+                "min_occurs": {},
+                "max_occurs": {},
+                "metadata_fields": {}
+            },
+            "additionalProperties": false
+        },
+
+        "metadata_field": {
+            "title": "Metadata field",
+            "description": "A field of metadata which describes the crate",
+            "allOf": [
+                { "$ref": "#/definitions/metadata_node" },
+                {
+                    "required": [
+                        "mandatory",
+                        "field"
+                    ],
+                    "properties": {
+                        "mandatory": {
+                            "title": "Required field indicator",
+                            "description": "Indicates whether this metadata field is required in order for the crate metadata to be considered valid",
+                            "type": "boolean"
+                        },
+                        "field": { "$ref": "#/definitions/field" }
+                    }
+                }
+            ],
+            "properties": {
+                "id": {},
+                "display_name": {},
+                "description": {},
+                "tooltip": {},
+                "min_occurs": {},
+                "max_occurs": {},
+                "mandatory": {},
+                "field": {}
+            },
+            "additionalProperties": false
+        },
+
+        "field": {
+            "title": "Metadata field display type",
+            "description": "Description of the type of metadata field to display",
+            "type": "object",
+            "required": [
+                "type"
+            ],
+            "properties": {
+                "type": {
+                    "title": "Metadata field display type",
+                    "description": "The type of metadata field to display",
+                    "type": "string",
+                    "enum": ["text_field", "date_field"]
+                }
+            },
+            "patternProperties": {
+                "^(text|date)_field$": {
+                    "title": "Metadata field display type specification",
+                    "description": "Specification of the previously selected metadata field display type",
+                    "oneOf": [
+                        { "$ref": "#/definitions/text_field" },
+                        { "$ref": "#/definitions/date_field" }
+                    ]
+                }
+            },
+            "minProperties": 2,
+            "maxProperties": 2,
+            "additionalProperties": false
+        },
+
+        "text_field": {
+            "title": "Text based metadata field",
+            "description": "Specification of text field properties",
+            "type": "object",
+            "required": [
+                "char_limit",
+                "placeholder",
+                "value"
+            ],
+            "properties": {
+                "char_limit": {
+                    "title": "Text field character limit",
+                    "description": "Upper limit of how many characters can be entered into the text field",
+                    "type": ["integer", "null"],
+                    "minimum": 0,
+                    "exclusiveMinimum": true
+                },
+                "placeholder": {
+                    "title": "Text field placeholder",
+                    "description": "Placeholder value to intially display within the text field",
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9_ \\s\\.-]*$"
+                },
+                "value": {
+                    "title": "Text field default value",
+                    "description": "Default textual value to populate the text field with upon creation",
+                    "type": ["string", "null"]
+                }
+            },
+            "additionalProperties": false
+        },
+
+        "date_field": {
+            "title": "Date based metadata field",
+            "description": "Specification of date field properties",
+            "type": "object",
+            "required": [
+                "min_date",
+                "max_date",
+                "value"
+            ],
+            "properties": {
+                "min_date": {
+                    "title": "Minimum selectable date",
+                    "description": "Minimum date that can be selected within the application datepicker in the format 'yyyy-mm-dd'",
+                    "type": ["string", "null"],
+                    "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+                },
+                "max_date": {
+                    "title": "Maximum selectable date",
+                    "description": "Maximum date that can be selected within the application datepicker in the format 'yyyy-mm-dd'",
+                    "type": ["string", "null"],
+                    "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+                },
+                "value": {
+                    "title": "Date field default value",
+                    "description": "Default date to use upon field creation which can either be 'today' or a date in the format 'yyyy-mm-dd'",
+                    "type": ["string", "null"],
+                    "pattern": "^today|([0-9]{4}-[0-9]{2}-[0-9]{2})$"
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

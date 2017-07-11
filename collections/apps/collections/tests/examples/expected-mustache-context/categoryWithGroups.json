@@ -1,0 +1,73 @@
+{
+  "categoryGrants": {
+    "displayName": "Research Grants",
+    "metadataFields": [],
+    "metadataGroups": {
+      "researchGrants": {
+        "displayName": "Grants",
+        "occurrences": [
+          [
+            {
+              "metadataFields": [
+                {
+                  "grantId": {
+                    "displayName": "Grant Number",
+                    "occurrences": [
+                      {
+                        "value": "12345"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "metadataFields": [
+                {
+                  "grantFundingBody": {
+                    "displayName": "Funding Body",
+                    "occurrences": [
+                      {
+                        "value": "Government"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "metadataFields": [
+                {
+                  "grantId": {
+                    "displayName": "Grant Number",
+                    "occurrences": [
+                      {
+                        "value": "67890"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "metadataFields": [
+                {
+                  "grantFundingBody": {
+                    "displayName": "Funding Body",
+                    "occurrences": [
+                      {
+                        "value": "Private"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    }
+  }
+}

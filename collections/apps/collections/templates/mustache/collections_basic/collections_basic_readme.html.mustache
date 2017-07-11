@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{collectionName}}</title>
+    <style type="text/css">
+        html * {
+            font-family: "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
+            color: #333333;
+            font-size: 10pt;
+        }
+        section {
+            display: block;
+            padding-bottom: 10px;
+        }
+        section span.title {
+            display: block;
+            font-weight: bold;
+            font-size: 180%;
+            color: #FF3333;
+        }
+        body>article>h1 {
+            font-weight: bold;
+            font-size: 240%;
+            text-align: center;
+            Border-bottom: 5px double #FF3333;
+            margin: 0;
+        }
+        section.preamble {
+            margin:10px;
+        }
+        section.preamble>span{
+            padding-left: 10px;
+        }
+        section.preamble table{
+            width: 50%;
+            border: 0 solid #FF3333;
+        }
+        section.preamble table td{
+            padding: 5px;
+            border: 1px solid #FF3333;
+            border-radius: 5px;
+        }
+        section.preamble table th{
+            padding: 5px;
+            text-align: right;
+            width: 30%;
+            border: 1px solid #FF3333;
+            border-radius: 5px;
+        }
+        section.metadata {
+            border: 1px solid #FF3333;
+            border-radius: 10px;
+            background-color: #DBE2E9;
+            padding: 10px;
+            margin: 10px;
+        }
+        section.metadata span.categoryName {
+            color: #FF8200;
+            font-size: 140%;
+            display:block;
+        }
+        section.metadata div.groupOccurrence {
+            border: 1px solid #FF3333;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 5px;
+        }
+        section.metadata span.groupName {
+            display:block;
+            font-weight: bold;
+            font-size: 120%;
+            padding-left: 10px;
+        }
+        section.metadata span.fieldName {
+            font-size: 100%;
+            font-weight: bold;
+            display: block;
+            padding-left: 20px;
+        }
+        section.metadata span.fieldValue {
+            font-size: 100%;
+            display: block;
+            padding-left: 40px;
+        }
+        section.files {
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<article>
+    <h1>"{{collectionName}}" Data Package README file</h1>
+    <section resource="creativeWork" typeof="http://schema.org/CreativeWork">
+        <section class="preamble">
+
+            <!-- Collection Information -->
+            <section>
+                <span class="title">Package Title</span>
+                <span id="collection-title" class="value" property="http://schema.org/name http://purl.org/dc/elements/1.1/title">{{collectionName}}</span>
+            </section>
+
+            <section>
+                <span class="title">Package Creation Date</span>
+                <span id="collection-creation-date" class="value" property="http://schema.org/dateCreated" content="{{package.date.iso}}">{{package.date.long}}</span>
+            </section>
+
+            <section>
+                <span class="title">Package File Name</span>
+                <span id="collection-packaged-file-name" class="value" property="http://schema.org/name">{{package.fileName}}</span>
+            </section>
+
+            <section>
+                <span class="title">GUID</span>
+                <span id="collection-guid" class="value" property="http://schema.org/id">{{package.guid}}</span>
+            </section>
+
+            <!-- Metadata Schema Information -->
+            <section>
+                <span class="title">Metadata Schema</span>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <td id="metadata-schema-name" property="">{{metadataSchema.name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Version</th>
+                        <td id="metadata-schema-version" property="">{{metadataSchema.version}}</td>
+                    </tr>
+                </table>
+            </section>
+
+
+            <!-- Collections App Software Information -->
+            <section class="softwareInfo">
+                <span class="title">Software Information</span>
+                <section property="http://purl.org/dc/terms/creator" typeof="http://schema.org/softwareApplication" resource="">
+                    <table>
+                        <tr>
+                            <th>Generating Software Application</th>
+                            <td id="app-name" property="http://schema.org/name">{{appInfo.name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Software Version</th>
+                            <td id="app-version" property="http://schema.org/softwareVersion">{{appInfo.version}}</td>
+                        </tr>
+                        <tr>
+                            <th>URLs</th>
+                            <td id="app-urls">
+                                <ul>
+                                    <li><a href="https://cloudstor.aarnet.edu.au" property="http://schema.org/url">
+                                        https://cloudstor.aarnet.edu.au</a></li>
+                                    <li><a href="http://www.intersect.org.au/" property="http://schema.org/url">
+                                        http://www.intersect.org.au/</a></li>
+                                    <li><a href="https://www.westernsydney.edu.au" property="http://schema.org/url">
+                                        https://www.westernsydney.edu.au</a></li>
+                                    <li><a href="https://www.aarnet.edu.au/" property="http://schema.org/url">
+                                        https://www.aarnet.edu.au/</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+            </section>
+        </section>
+
+        <!-- Collection Saved Metadata -->
+        <section  id="metadata" class="metadata">
+            <span class="title">Metadata</span>
+            {{#metadataCategories}}
+
+                <!-- Collection Information -->
+                {{#categoryCollectionInformation}}
+                    <div class="category" data-category-id="categoryCollectionInformation" data-category="{{categoryCollectionInformation.displayName}}">
+                        <span class="categoryName">{{displayName}}</span>
+                        {{#metadataGroups}}
+                            {{#collectionInformation}}
+                                <div class="group" data-group-id="collectionInformation" data-group="{{collectionInformation.displayName}}">
+                                    <span class="groupName">{{displayName}}</span>
+                                    {{#occurrences}}
+                                        <div class="groupOccurrence">
+                                            {{#.}}
+                                                {{#metadataFields}}
+                                                    {{#title}}
+                                                        <div class="field" data-field-id="title" data-field="{{title.displayName}}">
+                                                            <span class="fieldName">{{displayName}}</span>
+                                                            {{#occurrences}}
+                                                                <span class="fieldValue" property="">{{value}}</span>
+                                                            {{/occurrences}}
+                                                        </div>
+                                                    {{/title}}
+                                                    {{#description}}
+                                                        <div class="field" data-field-id="description" data-field="{{description.displayName}}">
+                                                            <span class="fieldName">{{displayName}}</span>
+                                                            {{#occurrences}}
+                                                                <span class="fieldValue" property="">{{value}}</span>
+                                                            {{/occurrences}}
+                                                        </div>
+                                                    {{/description}}
+                                                    {{#keyword}}
+                                                        <div class="field" data-field-id="keyword" data-field="{{keyword.displayName}}">
+                                                            <span class="fieldName">{{displayName}}</span>
+                                                            {{#occurrences}}
+                                                                <span class="fieldValue" property="">{{value}}</span>
+                                                            {{/occurrences}}
+                                                        </div>
+                                                    {{/keyword}}
+                                                    {{#forCode}}
+                                                        <div class="field" data-field-id="forCode" data-field="{{forCode.displayName}}">
+                                                            <span class="fieldName">{{displayName}}</span>
+                                                            {{#occurrences}}
+                                                                <span class="fieldValue" property="">{{value}}</span>
+                                                            {{/occurrences}}
+                                                        </div>
+                                                    {{/forCode}}
+                                                    {{#extent}}
+                                                        <div class="field" data-field-id="extent" data-field="{{extent.displayName}}">
+                                                            <span class="fieldName">{{displayName}}</span>
+                                                            {{#occurrences}}
+                                                                <span class="fieldValue" property="">{{value}}</span>
+                                                            {{/occurrences}}
+                                                        </div>
+                                                    {{/extent}}
+                                                {{/metadataFields}}
+                                            {{/.}}
+                                        </div>
+                                    {{/occurrences}}
+                                </div>
+                            {{/collectionInformation}}
+                        {{/metadataGroups}}
+                    </div>
+                {{/categoryCollectionInformation}}
+
+                <!-- Primary Contact -->
+                {{#categoryContact}}
+                    <div class="category" data-category-id="categoryContact" data-category="{{categoryContact.displayName}}">
+                        <span class="categoryName">{{displayName}}</span>
+                        {{#metadataGroups}}
+                            {{#contact}}
+                                <div class="group" data-group-id="contact" data-group="{{contact.displayName}}">
+                                    <span class="groupName">{{displayName}}</span>
+                                    {{#occurrences}}
+                                        <div class="groupOccurrence">
+                                            {{#.}}
+                                                {{#metadataFields}}
+                                                    {{#contactGivenName}}
+                                                        <div class="field" data-field-id="contactGivenName" data-field="{{contactGivenName.displayName}}">
+                                                            <span class="fieldName">{{displayName}}</span>
+                                                            {{#occurrences}}
+                                                                <span class="fieldValue" property="">{{value}}</span>
+                                                            {{/occurrences}}
+                                                        </div>
+                                                    {{/contactGivenName}}
+                                                    {{#contactFamilyName}}
+                                                        <div class="field" data-field-id="contactFamilyName" data-field="{{contactFamilyName.displayName}}">
+                                                            <span class="fieldName">{{displayName}}</span>
+                                                            {{#occurrences}}
+                                                                <span class="fieldValue" property="">{{value}}</span>
+                                                            {{/occurrences}}
+                                                        </div>
+                                                    {{/contactFamilyName}}
+                                                    {{#contactEmail}}
+                                                        <div class="field" data-field-id="contactEmail" data-field="{{contactEmail.displayName}}">
+                                                            <span class="fieldName">{{displayName}}</span>
+                                                            {{#occurrences}}
+                                                                <span class="fieldValue" property="">{{value}}</span>
+                                                            {{/occurrences}}
+                                                        </div>
+                                                    {{/contactEmail}}
+                                                    {{#contactAffiliation}}
+                                                        <div class="field" data-field-id="contactAffiliation" data-field="{{contactAffiliation.displayName}}">
+                                                            <span class="fieldName">{{displayName}}</span>
+                                                            {{#occurrences}}
+                                                                <span class="fieldValue" property="">{{value}}</span>
+                                                            {{/occurrences}}
+                                                        </div>
+                                                    {{/contactAffiliation}}
+                                                    {{#contactOU}}
+                                                        <div class="field" data-field-id="contactOU" data-field="{{contactOU.displayName}}">
+                                                            <span class="fieldName">{{displayName}}</span>
+                                                            {{#occurrences}}
+                                                                <span class="fieldValue" property="">{{value}}</span>
+                                                            {{/occurrences}}
+                                                        </div>
+                                                    {{/contactOU}}
+                                                {{/metadataFields}}
+                                            {{/.}}
+                                        </div>
+                                    {{/occurrences}}
+                                </div>
+                            {{/contact}}
+                        {{/metadataGroups}}
+                    </div>
+                {{/categoryContact}}
+
+                <!-- Creators -->
+                {{#categoryCreators}}
+                    <div class="category" data-category-id="categoryCreators" data-category="{{categoryCreators.displayName}}">
+                        <span class="categoryName">{{displayName}}</span>
+                        {{#metadataGroups}}
+                            {{#creators}}
+                                <div class="group" data-group-id="creators" data-group="{{creators.displayName}}">
+                                    <span class="groupName">{{displayName}}</span>
+                                    {{#occurrences}}
+                                        <div class="groupOccurrence">
+                                            {{#.}}
+                                                {{#metadataFields}}
+                                                    {{#givenName}}
+                                                        <div class="field" data-field-id="givenName" data-field="{{givenName.displayName}}">
+                                                            <span class="fieldName">{{displayName}}</span>
+                                                            {{#occurrences}}
+                                                                <span class="fieldValue" property="">{{value}}</span>
+                                                            {{/occurrences}}
+                                                        </div>
+                                                    {{/givenName}}
+                                                    {{#familyName}}
+                                                        <div class="field" data-field-id="familyName" data-field="{{familyName.displayName}}">
+                                                            <span class="fieldName">{{displayName}}</span>
+                                                            {{#occurrences}}
+                                                                <span class="fieldValue" property="">{{value}}</span>
+                                                            {{/occurrences}}
+                                                        </div>
+                                                    {{/familyName}}
+                                                    {{#email}}
+                                                        <div class="field" data-field-id="email" data-field="{{email.displayName}}">
+                                                            <span class="fieldName">{{displayName}}</span>
+                                                            {{#occurrences}}
+                                                                <span class="fieldValue" property="">{{value}}</span>
+                                                            {{/occurrences}}
+                                                        </div>
+                                                    {{/email}}
+                                                    {{#creatorAffiliation}}
+                                                        <div class="field" data-field-id="creatorAffiliation" data-field="{{creatorAffiliation.displayName}}">
+                                                            <span class="fieldName">{{displayName}}</span>
+                                                            {{#occurrences}}
+                                                                <span class="fieldValue" property="">{{value}}</span>
+                                                            {{/occurrences}}
+                                                        </div>
+                                                    {{/creatorAffiliation}}
+                                                    {{#creatorOU}}
+                                                        <div class="field" data-field-id="creatorOU" data-field="{{creatorOU.displayName}}">
+                                                            <span class="fieldName">{{displayName}}</span>
+                                                            {{#occurrences}}
+                                                                <span class="fieldValue" property="">{{value}}</span>
+                                                            {{/occurrences}}
+                                                        </div>
+                                                    {{/creatorOU}}
+                                                {{/metadataFields}}
+                                            {{/.}}
+                                        </div>
+                                    {{/occurrences}}
+                                </div>
+                            {{/creators}}
+                        {{/metadataGroups}}
+                    </div>
+                {{/categoryCreators}}
+
+                <!-- Grants -->
+                {{#categoryGrants}}
+                    <div class="category" data-category-id="categoryGrants" data-category="{{categoryGrants.displayName}}">
+                        <span class="categoryName">{{displayName}}</span>
+                        {{#metadataGroups}}
+                            {{#researchGrants}}
+                                <div class="group" data-group-id="researchGrants" data-group="{{researchGrants.displayName}}">
+                                    <span class="groupName">{{displayName}}</span>
+                                    {{#occurrences}}
+                                        <div class="groupOccurrence">
+                                            {{#.}}
+                                                {{#metadataFields}}
+                                                    {{#grantId}}
+                                                        <div class="field" data-field-id="grantId" data-field="{{grantId.displayName}}">
+                                                            <span class="fieldName">{{displayName}}</span>
+                                                            {{#occurrences}}
+                                                                <span class="fieldValue" property="">{{value}}</span>
+                                                            {{/occurrences}}
+                                                        </div>
+                                                    {{/grantId}}
+                                                    {{#grantFundingBody}}
+                                                        <div class="field" data-field-id="grantFundingBody" data-field="{{grantFundingBody.displayName}}">
+                                                            <span class="fieldName">{{displayName}}</span>
+                                                            {{#occurrences}}
+                                                                <span class="fieldValue" property="">{{value}}</span>
+                                                            {{/occurrences}}
+                                                        </div>
+                                                    {{/grantFundingBody}}
+                                                {{/metadataFields}}
+                                            {{/.}}
+                                        </div>
+                                    {{/occurrences}}
+                                </div>
+                            {{/researchGrants}}
+                        {{/metadataGroups}}
+                    </div>
+                {{/categoryGrants}}
+
+                <!-- Access Rights -->
+                {{#categoryAccessRights}}
+                    <div class="category" data-category-id="categoryAccessRights" data-category="{{categoryAccessRights.displayName}}">
+                        <span class="categoryName">{{displayName}}</span>
+                        {{#metadataFields}}
+                            {{#accessRights}}
+                                <div class="field" data-field-id="accessRights" data-field="{{accessRights.displayName}}">
+                                    <span class="fieldName">{{displayName}}</span>
+                                    {{#occurrences}}
+                                        <span class="fieldValue" property="">{{value}}</span>
+                                    {{/occurrences}}
+                                </div>
+                            {{/accessRights}}
+                        {{/metadataFields}}
+                    </div>
+                {{/categoryAccessRights}}
+
+                <!-- Retention Period -->
+                {{#categoryRetention}}
+                    <div class="category" data-category-id="categoryRetention" data-category="{{categoryRetention.displayName}}">
+                        <span class="categoryName">{{displayName}}</span>
+                        {{#metadataFields}}
+                            {{#minimumRetention}}
+                                <div class="field" data-field-id="minimumRetention" data-field="{{minimumRetention.displayName}}">
+                                    <span class="fieldName">{{displayName}}</span>
+                                    {{#occurrences}}
+                                        <span class="fieldValue" property="">{{value}}</span>
+                                    {{/occurrences}}
+                                </div>
+                            {{/minimumRetention}}
+                        {{/metadataFields}}
+                    </div>
+                {{/categoryRetention}}
+
+            {{/metadataCategories}}
+        </section>
+    </section>
+
+    <!-- Collection File Tree -->
+    <section id="file-tree" class="files">
+        <span class="title">Files</span>
+        <ul>
+            {{#fileList}}
+                {{> readme_file_tree}}
+            {{/fileList}}
+        </ul>
+    </section>
+</article>
+</body>
+</html>

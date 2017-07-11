@@ -1,0 +1,9 @@
+{
+  "description": {
+    "displayName": "Description",
+    "occurrences": [
+      { "value": "my collection" },
+      { "value": "a lengthy description"}
+    ]
+  }
+}

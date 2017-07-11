@@ -1,0 +1,39 @@
+{
+  "categoryGrants": {
+    "fields": [],
+    "groups": {
+      "researchGrants": {
+        "occurrences": {
+          "researchGrants_1489571309045": {
+            "fields": {
+              "grantFundingBody": {
+                "occurrences": {
+                  "grantFundingBody_1489574328861": "Government"
+                }
+              },
+              "grantId": {
+                "occurrences": {
+                  "grantId_1489574117457": "12345"
+                }
+              }
+            }
+          },
+          "researchGrants_1489576351277": {
+            "fields": {
+              "grantFundingBody": {
+                "occurrences": {
+                  "grantFundingBody_1489577188611": "Private"
+                }
+              },
+              "grantId": {
+                "occurrences": {
+                  "grantId_1489566643965": "67890"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

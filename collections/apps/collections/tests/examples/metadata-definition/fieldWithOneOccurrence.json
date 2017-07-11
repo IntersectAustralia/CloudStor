@@ -1,0 +1,24 @@
+{
+  "id":"title",
+  "display_name":"Title",
+  "description":"Collection title",
+  "tooltip":"The name of the data set",
+  "mandatory":true,
+  "min_occurs":1,
+  "max_occurs":1,
+  "xml_element":{
+    "namespace_abbr":"collections",
+    "name":"title",
+    "xml_attributes":[
+
+    ]
+  },
+  "field":{
+    "type":"text_field",
+    "text_field":{
+      "char_limit":null,
+      "placeholder":"Defined on creation",
+      "value":null
+    }
+  }
+}
