@@ -3,21 +3,21 @@
 As part of this deployment guide, it is assumed that:
 * An ownCloud server version 8.2, 9.0 or 9.1 is already installed.
 * Apache and PHP have been installed as part of the process of installing ownCloud.
-* Email sending has been configured within ownCloud. For information on how to do this, refer to the [ownCloud email configuration documentation](https://doc.owncloud.org/server/9.0/admin_manual/configuration_server/email_configuration.htm).
+* Email sending has been configured within ownCloud. For information on how to do this, refer to the [ownCloud 9.1 email configuration documentation](https://doc.owncloud.org/server/9.1/admin_manual/configuration_server/email_configuration.html).
 * Composer has been installed. For information on how to do this, refer to the [Composer getting started guide](https://getcomposer.org/doc/00-intro.md).
 * Composer has been run on the Collections application once installed and configured.
 
 ## Install Collections
 
-These installation instructions are based off the [ownCloud 8.0 guide for adding third party apps](https://doc.owncloud.org/server/8.0/admin_manual/installation/apps_management_installation.html#adding-third-party-apps).
+These installation instructions are based on the [ownCloud 8.0 guide for adding third party apps](https://doc.owncloud.org/server/8.0/admin_manual/installation/apps_management_installation.html#adding-third-party-apps).
 
-1. Clone the repository, using the [version 1.1](https://github.com/IntersectAustralia/CloudStor/collections/releases/tag/1.1) tagged release.
-2. Place the Collections application directory [collections/apps/collections](https://github.com/IntersectAustralia/CloudStor/collections/tree/master/apps/collections) into the apps folder in your ownCloud installation, typically owncloud/apps.
+1. Clone the repository, using the [version 1.1](https://github.com/IntersectAustralia/CloudStor/releases/tag/v1.1) tagged release.
+2. Place the Collections application directory [collections/apps/collections](https://github.com/IntersectAustralia/CloudStor/tree/v1.1/collections/apps/collections) into the apps folder in your ownCloud installation, typically owncloud/apps.
 3. Ensure the permissions and ownership are similar to the other ownCloud apps. Typically, access rights are rwxr-x—, or 0750 in octal notation, and the owner and group are your HTTP user. On CentOS this is apache, Debian/Ubuntu is www-data. 
 
 ## Configuring Collections
 
-The Collections repository includes a configuration file which can be used to configure the Collections application, [collections/apps/collections/config.php](https://github.com/IntersectAustralia/CloudStor/collections/blob/master/apps/collections/config.php). The contents of this configuration file can be modified as necessary for each deployment. Refer to the comments in the configuration file for an explanation of what each variable does.
+The Collections repository includes a configuration file which can be used to configure the Collections application, [collections/apps/collections/config.php](https://github.com/IntersectAustralia/CloudStor/tree/v1.1/collections/apps/collections/config.php). The contents of this configuration file can be modified as necessary for each deployment. Refer to the comments in the configuration file for an explanation of what each variable does.
 
 ### Configuring the Schema Developer User
 
