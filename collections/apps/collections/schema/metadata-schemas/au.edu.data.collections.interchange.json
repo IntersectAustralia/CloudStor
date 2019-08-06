@@ -1,21 +1,21 @@
 {
     "id": "au.edu.data.collections.interchange",
     "display_name": "Public Interchange",
-    "version": "1.0",
+    "version": "1.1.0",
     "scope": "au.edu.data.collections",
     "description": "Basic metadata schema",
     "readme_template": {
-        "template_directory": "Public/templates",
+        "template_directory": "au.edu.data.collections.interchange/templates",
         "template_name": "au.edu.data.collections.interchange_readme.html.mustache",
-        "partials_directory": "Public/templates/partials"
+        "partials_directory": "au.edu.data.collections.interchange/templates/partials"
     },
     "packaged_metadata_template": {
-        "template_directory": "Public/templates",
+        "template_directory": "au.edu.data.collections.interchange/templates",
         "template_name": "au.edu.data.collections.interchange_packaged_metadata.xml.mustache",
         "partials_directory": null
     },
     "exported_metadata_template": {
-        "template_directory": "Public/templates",
+        "template_directory": "au.edu.data.collections.interchange/templates",
         "template_name": "au.edu.data.collections.interchange_exported_metadata.xml.mustache",
         "partials_directory": null
     },
@@ -30,6 +30,7 @@
                     "metadata_group": {
                         "id": "collectionInformation",
                         "display_name": "Collection Information",
+                        "occurrence_display_name": null,
                         "description": "Collection information",
                         "tooltip": null,
                         "min_occurs": 1,
@@ -135,6 +136,7 @@
                     "metadata_group": {
                         "id": "contact",
                         "display_name": "Primary Contact",
+                        "occurrence_display_name": null,
                         "description": "Primary Contact",
                         "tooltip": "The person primarily responsible for handling enquiries and arranging access to the data set",
                         "min_occurs": 0,
@@ -239,7 +241,8 @@
                     "type": "metadata_group",
                     "metadata_group": {
                         "id": "creators",
-                        "display_name": "Creator",
+                        "display_name": "Creators",
+                        "occurrence_display_name": "Creator",
                         "description": "Creator",
                         "tooltip": "The person or persons primarily responsible for contributing to the creation of the data set",
                         "min_occurs": 1,
@@ -345,6 +348,7 @@
                     "metadata_group": {
                         "id": "researchGrants",
                         "display_name": "Grants",
+                        "occurrence_display_name": "Grant",
                         "description": "Grants",
                         "tooltip": "Details of any grants of funding supporting the creation of this data set",
                         "min_occurs": 0,
@@ -443,6 +447,5 @@
                 }
             ]
         }
-    ],
-    "valid": true
+    ]
 }

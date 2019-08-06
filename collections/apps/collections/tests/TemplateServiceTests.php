@@ -20,9 +20,9 @@
 namespace OCA\collections\Service;
 
 use PHPUnit\Framework\TestCase;
-use OCA\collections\Tests\Helper;
+use OCA\collections\Tests\TestHelper;
 
-include_once('service/TemplateService.php');
+include_once(__DIR__.'/../service/TemplateService.php');
 
 class TemplateServiceTests extends TestCase {
 
@@ -66,7 +66,7 @@ class TemplateServiceTests extends TestCase {
         $metadataDefinition = $this->getJsonDecodedExampleMetadataDefinition($expectedContextFileName);
         $savedMetadata = $this->getJsonDecodedExampleSavedMetadata($expectedContextFileName);
         $expectedContext = $this->getJsonDecodedExampleExpectedMustacheContext($expectedContextFileName);
-        $actualContext = Helper::invokeMethod($this->templateService, $methodName, [$metadataDefinition, $savedMetadata]);
+        $actualContext = TestHelper::invokeMethod($this->templateService, $methodName, [$metadataDefinition, $savedMetadata]);
         $this->assertEquals($expectedContext, $actualContext);
     }
 
@@ -91,7 +91,7 @@ class TemplateServiceTests extends TestCase {
         $emptyRootDir->method('getFiles')->willReturn(array());
 
         $expectedContext = array(); // Context of root folder shouldn't return anything when empty
-        $actualContext = Helper::invokeMethod($this->templateService, 'getDirectoryContext', [$emptyRootDir, null, true]);
+        $actualContext = TestHelper::invokeMethod($this->templateService, 'getDirectoryContext', [$emptyRootDir, null, true]);
         $this->assertEquals($expectedContext, $actualContext);
     }
 
@@ -108,7 +108,7 @@ class TemplateServiceTests extends TestCase {
             'name' => 'emptyDirectory',
             'path'=> 'emptyDirectory'
         );
-        $actualContext = Helper::invokeMethod($this->templateService, 'getDirectoryContext', [$emptyDir]);
+        $actualContext = TestHelper::invokeMethod($this->templateService, 'getDirectoryContext', [$emptyDir]);
         $this->assertEquals($expectedContext, $actualContext);
     }
 
@@ -131,7 +131,7 @@ class TemplateServiceTests extends TestCase {
                 'path'=> 'some_image.png'
             )
         );
-        $actualContext = Helper::invokeMethod($this->templateService, 'getDirectoryContext', [$rootDir, null, true]);
+        $actualContext = TestHelper::invokeMethod($this->templateService, 'getDirectoryContext', [$rootDir, null, true]);
         $this->assertEquals($expectedContext, $actualContext);
     }
 
@@ -164,7 +164,7 @@ class TemplateServiceTests extends TestCase {
                 'path'=> 'image_2.png'
             )
         );
-        $actualContext = Helper::invokeMethod($this->templateService, 'getDirectoryContext', [$rootDir, null, true]);
+        $actualContext = TestHelper::invokeMethod($this->templateService, 'getDirectoryContext', [$rootDir, null, true]);
         $this->assertEquals($expectedContext, $actualContext);
     }
 
@@ -235,7 +235,7 @@ class TemplateServiceTests extends TestCase {
         $collection->method('getRootFolder')->willReturn($rootDirectory);
 
         $expectedContext = $this->getJsonDecodedExampleExpectedMustacheContext('fileTree.json');
-        $actualContext = Helper::invokeMethod($this->templateService, 'getFileListContext', [$collection]);
+        $actualContext = TestHelper::invokeMethod($this->templateService, 'getFileListContext', [$collection]);
         $this->assertEquals($expectedContext, $actualContext);
     }
 
@@ -279,7 +279,7 @@ class TemplateServiceTests extends TestCase {
         $collection->method('getName')->willReturn('Collection 1.1');
 
         $expectedContext = $this->getJsonDecodedExampleExpectedMustacheContext('collection.json');
-        $actualContext = Helper::invokeMethod($this->templateService, 'getCollectionMustacheContext', [$collection]);
+        $actualContext = TestHelper::invokeMethod($this->templateService, 'getCollectionMustacheContext', [$collection]);
         $this->assertEquals($expectedContext, $actualContext);
     }
 }

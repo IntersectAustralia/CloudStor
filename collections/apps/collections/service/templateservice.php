@@ -59,6 +59,41 @@ class TemplateService {
             $mustacheOptions['partials_loader'] = new \Mustache_Loader_FilesystemLoader($partialsDirectory);
         }
         $mustacheEngine = new \Mustache_Engine($mustacheOptions);
+        $mustacheEngine->addHelper('format', [
+            'case' => [
+                'lower' => function($value) { return strtolower((string) $value); },
+                'upper' => function($value) { return strtoupper((string) $value); }
+            ],
+            'date' => [
+                'iso-8601' => function($value) { return date_format(date_create((string) $value), 'Y-m-d'); },
+                'short' => function($value) { return date_format(date_create((string) $value), 'd/m/y'); },
+                'mid' => function($value) { return date_format(date_create((string) $value), 'd/M/y'); },
+                'long' => function($value) { return date_format(date_create((string) $value), 'jS F Y'); }
+            ],
+            'currency' => [
+                'default' => function($value) {
+                    setlocale(LC_MONETARY, null);
+                    return money_format('%n', (float) $value);
+                },
+                'AU' => function($value) {
+                    setlocale(LC_MONETARY, 'en_AU.utf8');
+                    return money_format('%n', (float) $value);
+                },
+                'EU' => function($value) {
+                    setlocale(LC_MONETARY, 'nl_NL.UTF-8');
+                    return money_format('%n', (float) $value);
+                },
+                'GB' => function($value) {
+                    setlocale(LC_MONETARY, 'en_GB.utf8');
+                    return money_format('%n', (float) $value);
+                },
+                'US' => function($value) {
+                    setlocale(LC_MONETARY, 'en_US.utf8');
+                    return money_format('%n', (float) $value);
+                }
+            ],
+            'humanFileSize' => function($value) { return \OCP\Util::humanFileSize((int) $value); }
+        ]);
         return $mustacheEngine->render($templateName, $context);
     }
 
@@ -199,17 +234,16 @@ class TemplateService {
     private static function getGroupContext($metadataGroupDefinition, $savedMetadataGroup) {
         $groupOccurrencesContext = array();
         foreach($savedMetadataGroup['occurrences'] as $savedGroupOccurrence) {
-            $groupOccurrenceContext = array();
+            $groupOccurrenceFieldsContext = array();
             foreach($metadataGroupDefinition['metadata_fields'] as $metadataGroupFieldDefinition) {
-                $groupOccurrenceFieldsContext = array();
                 $savedGroupFields = $savedGroupOccurrence['fields'];
                 if (array_key_exists($metadataGroupFieldDefinition['id'], $savedGroupFields)) {
                     $savedGroupField = $savedGroupFields[$metadataGroupFieldDefinition['id']];
-                    array_push($groupOccurrenceFieldsContext, TemplateService::getFieldContext($metadataGroupFieldDefinition, $savedGroupField));
+                    $groupOccurrenceFieldsContext = array_merge($groupOccurrenceFieldsContext,
+                        TemplateService::getFieldContext($metadataGroupFieldDefinition, $savedGroupField));
                 }
-                array_push($groupOccurrenceContext, array('metadataFields' => $groupOccurrenceFieldsContext));
             }
-            array_push($groupOccurrencesContext, $groupOccurrenceContext);
+            array_push($groupOccurrencesContext, array('metadataFields' => $groupOccurrenceFieldsContext));
         }
 
         return array(

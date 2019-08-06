@@ -48,29 +48,32 @@ use OCA\collections\lib\OCCommonAPI;
 );
 
 
-//load the required files
+// Collections
+\OCP\Util::addScript('collections', 'loader');
+\OCP\Util::addScript('collections', 'collections');
+\OCP\Util::addScript('collections', 'collections-filetree');
+\OCP\Util::addScript('collections', 'collections-metadata');
+\OCP\Util::addStyle('collections',  'collections');
+
+// 3rd Party JavaScript
 \OCP\Util::addScript('collections', 'jquery.jeditable');
 \OCP\Util::addScript('collections', 'tree.jquery');
 \OCP\Util::addScript('collections', 'filesize.min');
-\OCP\Util::addScript('collections', 'loader');
-\OCP\Util::addScript('collections', 'initializers');
-\OCP\Util::addScript('collections', 'includeme');
-\OCP\Util::addStyle('collections', 'collection');
 
 // Font awesome
-\OCP\Util::addStyle('collections', 'font-awesome.min');
+\OCP\Util::addStyle('collections', 'font-awesome');
 \OCP\Util::addStyle('collections', 'font-awesome.overrides');
 
 // Bootstrap
-\OCP\Util::addStyle('collections', 'bootstrap');
 \OCP\Util::addScript('collections', 'bootstrap.min');
-\OCP\Util::addStyle('collections', 'bootstrap.overrides');
-\OCP\Util::addStyle('collections', 'jqtree');
+\OCP\Util::addStyle('collections',  'bootstrap');
+\OCP\Util::addStyle('collections',  'bootstrap.overrides');
+\OCP\Util::addStyle('collections',  'jqtree');
 
 // Bootstrap Datetime Picker
 \OCP\Util::addScript('collections', 'moment.min');
 \OCP\Util::addScript('collections', 'bootstrap-datetimepicker.min');
-\OCP\Util::addStyle('collections', 'bootstrap-datetimepicker.min');
+\OCP\Util::addStyle('collections',  'bootstrap-datetimepicker.min');
 
 // Underscore
 \OCP\Util::addScript('collections', 'underscore.min');

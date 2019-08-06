@@ -6,15 +6,14 @@ log
 .vagrant
 .vagrant/**/*
 apps/collections/composer.phar
-cr8it.sublime*
 *.orig
 apps/collections/vendor
 apps/collections/vendor/**/*
 .idea/**/*
 apps/collections/.idea/**/*
 Release.key
-test/spec/*.html
-test/spec/*.png
+apps/collections/functional-tests
 phpdoc-cache
 phpDocumentor.phar
+phpunit-*.phar
 apps/collections/docs/api

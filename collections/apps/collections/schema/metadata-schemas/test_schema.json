@@ -1,7 +1,7 @@
 {
     "id":"test",
     "display_name":"Test metadata schema",
-    "version": "2.0.1",
+    "version": "2.1.2",
     "scope": "Test",
     "description":"This is seed data for QA and the automated tests",
     "readme_template": {
@@ -61,6 +61,26 @@
                                 "char_limit":150,
                                 "placeholder":"Enter a description of the research data package for this Collection",
                                 "value":"New Collection"
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id":"monetary",
+                        "display_name":"Monetary Values",
+                        "mandatory":false,
+                        "description":"A set of monetary values",
+                        "tooltip":"A set of monetary values",
+                        "min_occurs":2,
+                        "max_occurs":200,
+                        "field":{
+                            "type":"text_field",
+                            "text_field":{
+                                "char_limit":150,
+                                "placeholder":"Some monetary value without currency symbol",
+                                "value":null
                             }
                         }
                     }
@@ -138,6 +158,7 @@
                     "metadata_group": {
                         "id": "creators",
                         "display_name": "Creators",
+                        "occurrence_display_name": "Creator",
                         "description": "A set of metadata describing a creator",
                         "tooltip": "Data creator details",
                         "min_occurs": 1,
@@ -266,6 +287,7 @@
                     "metadata_group": {
                         "id": "embargo",
                         "display_name": "Embargo",
+                        "occurrence_display_name": null,
                         "description": "Embargo information",
                         "tooltip": "",
                         "min_occurs": 1,
@@ -306,6 +328,75 @@
                                 }
                             }
                         ]
+                    }
+                }
+            ]
+        },
+        {
+            "id":"texts",
+            "display_name":"Texts",
+            "description":null,
+            "category_nodes": [
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id": "defaultRowNone",
+                        "display_name": "No default row",
+                        "mandatory": false,
+                        "description": "A text field configured with no row by default",
+                        "tooltip": "",
+                        "min_occurs": 1,
+                        "max_occurs": 1,
+                        "field": {
+                            "type": "text_field",
+                            "text_field": {
+                                "char_limit": null,
+                                "placeholder": "",
+                                "value": null
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id": "defaultRowOne",
+                        "display_name": "One default row",
+                        "mandatory": false,
+                        "description": "A text field configured with one row by default",
+                        "tooltip": "",
+                        "min_occurs": 1,
+                        "max_occurs": 1,
+                        "field": {
+                            "type": "text_field",
+                            "text_field": {
+                                "char_limit": null,
+                                "placeholder": "",
+                                "value": null,
+                                "num_rows": 1
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id": "defaultRowTen",
+                        "display_name": "Ten default rows",
+                        "mandatory": false,
+                        "description": "A text field configured with ten rows by default",
+                        "tooltip": "",
+                        "min_occurs": 1,
+                        "max_occurs": 1,
+                        "field": {
+                            "type": "text_field",
+                            "text_field": {
+                                "char_limit": null,
+                                "placeholder": "",
+                                "value": null,
+                                "num_rows": 10
+                            }
+                        }
                     }
                 }
             ]
@@ -373,6 +464,355 @@
                                 "value":null
                             }
                         }
+                    }
+                },
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id":"minDate",
+                        "display_name":"Min Date",
+                        "mandatory":false,
+                        "description":"Date with minimum date range",
+                        "tooltip":"A date with minimum date range",
+                        "min_occurs":1,
+                        "max_occurs":1,
+                        "field":{
+                            "type":"date_field",
+                            "date_field":{
+                                "min_date":"1900-01-01",
+                                "max_date":null,
+                                "value":null
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id":"maxDate",
+                        "display_name":"Max Date",
+                        "mandatory":false,
+                        "description":"Date with maximum date range",
+                        "tooltip":"A date with  maximum date range",
+                        "min_occurs":1,
+                        "max_occurs":1,
+                        "field":{
+                            "type":"date_field",
+                            "date_field":{
+                                "min_date":null,
+                                "max_date":"2099-12-31",
+                                "value":null
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id":"minMaxDate",
+                        "display_name":"Min and Max Date",
+                        "mandatory":false,
+                        "description":"Date with minimum and maximum date range",
+                        "tooltip":"A date with minimum and maximum date range",
+                        "min_occurs":1,
+                        "max_occurs":1,
+                        "field":{
+                            "type":"date_field",
+                            "date_field":{
+                                "min_date":"1900-01-01",
+                                "max_date":"2099-12-31",
+                                "value":null
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id":"noMinMaxDate",
+                        "display_name":"No Min or Max Date",
+                        "mandatory":false,
+                        "description":"Date with no minimum or maximum date range",
+                        "tooltip":"A date with no minimum or maximum date range",
+                        "min_occurs":1,
+                        "max_occurs":1,
+                        "field":{
+                            "type":"date_field",
+                            "date_field":{
+                                "min_date":null,
+                                "max_date":null,
+                                "value":null
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id":"selections",
+            "display_name":"Selections",
+            "description":null,
+            "category_nodes": [
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id":"someSingleSelect",
+                        "display_name":"Some Single Select",
+                        "mandatory":true,
+                        "description":"A single select field with no default value",
+                        "tooltip":"A mandatory single select field",
+                        "min_occurs":2,
+                        "max_occurs":8,
+                        "field":{
+                            "type":"single_select_field",
+                            "single_select_field":{
+                                "value":null,
+                                "options":["a", "b", "c"]
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id":"anotherSingleSelect",
+                        "display_name":"Another Single Select",
+                        "mandatory":true,
+                        "description":"Another single select field with a default value",
+                        "tooltip":"A mandatory single select field",
+                        "min_occurs":1,
+                        "max_occurs":2,
+                        "field":{
+                            "type":"single_select_field",
+                            "single_select_field":{
+                                "value":"a",
+                                "options":["a", "b", "c"]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id":"numbers",
+            "display_name":"Number Fields",
+            "description":null,
+            "category_nodes": [
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id":"num",
+                        "display_name":"Number",
+                        "mandatory":true,
+                        "description":"A generic number field",
+                        "tooltip":"Some number",
+                        "min_occurs":1,
+                        "max_occurs":5,
+                        "field":{
+                            "type":"number_field",
+                            "number_field":{
+                                "placeholder":"",
+                                "value":null
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id":"numDefault",
+                        "display_name":"Num with default",
+                        "mandatory":false,
+                        "description":"A number with a default value",
+                        "tooltip":"",
+                        "min_occurs":1,
+                        "max_occurs":1,
+                        "field":{
+                            "type":"number_field",
+                            "number_field":{
+                                "placeholder":"",
+                                "value":0
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "metadata_field",
+                    "metadata_field": {
+                        "id":"numPlaceholder",
+                        "display_name":"Num with placeholder",
+                        "mandatory":false,
+                        "description":"A number with a placeholder value",
+                        "tooltip":"",
+                        "min_occurs":1,
+                        "max_occurs":1,
+                        "field":{
+                            "type":"number_field",
+                            "number_field":{
+                                "placeholder": "e.g. -9876.543210",
+                                "value":null
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id": "cat_groups",
+            "display_name":"Groups",
+            "description":null,
+            "category_nodes": [
+                {
+                    "type": "metadata_group",
+                    "metadata_group": {
+                        "id": "cg_no_default_values",
+                        "display_name": "Group fields with no default values",
+                        "occurrence_display_name": null,
+                        "description": null,
+                        "tooltip": null,
+                        "min_occurs": 1,
+                        "max_occurs": 5,
+                        "metadata_fields": [
+                            {
+                                "id": "cg_ndv_text",
+                                "display_name": "Text Field",
+                                "description": null,
+                                "tooltip": "text field with 150 char limit",
+                                "min_occurs": 1,
+                                "max_occurs": 5,
+                                "mandatory": false,
+                                "field":{
+                                    "type":"text_field",
+                                    "text_field":{
+                                        "char_limit":150,
+                                        "placeholder":"text field with 150 char limit",
+                                        "value":null
+                                    }
+                                }
+                            },
+                            {
+                                "id":"cg_ndv_date",
+                                "display_name":"Date Field",
+                                "mandatory":false,
+                                "description":null,
+                                "tooltip":"date field with no default value",
+                                "min_occurs":1,
+                                "max_occurs":5,
+                                "field":{
+                                    "type":"date_field",
+                                    "date_field":{
+                                        "min_date":"1900-01-01",
+                                        "max_date":"3000-12-31",
+                                        "value":null
+                                    }
+                                }
+                            },
+                            {
+                                "id": "cg_ndv_radio",
+                                "display_name": "Radio Field",
+                                "mandatory": false,
+                                "description": null,
+                                "tooltip": "selection field with no default value",
+                                "min_occurs": 1,
+                                "max_occurs": 5,
+                                "field": {
+                                    "type": "single_select_field",
+                                    "single_select_field": {
+                                        "value": null,
+                                        "options": [
+                                            "a",
+                                            "b",
+                                            "c"
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "metadata_group",
+                    "metadata_group": {
+                        "id": "cg_default_values",
+                        "display_name": "Group Fields with default Values",
+                        "occurrence_display_name": null,
+                        "description": null,
+                        "tooltip": null,
+                        "min_occurs": 1,
+                        "max_occurs": 5,
+                        "metadata_fields": [
+                            {
+                                "id": "cg_dv_text",
+                                "display_name": "Text Field with default",
+                                "description": null,
+                                "tooltip": "text field with default value and 150 char limit",
+                                "min_occurs": 1,
+                                "max_occurs": 5,
+                                "mandatory": false,
+                                "field":{
+                                    "type":"text_field",
+                                    "text_field":{
+                                        "char_limit":150,
+                                        "placeholder":"text field with 150 char limit",
+                                        "value":"some default text"
+                                    }
+                                }
+                            },
+                            {
+                                "id":"cg_dv_date_today",
+                                "display_name":"Date Field default as today",
+                                "mandatory":false,
+                                "description":null,
+                                "tooltip":"date field with default value today",
+                                "min_occurs":1,
+                                "max_occurs":5,
+                                "field":{
+                                    "type":"date_field",
+                                    "date_field":{
+                                        "min_date":"1900-01-01",
+                                        "max_date":"3000-12-31",
+                                        "value":"today"
+                                    }
+                                }
+                            },
+                            {
+                                "id":"cg_dv_date_static",
+                                "display_name":"Date Field default as static",
+                                "mandatory":false,
+                                "description":null,
+                                "tooltip":"date field with default value as 1st Jan 2000",
+                                "min_occurs":1,
+                                "max_occurs":5,
+                                "field":{
+                                    "type":"date_field",
+                                    "date_field":{
+                                        "min_date":"1900-01-01",
+                                        "max_date":"3000-12-31",
+                                        "value":"2000-01-01"
+                                    }
+                                }
+                            },
+                            {
+                                "id": "cg_dv_radio",
+                                "display_name": "Radio Field with default",
+                                "mandatory": false,
+                                "description": null,
+                                "tooltip": "selection field with default value",
+                                "min_occurs": 1,
+                                "max_occurs": 5,
+                                "field": {
+                                    "type": "single_select_field",
+                                    "single_select_field": {
+                                        "value": "b",
+                                        "options": [
+                                            "a",
+                                            "b",
+                                            "c"
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
                     }
                 }
             ]

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{collectionName}}</title>
+    <style type="text/css">
+        html * {
+            font-family: "Gotham Narrow 4 r", "Gotham Narrow A", "Gotham Narrow B", Arial;
+            color: #262223;
+            font-size: 10pt;
+            line-height: 150%;
+        }
+
+        section {
+            display: block;
+            padding-bottom: 10px;
+        }
+
+        section span.title {
+            display: block;
+            font-weight: bold;
+            font-size: 180%;
+            color: #444444;
+            margin-top: 10px;
+        }
+
+        body > article > h1 {
+            font-weight: bold;
+            font-size: 240%;
+            text-align: center;
+            border-bottom: 5px double #ed0033;
+            padding-bottom: 10px;
+            margin: 0;
+        }
+
+        section.preamble {
+            margin: 10px;
+        }
+
+        section.preamble > span {
+            padding-left: 10px;
+        }
+
+        section.preamble table {
+            border-spacing: 10px 2px;
+            border: 0 solid #ed0033;
+        }
+
+        section.preamble table td {
+            padding: 5px;
+            border-bottom: 1px dotted #444444;
+        }
+
+        section.preamble table th {
+            padding: 5px;
+            text-align: left;
+            border-bottom: 1px dotted #444444;
+        }
+
+        section.metadata {
+            border-left: 1px solid #999999;
+            background-color: #F5F5F5;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        section.metadata span.categoryName {
+            color: #444444;
+            font-size: 140%;
+            display: block;
+            padding-top: 10px;
+        }
+
+        section.metadata div.groupOccurrence {
+            padding-left: 20px;
+        }
+
+        section.metadata span.groupName {
+            display: block;
+            font-weight: bold;
+            font-size: 120%;
+            padding-left: 10px;
+            padding-top: 5px;
+        }
+
+        section.metadata span.metadataTag {
+            font-size: 100%;
+            font-weight: bold;
+            display: inline-block;
+            padding-left: 5px;
+            padding-top: 5px;
+        }
+
+        section.metadata span.fieldName {
+            font-size: 100%;
+            font-weight: bold;
+            display: inline-block;
+            padding-left: 20px;
+            padding-top: 5px;
+        }
+
+        section.metadata span.fieldValue {
+            font-size: 100%;
+            display: block;
+            padding-left: 40px;
+        }
+
+        section.files {
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<article>
+    <a href="http://dublincore.org/" alt="DCMI Web site" target="_blank">
+        <img alt="Dublin Core" style="float: left" src="data:image/png;base64,
+        R0lGODlhWAAfAPcAAP/Cmf/Wu//Mqv9wEf/17v+FM/+jZv96Iv+ZVf/r3f/gzP+4iP9oA/9nAf9r
+Cf9tDP9yFP9oBP9nAv9uDf+SSf9zFf/Yvv+NQf+JOv+VTv+DMf9xE/97I/90GP+laf9wEP/t4f98
+JP/+/v/9+//v5f+PRf+OQ/+RSP92Gv+vev9rCP9/Kv9pBf99J/9uDv+ALP+MQP+dXP+ma/+TS/+E
+Mv/bw/+sdP9zFv/UuP/Wuv+AK/+nbP+KPP+JO//Nq//Rsv9xEv/69v+CL//Pr/+LPv+FNP96If+S
+Sv/m1v/j0f/Hov95H/+DMP+vef/StP/17/+BLf+eXv/07f92G/+YU/9qB//IpP91Gf/y6f/z6//2
+8P+wfP/8+v+yfv/x5//Kp//38f+obv+LPf/eyP+/lf/p2/+bWf++k/95IP94Hv/awv/7+f+OQv+a
+Vv/r3v+IOf+1hP+IOP/GoP+4if+VT/+YVP+pcP+gYf/Dm/+pb//q3P/k0v+GNf+we/+8kP+sdf/0
+7P+qcv/Ttv+2hv/p2v+XUf/n1/+RR/+yf//Zv//o2P/x6P/Orf+cWv+UTf/QsP9/Kf/j0P9+KP+z
+gP+xff/o2f/izv/XvP+nbf+zgf+gYP93HP93Hf/9/P+kZ/+hYv+9kf9tC//cxf/Xvf/38v9sCv/l
+1P+GNv/awf/7+P+3h//LqP+QRv/dx//ZwP+fX//49P+7jf/Cmv/iz//59f+PRP+td5CQkMXFxyoq
+Kv////9mAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAABYAB8A
+AAj/AHEJHEiwoMGDCBMqXMgwYS5cuyJKnEixosWLGDNq3Gjx1kOOEeS0WsKxpMmTGT1CtNggTwAN
+uyZo0ZUhphIAKlDq3IlR5UUGSXQ1iQijDYtdkHTpmsKzqVOfFCVE7OHBgcUYUaQ2PUCRq1ONUCM2
+SCGqlkQNOhjgsWAECA+JFZx8eTCxllIBBi7a0jUxQIBdCAh41ZtAl4CTYXdJUKMrRcQ4IrwswaLr
+iABddiKu0CViU11dABboWmBxb9+/BQQMwLjXVq28JhPvalHIQQsKNKQQesDHEQMra6LQKLKL1QWK
+ds1e3lULAHPnewEIMOuX+WEDtmwFQDCRgHOJCAQA/zCLPfuABQFsRZQdkQUSXWZQ0J3IYQWXESss
+Jt+1t5bp/6MpoMsB1QEogIAS2aVeRArudcBe2wGgQGDqQQXBHB5EEJEPJByyiwlW7FHJJWFUcYUp
+lqy2CxGgQMGgLmb1ByB/fNllQIF8zfjigrsAwNcuumT3IwHpJfAXVBkoBQQEmoQwwS5bKCWlLhZs
+oEIHMeiwCyO6xPKiWT7SKKZpCuI45o+7DGCYRMsBKWREuqRnS15QdbBKHw1QoosPuyQ5pZR+7JKJ
+LjnscsQPPewYGHS6pJajLgj4WEAACpwppkSiuTZno3YVYNouAvxVSwG7sHcCEh40IMifUmbhwgmG
+DP+FnJQBrHZAYRI+mEACBORlQK8zfoopAQSotgCx6n16wGUTlvoRRQNgsIsDILAq5Qm7MMHBV9yW
+BNUdAmz7QyoXMECCtUrNAMEiJFgpSxfdxlsRVHro4skuOIxQwi5joBsEJyhIkcUGUOgywlcHqCiv
+RFCVAAcKu1QgRCm72ICuE7tE0AIa06bwyZfMwViSsG6GbFZT7O1yRhliuOAKq0GcUsEsNVRQ0X77
+cURykCY/9WxEEFTBQlDcfUDGE0qJgMpxaSj1wi43fGZWcgMEoAsB6hUgHXeAHYhmyfuFBwCp5dmi
+tQBcz/uzJFiMEkoIdTARiBG7XPHKDm/swoAMFFD/wMYukzxRE8jJ7TXAAaQmAMBeBdjl9US6GClg
+LQcECQABNG6nOOMd/czD1RBENIQuSjAA0y4cPNCILoCI9YguMiQocnIGRL4A4qC1JtqlcKbno3+W
+w2haAbnzrPZKipUghERUWGDCXn/A0EkNIeAwiERT0DFfz/tpF7ldi7u23M7qFR5kdg/WmLtrnSM/
+UREz7NIAf7BgggEpFmi4CwYU6D9R5ePxEeJWc6xdYG0XBhjAXgzQJjiVD0bEq8UA8vKpAyawfRWB
+ABh0YQKJdIABu+iARG5AC10cpyIGKEwCKEgkntVCQAIowAB8JCCFuVBktuAVABT4oxcahlTHq8gE
+bxIBApg4gAgfiAgDMLCBXXwgEiB4GkcGIMGFIeZnE4nAfHZAKBBabAjzc8CTrEjG9WDRIhRQhCqk
+QgU3IGJ+ZYyjs9wnxzp66yG3yKMe98jHPvrxj4AMpCAH+cdcGPKQiEykIhfJyEY68pGQfGRAAAA7
+"/>
+    </a>
+    <h1>"{{collectionName}}" Data Package README file</h1>
+
+    <section resource="creativeWork" typeof="http://schema.org/CreativeWork">
+        <section class="preamble">
+
+            <!-- Collection Information -->
+            <section>
+                <span class="title">Package Title</span>
+                <span id="collection-title" class="value">{{collectionName}}</span>
+            </section>
+
+            <section>
+                <span class="title">Package Creation Date</span>
+                <span id="collection-creation-date" class="value" property="http://schema.org/dateCreated"
+                      content="{{package.date.iso}}">{{package.date.long}}</span>
+            </section>
+
+            <section>
+                <span class="title">Package Size</span>
+                <span id="collection-package-size" class="value"
+                      property="http://schema.org/name">{{package.size}} bytes</span>
+            </section>
+
+            <section>
+                <span class="title">GUID</span>
+                <span id="collection-guid" class="value" property="http://schema.org/id">{{package.guid}}</span>
+            </section>
+
+            <!-- Metadata Schema Information -->
+            <section>
+                <span class="title">Metadata Schema</span>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <td id="metadata-schema-name" property="">{{metadataSchema.name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Version</th>
+                        <td id="metadata-schema-version" property="">{{metadataSchema.version}}</td>
+                    </tr>
+                </table>
+            </section>
+
+
+            <!-- Collections App Software Information -->
+            <section class="softwareInfo">
+                <span class="title">Software Information</span>
+                <section property="http://purl.org/dc/terms/creator" typeof="http://schema.org/softwareApplication"
+                         resource="">
+                    <table>
+                        <tr>
+                            <th>Generating Software Application</th>
+                            <td id="app-name" property="http://schema.org/name">{{appInfo.name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Software Version</th>
+                            <td id="app-version" property="http://schema.org/softwareVersion">{{appInfo.version}}</td>
+                        </tr>
+                        <tr>
+                            <th>URLs</th>
+                            <td id="app-urls">
+                                <ul>
+                                    <li><a href="https://cloudstor.aarnet.edu.au" property="http://schema.org/url">
+                                        https://cloudstor.aarnet.edu.au</a></li>
+                                    <li><a href="http://www.intersect.org.au/" property="http://schema.org/url">
+                                        http://www.intersect.org.au/</a></li>
+                                    <li><a href="https://www.westernsydney.edu.au" property="http://schema.org/url">
+                                        https://www.westernsydney.edu.au</a></li>
+                                    <li><a href="https://www.aarnet.edu.au/" property="http://schema.org/url">
+                                        https://www.aarnet.edu.au/</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+            </section>
+        </section>
+
+        <!-- Collection Saved Metadata -->
+        <section id="metadata" class="metadata">
+            <span class="title">Metadata</span>
+            {{#metadataCategories}}
+
+                {{#categoryParties}}
+                    <!-- {{displayName}} -->
+                    <div class="category" data-category-id="categoryParties" data-category="{{displayName}}">
+                        <span class="categoryName">{{displayName}}</span>
+
+                        {{#metadataFields}}
+                            {{#pCreatorName}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dc:creator)</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/pCreatorName}}
+
+                            {{#pContributorName}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dc:contributor)</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/pContributorName}}
+
+                            {{#pPublisherName}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dc:publisher)</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/pPublisherName}}
+                        {{/metadataFields}}
+                    </div>
+                {{/categoryParties}}
+
+
+                {{#categoryDescription}}
+                    <!-- {{displayName}} -->
+                    <div class="category" data-category-id="categoryDescription" data-category="{{displayName}}">
+                        <span class="categoryName">{{displayName}}</span>
+
+                        {{#metadataFields}}
+                            {{#deTitle}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dc:title)</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/deTitle}}
+
+                            {{#deDateIssued}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dcterms:issued xsi:type="dcterms:W3CDTF")</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/deDateIssued}}
+
+                            {{#deDateCreated}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dcterms:created)</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/deDateCreated}}
+
+                            {{#deDescription}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dc:description)</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/deDescription}}
+
+                            {{#deIdentifier}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dc:identifier)</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/deIdentifier}}
+
+                            {{#deDOI}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dc:identifier xsi:type="dcterms:URI")</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/deDOI}}
+
+                            {{#deSubject}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dc:subject)</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/deSubject}}
+
+                            {{#deAnzsrcFOR}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dc:subject)</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/deAnzsrcFOR}}
+
+                            {{#deAnzsrcSEO}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dc:subject)</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/deAnzsrcSEO}}
+                        {{/metadataFields}}
+
+                        {{#metadataGroups}}
+                            {{#deCoverage}}
+                                <div class="group" data-group-id="deCoverage" data-group="{{displayName}}">
+                                    <span class="groupName">{{displayName}}</span>
+
+                                    {{#occurrences}}
+                                        <div class="groupOccurrence">
+                                            {{#metadataFields}}
+
+                                                {{#dcoTemporalCoverage}}
+                                                    <span class="fieldName">{{displayName}}</span>
+                                                    <span class="metadataTag">(dc:coverage)</span>
+                                                    {{#occurrences}}
+                                                        <span class="fieldValue">{{value}}</span>
+                                                    {{/occurrences}}
+                                                {{/dcoTemporalCoverage}}
+
+                                                {{#dcoDateFrom}}
+                                                    <span class="fieldName">{{displayName}}</span>
+                                                    <span class="metadataTag">(dc:coverage xsi:type="dcterms:W3CDTF")</span>
+                                                    {{#occurrences}}
+                                                        <span class="fieldValue">{{value}}</span>
+                                                    {{/occurrences}}
+                                                {{/dcoDateFrom}}
+
+                                                {{#dcoDateTo}}
+                                                    <span class="fieldName">{{displayName}}</span>
+                                                    <span class="metadataTag">(dc:coverage xsi:type="dcterms:W3CDTF")</span>
+                                                    {{#occurrences}}
+                                                        <span class="fieldValue">{{value}}</span>
+                                                    {{/occurrences}}
+                                                {{/dcoDateTo}}
+
+                                                {{#dcoSpatialCoverageLatitude}}
+                                                    <span class="fieldName">Spatial Coverage</span>
+                                                    <span class="metadataTag">(dc:coverage xsi:type="dcterms:Point")</span>
+                                                    {{#occurrences}}
+                                                        <span class="fieldValue">{{value}}, {{dcoSpatialCoverageLongitude.occurrences.0.value}}</span>
+                                                    {{/occurrences}}
+                                                {{/dcoSpatialCoverageLatitude}}
+
+                                            {{/metadataFields}}
+                                        </div>
+                                    {{/occurrences}}
+                                </div>
+                            {{/deCoverage}}
+                        {{/metadataGroups}}
+
+                        {{#metadataFields}}
+                            {{#deFormat}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dc:format xsi:type="dcterms:FileFormat")</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/deFormat}}
+
+                            {{#deObjectType}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dc:type xsi:type="dcterms:DCMIType")</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/deObjectType}}
+
+                            {{#deLanguage}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dc:language xsi:type="dcterms:ISO639-3")</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/deLanguage}}
+
+                            {{#deRelatedObject}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dc:relation)</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/deRelatedObject}}
+                        {{/metadataFields}}
+
+                    </div>
+                {{/categoryDescription}}
+
+
+                {{#categoryRights}}
+                    <!-- {{displayName}} -->
+                    <div class="category" data-category-id="categoryRights" data-category="{{displayName}}">
+                        <span class="categoryName">{{displayName}}</span>
+
+                        {{#metadataFields}}
+                            {{#riRightsInfo}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dc:rights)</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/riRightsInfo}}
+
+                            {{#riRightsURI}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dc:rights xsi:type="dcterms:URI")</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/riRightsURI}}
+
+                            {{#riAccessRights}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dc:rights xsi:type="dcterms:accessRights")</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/riAccessRights}}
+
+                            {{#riLicense}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dcterms:license)</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/riLicense}}
+
+                            {{#riLicenseURI}}
+                                <span class="fieldName">{{displayName}}</span>
+                                <span class="metadataTag">(dcterms:license xsi:type="dcterms:URI")</span>
+                                {{#occurrences}}
+                                    <span class="fieldValue">{{value}}</span>
+                                {{/occurrences}}
+                            {{/riLicenseURI}}
+                        {{/metadataFields}}
+
+                    </div>
+                {{/categoryRights}}
+
+            {{/metadataCategories}}
+        </section>
+
+        <!-- Collection File Tree -->
+        <section id="file-tree" class="files">
+            <span class="title">Files</span>
+            <ul>
+                {{#fileList}}
+                    {{> readme_file_tree}}
+                {{/fileList}}
+            </ul>
+        </section>
+    </section>
+</article>
+</body>
+</html>

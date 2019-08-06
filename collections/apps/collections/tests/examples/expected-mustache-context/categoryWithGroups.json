@@ -6,66 +6,46 @@
       "researchGrants": {
         "displayName": "Grants",
         "occurrences": [
-          [
-            {
-              "metadataFields": [
-                {
-                  "grantId": {
-                    "displayName": "Grant Number",
-                    "occurrences": [
-                      {
-                        "value": "12345"
-                      }
-                    ]
+          {
+            "metadataFields": {
+              "grantId": {
+                "displayName": "Grant Number",
+                "occurrences": [
+                  {
+                    "value": "12345"
                   }
-                }
-              ]
-            },
-            {
-              "metadataFields": [
-                {
-                  "grantFundingBody": {
-                    "displayName": "Funding Body",
-                    "occurrences": [
-                      {
-                        "value": "Government"
-                      }
-                    ]
+                ]
+              },
+              "grantFundingBody": {
+                "displayName": "Funding Body",
+                "occurrences": [
+                  {
+                    "value": "Government"
                   }
-                }
-              ]
+                ]
+              }
             }
-          ],
-          [
-            {
-              "metadataFields": [
-                {
-                  "grantId": {
-                    "displayName": "Grant Number",
-                    "occurrences": [
-                      {
-                        "value": "67890"
-                      }
-                    ]
+          },
+          {
+            "metadataFields": {
+              "grantId": {
+                "displayName": "Grant Number",
+                "occurrences": [
+                  {
+                    "value": "67890"
                   }
-                }
-              ]
-            },
-            {
-              "metadataFields": [
-                {
-                  "grantFundingBody": {
-                    "displayName": "Funding Body",
-                    "occurrences": [
-                      {
-                        "value": "Private"
-                      }
-                    ]
+                ]
+              },
+              "grantFundingBody": {
+                "displayName": "Funding Body",
+                "occurrences": [
+                  {
+                    "value": "Private"
                   }
-                }
-              ]
+                ]
+              }
             }
-          ]
+          }
         ]
       }
     }

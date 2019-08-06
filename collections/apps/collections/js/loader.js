@@ -43,7 +43,7 @@ $(document).ready(function() {
                 '</div>' +
             '</div>');
         if (typeof FileActions !== 'undefined') {
-            FileActions.register('all', 'Add to collection', OC.PERMISSION_READ, OC.imagePath('collections', 'milk-crate-dark.png'), function(filename) {
+            OCA.Files.fileActions.register('all', 'Add to collection', OC.PERMISSION_READ, OC.imagePath('collections', 'milk-crate-dark.png'), function(filename) {
                 $('div#addingToCrateModal').modal();
                 var payload = {
                     file: getFileName($('#dir').val(), filename)
@@ -57,18 +57,15 @@ $(document).ready(function() {
                     async: true,
                     complete: function(jqXHR) {
                         $('div#addingToCrateModal').modal('hide');
-                        OC.Notification.show(jqXHR.responseJSON.msg);
+                        var notification = OC.Notification.show(jqXHR.responseJSON.msg);
                         setTimeout(function() {
-                            OC.Notification.hide();
+                            OC.Notification.hide(notification);
                         }, 3000);
                     }
                 });
             });
         }
     } else if (location.pathname.indexOf("collections") != -1 && location.pathname.indexOf("user_guide") == -1) {
-        loadTemplateVars();
-        drawCrateContents();
-        initCrateActions();
-        initAutoResizeMetadataTabs();
+        initialiseCollections();
     }
 });

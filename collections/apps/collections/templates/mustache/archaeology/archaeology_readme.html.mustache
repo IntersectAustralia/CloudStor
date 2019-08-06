@@ -211,42 +211,40 @@
                                     <span class="groupName">{{displayName}}</span>
                                     {{#occurrences}}
                                         <div class="groupOccurrence">
-                                            {{#.}}
-                                                {{#metadataFields}}
-                                                    {{#artefactid}}
-                                                        <div class="field" data-field-id="artefactid" data-field="{{artefactid.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/artefactid}}
-                                                    {{#description}}
-                                                        <div class="field" data-field-id="description" data-field="{{description.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/description}}
-                                                    {{#datefound}}
-                                                        <div class="field" data-field-id="datefound" data-field="{{datefound.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/datefound}}
-                                                    {{#keyword}}
-                                                        <div class="field" data-field-id="keyword" data-field="{{keyword.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/keyword}}
-                                                {{/metadataFields}}
-                                            {{/.}}
+                                            {{#metadataFields}}
+                                                {{#artefactid}}
+                                                    <div class="field" data-field-id="artefactid" data-field="{{artefactid.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/artefactid}}
+                                                {{#description}}
+                                                    <div class="field" data-field-id="description" data-field="{{description.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/description}}
+                                                {{#datefound}}
+                                                    <div class="field" data-field-id="datefound" data-field="{{datefound.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/datefound}}
+                                                {{#keyword}}
+                                                    <div class="field" data-field-id="keyword" data-field="{{keyword.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/keyword}}
+                                            {{/metadataFields}}
                                         </div>
                                     {{/occurrences}}
                                 </div>

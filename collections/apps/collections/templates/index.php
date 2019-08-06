@@ -18,10 +18,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 ?>
-<div id="container" class="crateit">
 
-  <div class="bar-actions">
-
+<div class="bar-actions">
+  <div class="bar-actions-left">
     <img class="icon svg" src="<?php print_unescaped(image_path('collections', 'milk-crate-dark.png')); ?>">
 
     <a id="create" class="button" data-toggle="modal" data-target="#createCrateModal" title="Create a new collection">
@@ -29,13 +28,13 @@
     </a>
     <label for="crates" class="element-invisible">Collection Selector</label>
     <select id="crates" title="Swap between existing collections">
-      
+
       <?php foreach($_['crates'] as $crate) {
         $selected = $_['selected_crate']->getId() == $crate->getId() ? "selected" : "";
         ?>
-            <option id="<?php p($crate->getId()) ?>" value="<?php p($crate->getId()) ?>" <?php p($selected) ?>>
-            <?php p(strlen($crate->getName()) > 32 ? substr($crate->getName(),0,30)."..." : $crate->getName()) ?>
-            </option>
+        <option id="<?php p($crate->getId()) ?>" value="<?php p($crate->getId()) ?>" <?php p($selected) ?>>
+          <?php p(strlen($crate->getName()) > 32 ? substr($crate->getName(),0,30)."..." : $crate->getName()) ?>
+        </option>
       <?php } ?>
     </select>
 
@@ -47,69 +46,154 @@
           </span>
       </h6>
     </div>
-
-    <div class="pull-right">
-
-      <a id="publish" class="button" data-toggle="modal" data-target="#publishModal" title="Package collection to your Files">
-        <i class="fa fa-envelope"></i>
-        Package
-      </a>
-
-      <a id="package_history" class="button" data-toggle="modal" data-target="#packageHistoryModal" title="Collections packaging history">
-        <i class="fa fa-tasks"></i>
-        Package History
-      </a>
-
-      <a id="check" class="button" data-toggle="modal" data-target="#checkCrateModal" title="Validate collection items">
-         <i class="fa fa-check-circle"></i>
-         Check Collection
-      </a>
-
-      <a id="export" class="button" data-toggle="modal" data-target="#exportMetadataModal" title="Export collection metadata to your Files">
-        <i class="fa fa-external-link"></i>
-        Export
-      </a>
-
-      <a id="removeAllFiles" class="button" data-toggle="modal" data-target="#removeAllFilesModal"
-         title="Remove all items from the collection">
-        <i class="fa fa-ban"></i>
-         Remove All
-      </a>
-
-      <a id="delete" class="button" title="Delete collection">
-        <i class="fa fa-trash-o"></i>
-         Delete
-      </a>
-
-      <div class="btn-group">      
-        <button id= "help_button" type="button" class="dropdown-toggle" data-toggle="dropdown" title="Help for the Collections app">
-          <i class="fa fa-question"></i>
-          Help
-        </button>
-        <ul class="dropdown-menu" style="right: 0;left: auto;">
-            <li>
-              <a id="about_button" class="dropdown-btn" data-toggle="modal" data-target="#helpModal" title="About the Collections app">
-                <i class="fa fa-question"></i>
-                 About
-              </a>
-            </li>
-          <li>
-            <a id="userguide" href="<?php p($_['user_guide_url']) ?>" target="_blank"
-               class="dropdown-btn" title="Guide on how to use the Collections app">
-              <i class="fa fa-book"></i>
-               User Guide
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
   </div>
 
+  <div id="collection-actions" class="bar-actions-right pull-right">
+
+    <a id="rename-collection" class="button" data-toggle="modal" data-target="#renameCrateModal" title="Rename the collection">
+      <i class="fa fa-pencil"></i>
+      <span class="button-text">Rename</span>
+    </a>
+
+    <a id="publish-collection" class="button" data-toggle="modal" data-target="#publishModal" title="Package collection to your Files">
+      <i class="fa fa-envelope"></i>
+      <span class="button-text">Package</span>
+    </a>
+
+    <a id="collection-package-history" class="button" data-toggle="modal" data-target="#packageHistoryModal" title="Collections packaging history">
+      <i class="fa fa-tasks"></i>
+      <span class="button-text">Package History</span>
+    </a>
+
+    <a id="check-collection-validity" class="button" data-toggle="modal" data-target="#checkCrateModal" title="Validate collection items">
+      <i class="fa fa-check-circle"></i>
+      <span class="button-text">Check Collection</span>
+    </a>
+
+    <a id="export-collection-metadata" class="button" data-toggle="modal" data-target="#exportMetadataModal" title="Export collection metadata to your Files">
+      <i class="fa fa-external-link"></i>
+      <span class="button-text">Export</span>
+    </a>
+
+    <a id="remove-collection-files" class="button" data-toggle="modal" data-target="#removeAllFilesModal" title="Remove all items from the collection">
+      <i class="fa fa-ban"></i>
+      <span class="button-text"> Remove All</span>
+    </a>
+
+    <a id="delete-collection" class="button" title="Delete collection">
+      <i class="fa fa-trash-o"></i>
+      <span class="button-text">Delete</span>
+    </a>
+
+    <div class="btn-group">
+      <button id= "help_button" type="button" class="dropdown-toggle" data-toggle="dropdown" title="Help for the Collections app">
+        <i class="fa fa-question"></i>
+        <span class="button-text">Help</span>
+      </button>
+      <ul class="dropdown-menu">
+          <li>
+            <a id="about_button" class="dropdown-btn" data-toggle="modal" data-target="#helpModal" title="About the Collections app">
+              <i class="fa fa-question"></i>
+               About
+            </a>
+          </li>
+        <li>
+          <a id="userguide" href="<?php p($_['user_guide_url']) ?>" target="_blank"
+             class="dropdown-btn" title="Guide on how to use the Collections app">
+            <i class="fa fa-book"></i>
+             User Guide
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="collection-actions-dropdown" class="bar-actions-right pull-right">
+    <div class="btn-group">
+      <button type="button" class="dropdown-toggle" data-toggle="dropdown" title="Collections actions">
+        <i class="fa fa-ellipsis-h"></i>
+        <span class="button-text">Menu</span>
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <a id="menu-rename-collection" class="dropdown-btnp" data-toggle="modal" data-target="#renameCrateModal" title="Rename the collection">
+            <i class="fa fa-pencil"></i>
+            <span class="button-text">Rename</span>
+          </a>
+        </li>
+        <li>
+          <a id="menu-publish-collection" class="dropdown-btn" data-toggle="modal" data-target="#publishModal" title="Package collection to your Files">
+            <i class="fa fa-envelope"></i>
+            <span class="button-text">Package</span>
+          </a>
+        </li>
+        <li>
+          <a id="menu-collection-package-history" class="dropdown-btn" data-toggle="modal" data-target="#packageHistoryModal" title="Collections packaging history">
+            <i class="fa fa-tasks"></i>
+            <span class="button-text">Package History</span>
+          </a>
+        </li>
+        <li>
+          <a id="menu-check-collection-validity" class="dropdown-btn" data-toggle="modal" data-target="#checkCrateModal" title="Validate collection items">
+            <i class="fa fa-check-circle"></i>
+            <span class="button-text">Check Collection</span>
+          </a>
+        </li>
+        <li>
+          <a id="menu-export-collection-metadata" class="dropdown-btn" data-toggle="modal" data-target="#exportMetadataModal" title="Export collection metadata to your Files">
+            <i class="fa fa-external-link"></i>
+            <span class="button-text">Export</span>
+          </a>
+        </li>
+        <li>
+          <a id="menu-remove-collection-files" class="dropdown-btn" data-toggle="modal" data-target="#removeAllFilesModal" title="Remove all items from the collection">
+            <i class="fa fa-ban"></i>
+            <span class="button-text"> Remove All</span>
+          </a>
+        </li>
+        <li>
+          <a id="menu-delete-collection" class="dropdown-btn" title="Delete collection">
+            <i class="fa fa-trash-o"></i>
+            <span class="button-text">Delete</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="btn-group">
+      <button id= "help_button" type="button" class="dropdown-toggle" data-toggle="dropdown" title="Help for the Collections app">
+        <i class="fa fa-question"></i>
+        <span class="button-text">Help</span>
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <a id="about_button" class="dropdown-btn" data-toggle="modal" data-target="#helpModal" title="About the Collections app">
+            <i class="fa fa-question"></i>
+            About
+          </a>
+        </li>
+        <li>
+          <a id="userguide" href="<?php p($_['user_guide_url']) ?>" target="_blank"
+             class="dropdown-btn" title="Guide on how to use the Collections app">
+            <i class="fa fa-book"></i>
+            User Guide
+          </a>
+        </li>
+      </ul>
+    </div>
+    </div>
 </div>
 
+<div id="main-area">
+  <div id="files"></div>
+</div>
 
-<div id="files"></div>
+<div class="attribution">
+  <a href="https://intersect.org.au/products/collections" target="_blank">
+    <img id="intersect-logo" alt="Powered by Intersect"
+         src="<?php print_unescaped(image_path('collections', 'PoweredbyINTERSECT.png')); ?>">
+  </a>
+</div>
+
 <?php
 
   print_unescaped($this->inc('metadata'));
@@ -128,5 +212,6 @@
   print_unescaped($this->inc('publishing_crate_modal'));
   print_unescaped($this->inc('packaging_job_modal'));
   print_unescaped($this->inc('export_metadata_modal'));
+  print_unescaped($this->inc('cancel_metadata_modal'));
 
 ?>\

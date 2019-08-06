@@ -1,3 +1,4 @@
+{{% FILTERS }}
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,6 +96,16 @@
             </section>
 
             <section>
+                <span class="title">Package Title (Upper Case Format)</span>
+                <span class="value">{{collectionName | format.case.upper}}</span>
+            </section>
+
+            <section>
+                <span class="title">Package Title (Lower Case Format)</span>
+                <span class="value">{{collectionName | format.case.lower}}</span>
+            </section>
+
+            <section>
                 <span class="title">Package Creation Date</span>
                 <span class="value" property="http://schema.org/dateCreated" content="{{package.date.iso}}">{{package.date.long}}</span>
             </section>
@@ -107,6 +118,16 @@
             <section>
                 <span class="title">GUID</span>
                 <span class="value" property="http://schema.org/id">{{package.guid}}</span>
+            </section>
+
+            <section>
+                <span class="title">Crate Size (Bytes)</span>
+                <span class="value">{{package.size}}</span>
+            </section>
+
+            <section>
+                <span class="title">Crate Size (Human Readable Format)</span>
+                <span class="value">{{package.size | format.humanFileSize}}</span>
             </section>
 
             <!-- Metadata Schema Information -->
@@ -181,6 +202,19 @@
                                     {{/occurrences}}
                                 </div>
                             {{/description}}
+                            {{#monetary}}
+                                <div class="field">
+                                    <span class="fieldName">{{displayName}}</span>
+                                    {{#occurrences}}
+                                        <span class="fieldValue" property=""><i>Original Value:</i> {{value}}</span>
+                                        <span class="fieldValue" property=""><i>Currency Format (default):</i> {{value | format.currency.default}}</span>
+                                        <span class="fieldValue" property=""><i>Currency Format (AU):</i> {{value | format.currency.AU}}</span>
+                                        <span class="fieldValue" property=""><i>Currency Format (US):</i> {{value | format.currency.US}}</span>
+                                        <span class="fieldValue" property=""><i>Currency Format (GB):</i> {{value | format.currency.GB}}</span>
+                                        <span class="fieldValue" property=""><i>Currency Format (EU):</i> {{value | format.currency.EU}}</span>
+                                    {{/occurrences}}
+                                </div>
+                            {{/monetary}}
                             {{#language}}
                                 <div class="field">
                                     <span class="fieldName">{{displayName}}</span>
@@ -220,42 +254,40 @@
                                 <div class="group">
                                     <span class="groupName">{{displayName}}</span>
                                     {{#occurrences}}
-                                        {{#.}}
-                                            {{#metadataFields}}
-                                                {{#given_name}}
-                                                    <div class="field">
-                                                        <span class="fieldName">{{displayName}}</span>
-                                                        {{#occurrences}}
-                                                            <span class="fieldValue" property="">{{value}}</span>
-                                                        {{/occurrences}}
-                                                    </div>
-                                                {{/given_name}}
-                                                {{#phone}}
-                                                    <div class="field">
-                                                        <span class="fieldName">{{displayName}}</span>
-                                                        {{#occurrences}}
-                                                            <span class="fieldValue" property="">{{value}}</span>
-                                                        {{/occurrences}}
-                                                    </div>
-                                                {{/phone}}
-                                                {{#email}}
-                                                    <div class="field">
-                                                        <span class="fieldName">{{displayName}}</span>
-                                                        {{#occurrences}}
-                                                            <span class="fieldValue" property="">{{value}}</span>
-                                                        {{/occurrences}}
-                                                    </div>
-                                                {{/email}}
-                                                {{#dateOfBirth}}
-                                                    <div class="field">
-                                                        <span class="fieldName">{{displayName}}</span>
-                                                        {{#occurrences}}
-                                                            <span class="fieldValue" property="">{{value}}</span>
-                                                        {{/occurrences}}
-                                                    </div>
-                                                {{/dateOfBirth}}
-                                            {{/metadataFields}}
-                                        {{/.}}
+                                        {{#metadataFields}}
+                                            {{#given_name}}
+                                                <div class="field">
+                                                    <span class="fieldName">{{displayName}}</span>
+                                                    {{#occurrences}}
+                                                        <span class="fieldValue" property="">{{value}}</span>
+                                                    {{/occurrences}}
+                                                </div>
+                                            {{/given_name}}
+                                            {{#phone}}
+                                                <div class="field">
+                                                    <span class="fieldName">{{displayName}}</span>
+                                                    {{#occurrences}}
+                                                        <span class="fieldValue" property="">{{value}}</span>
+                                                    {{/occurrences}}
+                                                </div>
+                                            {{/phone}}
+                                            {{#email}}
+                                                <div class="field">
+                                                    <span class="fieldName">{{displayName}}</span>
+                                                    {{#occurrences}}
+                                                        <span class="fieldValue" property="">{{value}}</span>
+                                                    {{/occurrences}}
+                                                </div>
+                                            {{/email}}
+                                            {{#dateOfBirth}}
+                                                <div class="field">
+                                                    <span class="fieldName">{{displayName}}</span>
+                                                    {{#occurrences}}
+                                                        <span class="fieldValue" property="">{{value}}</span>
+                                                    {{/occurrences}}
+                                                </div>
+                                            {{/dateOfBirth}}
+                                        {{/metadataFields}}
                                     {{/occurrences}}
                                 </div>
                             {{/creators}}
@@ -292,26 +324,24 @@
                                 <div class="group">
                                     <span class="groupName">{{displayName}}</span>
                                     {{#occurrences}}
-                                        {{#.}}
-                                            {{#metadataFields}}
-                                                {{#embargoDetails}}
-                                                    <div class="field">
-                                                        <span class="fieldName">{{displayName}}</span>
-                                                        {{#occurrences}}
-                                                            <span class="fieldValue" property="">{{value}}</span>
-                                                        {{/occurrences}}
-                                                    </div>
-                                                {{/embargoDetails}}
-                                                {{#retention}}
-                                                    <div class="field">
-                                                        <span class="fieldName">{{displayName}}</span>
-                                                        {{#occurrences}}
-                                                            <span class="fieldValue" property="">{{value}}</span>
-                                                        {{/occurrences}}
-                                                    </div>
-                                                {{/retention}}
-                                            {{/metadataFields}}
-                                        {{/.}}
+                                        {{#metadataFields}}
+                                            {{#embargoDetails}}
+                                                <div class="field">
+                                                    <span class="fieldName">{{displayName}}</span>
+                                                    {{#occurrences}}
+                                                        <span class="fieldValue" property="">{{value}}</span>
+                                                    {{/occurrences}}
+                                                </div>
+                                            {{/embargoDetails}}
+                                            {{#retention}}
+                                                <div class="field">
+                                                    <span class="fieldName">{{displayName}}</span>
+                                                    {{#occurrences}}
+                                                        <span class="fieldValue" property="">{{value}}</span>
+                                                    {{/occurrences}}
+                                                </div>
+                                            {{/retention}}
+                                        {{/metadataFields}}
                                     {{/occurrences}}
                                 </div>
                             {{/embargo}}
@@ -328,7 +358,11 @@
                                 <div class="field">
                                     <span class="fieldName">{{displayName}}</span>
                                     {{#occurrences}}
-                                        <span class="fieldValue" property="">{{value}}</span>
+                                        <span class="fieldValue" property=""><i>Original Value</i> {{value}}</span>
+                                        <span class="fieldValue" property=""><i>Date Format (ISO-860)</i> {{value | format.date.iso-8601}}</span>
+                                        <span class="fieldValue" property=""><i>Date Format (Short)</i> {{value | format.date.short}}</span>
+                                        <span class="fieldValue" property=""><i>Date Format (Mid)</i> {{value | format.date.mid}}</span>
+                                        <span class="fieldValue" property=""><i>Date Format (Long)</i> {{value | format.date.long}}</span>
                                     {{/occurrences}}
                                 </div>
                             {{/currentDate}}
@@ -352,6 +386,30 @@
                     </div>
                 {{/dates}}
 
+                <!-- Selections -->
+                {{#selections}}
+                    <div class="category">
+                        <span class="categoryName">{{displayName}}</span>
+                        {{#metadataFields}}
+                            {{#someSingleSelect}}
+                                <div class="field">
+                                    <span class="fieldName">{{displayName}}</span>
+                                    {{#occurrences}}
+                                        <span class="fieldValue" property="">{{value}}</span>
+                                    {{/occurrences}}
+                                </div>
+                            {{/someSingleSelect}}
+                            {{#anotherSingleSelect}}
+                                <div class="field">
+                                    <span class="fieldName">{{displayName}}</span>
+                                    {{#occurrences}}
+                                        <span class="fieldValue" property="">{{value}}</span>
+                                    {{/occurrences}}
+                                </div>
+                            {{/anotherSingleSelect}}
+                        {{/metadataFields}}
+                    </div>
+                {{/selections}}
             {{/metadataCategories}}
         </section>
     </section>

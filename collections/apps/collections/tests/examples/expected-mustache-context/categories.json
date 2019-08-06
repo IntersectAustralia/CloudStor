@@ -20,81 +20,53 @@
       "collectionInformation": {
         "displayName": "Collection Information",
         "occurrences": [
-          [
-            {
-              "metadataFields": [
-                {
-                  "title": {
-                    "displayName": "Title",
-                    "occurrences": [
-                      {
-                        "value": "my collection"
-                      }
-                    ]
+          {
+            "metadataFields": {
+              "title": {
+                "displayName": "Title",
+                "occurrences": [
+                  {
+                    "value": "my collection"
                   }
-                }
-              ]
-            },
-            {
-              "metadataFields": [
-                {
-                  "description": {
-                    "displayName": "Description",
-                    "occurrences": [
-                      {
-                        "value": "some description"
-                      }
-                    ]
+                ]
+              },
+              "description": {
+                "displayName": "Description",
+                "occurrences": [
+                  {
+                    "value": "some description"
                   }
-                }
-              ]
-            },
-            {
-              "metadataFields": [
-                {
-                  "keyword": {
-                    "displayName": "Keyword",
-                    "occurrences": [
-                      {
-                        "value": "a key"
-                      }
-                    ]
+                ]
+              },
+              "keyword": {
+                "displayName": "Keyword",
+                "occurrences": [
+                  {
+                    "value": "a key"
                   }
-                }
-              ]
-            },
-            {
-              "metadataFields": [
-                {
-                  "forCode": {
-                    "displayName": "FOR Code",
-                    "occurrences": [
-                      {
-                        "value": "FOR123"
-                      },
-                      {
-                        "value": "FOR456"
-                      }
-                    ]
+                ]
+              },
+              "forCode": {
+                "displayName": "FOR Code",
+                "occurrences": [
+                  {
+                    "value": "FOR123"
+                  },
+                  {
+                    "value": "FOR456"
                   }
-                }
-              ]
-            },
-            {
-              "metadataFields": [
-                {
-                  "extent": {
-                    "displayName": "Extent",
-                    "occurrences": [
-                      {
-                        "value": "none"
-                      }
-                    ]
+                ]
+              },
+              "extent": {
+                "displayName": "Extent",
+                "occurrences": [
+                  {
+                    "value": "none"
                   }
-                }
-              ]
+                ]
+              }
             }
-          ]
+          }
         ]
       }
     }
@@ -106,78 +78,50 @@
       "contact": {
         "displayName": "Primary Contact",
         "occurrences": [
-          [
-            {
-              "metadataFields": [
-                {
-                  "contactGivenName": {
-                    "displayName": "Given Name",
-                    "occurrences": [
-                      {
-                        "value": "john"
-                      }
-                    ]
+          {
+            "metadataFields": {
+              "contactGivenName": {
+                "displayName": "Given Name",
+                "occurrences": [
+                  {
+                    "value": "john"
                   }
-                }
-              ]
-            },
-            {
-              "metadataFields": [
-                {
-                  "contactFamilyName": {
-                    "displayName": "Family Name",
-                    "occurrences": [
-                      {
-                        "value": "johnson"
-                      }
-                    ]
+                ]
+              },
+              "contactFamilyName": {
+                "displayName": "Family Name",
+                "occurrences": [
+                  {
+                    "value": "johnson"
                   }
-                }
-              ]
-            },
-            {
-              "metadataFields": [
-                {
-                  "contactEmail": {
-                    "displayName": "Email Address",
-                    "occurrences": [
-                      {
-                        "value": "j@j.com"
-                      }
-                    ]
+                ]
+              },
+              "contactEmail": {
+                "displayName": "Email Address",
+                "occurrences": [
+                  {
+                    "value": "j@j.com"
                   }
-                }
-              ]
-            },
-            {
-              "metadataFields": [
-                {
-                  "contactAffiliation": {
-                    "displayName": "Affiliated University or Institution",
-                    "occurrences": [
-                      {
-                        "value": "Intersect"
-                      }
-                    ]
+                ]
+              },
+              "contactAffiliation": {
+                "displayName": "Affiliated University or Institution",
+                "occurrences": [
+                  {
+                    "value": "Intersect"
                   }
-                }
-              ]
-            },
-            {
-              "metadataFields": [
-                {
-                  "contactOU": {
-                    "displayName": "Faculty, School, Centre or Organisational Unit",
-                    "occurrences": [
-                      {
-                        "value": "Engineering"
-                      }
-                    ]
+                ]
+              },
+              "contactOU": {
+                "displayName": "Faculty, School, Centre or Organisational Unit",
+                "occurrences": [
+                  {
+                    "value": "Engineering"
                   }
-                }
-              ]
+                ]
+              }
             }
-          ]
+          }
         ]
       }
     }
@@ -189,150 +133,94 @@
       "creators": {
         "displayName": "Creator",
         "occurrences": [
-          [
-            {
-              "metadataFields": [
-                {
-                  "givenName": {
-                    "displayName": "Given Name",
-                    "occurrences": [
-                      {
-                        "value": "dave"
-                      }
-                    ]
+          {
+            "metadataFields": {
+              "givenName": {
+                "displayName": "Given Name",
+                "occurrences": [
+                  {
+                    "value": "dave"
                   }
-                }
-              ]
-            },
-            {
-              "metadataFields": [
-                {
-                  "familyName": {
-                    "displayName": "Family Name",
-                    "occurrences": [
-                      {
-                        "value": "davidson"
-                      }
-                    ]
+                ]
+              },
+              "familyName": {
+                "displayName": "Family Name",
+                "occurrences": [
+                  {
+                    "value": "davidson"
                   }
-                }
-              ]
-            },
-            {
-              "metadataFields": [
-                {
-                  "email": {
-                    "displayName": "Email Address",
-                    "occurrences": [
-                      {
-                        "value": "d@d.com"
-                      }
-                    ]
+                ]
+              },
+              "email": {
+                "displayName": "Email Address",
+                "occurrences": [
+                  {
+                    "value": "d@d.com"
                   }
-                }
-              ]
-            },
-            {
-              "metadataFields": [
-                {
-                  "creatorAffiliation": {
-                    "displayName": "Affiliated University or Institution",
-                    "occurrences": [
-                      {
-                        "value": "Intersect"
-                      }
-                    ]
+                ]
+              },
+              "creatorAffiliation": {
+                "displayName": "Affiliated University or Institution",
+                "occurrences": [
+                  {
+                    "value": "Intersect"
                   }
-                }
-              ]
-            },
-            {
-              "metadataFields": [
-                {
-                  "creatorOU": {
-                    "displayName": "Faculty, School, Centre or Organisational Unit",
-                    "occurrences": [
-                      {
-                        "value": "operations"
-                      }
-                    ]
+                ]
+              },
+              "creatorOU": {
+                "displayName": "Faculty, School, Centre or Organisational Unit",
+                "occurrences": [
+                  {
+                    "value": "operations"
                   }
-                }
-              ]
+                ]
+              }
             }
-          ],
-          [
-            {
-              "metadataFields": [
-                {
-                  "givenName": {
-                    "displayName": "Given Name",
-                    "occurrences": [
-                      {
-                        "value": "bob"
-                      }
-                    ]
+          },
+          {
+            "metadataFields": {
+              "givenName": {
+                "displayName": "Given Name",
+                "occurrences": [
+                  {
+                    "value": "bob"
                   }
-                }
-              ]
-            },
-            {
-              "metadataFields": [
-                {
-                  "familyName": {
-                    "displayName": "Family Name",
-                    "occurrences": [
-                      {
-                        "value": "bobson"
-                      }
-                    ]
+                ]
+              },
+              "familyName": {
+                "displayName": "Family Name",
+                "occurrences": [
+                  {
+                    "value": "bobson"
                   }
-                }
-              ]
-            },
-            {
-              "metadataFields": [
-                {
-                  "email": {
-                    "displayName": "Email Address",
-                    "occurrences": [
-                      {
-                        "value": "b@b.com"
-                      }
-                    ]
+                ]
+              },
+              "email": {
+                "displayName": "Email Address",
+                "occurrences": [
+                  {
+                    "value": "b@b.com"
                   }
-                }
-              ]
-            },
-            {
-              "metadataFields": [
-                {
-                  "creatorAffiliation": {
-                    "displayName": "Affiliated University or Institution",
-                    "occurrences": [
-                      {
-                        "value": "Intersect"
-                      }
-                    ]
+                ]
+              },
+              "creatorAffiliation": {
+                "displayName": "Affiliated University or Institution",
+                "occurrences": [
+                  {
+                    "value": "Intersect"
                   }
-                }
-              ]
-            },
-            {
-              "metadataFields": [
-                {
-                  "creatorOU": {
-                    "displayName": "Faculty, School, Centre or Organisational Unit",
-                    "occurrences": [
-                      {
-                        "value": "ERA"
-                      }
-                    ]
+                ]
+              },
+              "creatorOU": {
+                "displayName": "Faculty, School, Centre or Organisational Unit",
+                "occurrences": [
+                  {
+                    "value": "ERA"
                   }
-                }
-              ]
+                ]
+              }
             }
-          ]
+          }
         ]
       }
     }
@@ -344,66 +232,46 @@
       "researchGrants": {
         "displayName": "Grants",
         "occurrences": [
-          [
-            {
-              "metadataFields": [
-                {
-                  "grantId": {
-                    "displayName": "Grant Number",
-                    "occurrences": [
-                      {
-                        "value": "12345"
-                      }
-                    ]
+          {
+            "metadataFields": {
+              "grantId": {
+                "displayName": "Grant Number",
+                "occurrences": [
+                  {
+                    "value": "12345"
                   }
-                }
-              ]
-            },
-            {
-              "metadataFields": [
-                {
-                  "grantFundingBody": {
-                    "displayName": "Funding Body",
-                    "occurrences": [
-                      {
-                        "value": "Government"
-                      }
-                    ]
+                ]
+              },
+              "grantFundingBody": {
+                "displayName": "Funding Body",
+                "occurrences": [
+                  {
+                    "value": "Government"
                   }
-                }
-              ]
+                ]
+              }
             }
-          ],
-          [
-            {
-              "metadataFields": [
-                {
-                  "grantId": {
-                    "displayName": "Grant Number",
-                    "occurrences": [
-                      {
-                        "value": "67890"
-                      }
-                    ]
+          },
+          {
+            "metadataFields": {
+              "grantId": {
+                "displayName": "Grant Number",
+                "occurrences": [
+                  {
+                    "value": "67890"
                   }
-                }
-              ]
-            },
-            {
-              "metadataFields": [
-                {
-                  "grantFundingBody": {
-                    "displayName": "Funding Body",
-                    "occurrences": [
-                      {
-                        "value": "Private"
-                      }
-                    ]
+                ]
+              },
+              "grantFundingBody": {
+                "displayName": "Funding Body",
+                "occurrences": [
+                  {
+                    "value": "Private"
                   }
-                }
-              ]
+                ]
+              }
             }
-          ]
+          }
         ]
       }
     }

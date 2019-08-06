@@ -179,50 +179,48 @@
                                     <span class="groupName">{{displayName}}</span>
                                     {{#occurrences}}
                                         <div class="groupOccurrence">
-                                            {{#.}}
-                                                {{#metadataFields}}
-                                                    {{#title}}
-                                                        <div class="field" data-field-id="title" data-field="{{title.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/title}}
-                                                    {{#description}}
-                                                        <div class="field" data-field-id="description" data-field="{{description.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/description}}
-                                                    {{#keyword}}
-                                                        <div class="field" data-field-id="keyword" data-field="{{keyword.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/keyword}}
-                                                    {{#forCode}}
-                                                        <div class="field" data-field-id="forCode" data-field="{{forCode.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/forCode}}
-                                                    {{#extent}}
-                                                        <div class="field" data-field-id="extent" data-field="{{extent.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/extent}}
-                                                {{/metadataFields}}
-                                            {{/.}}
+                                            {{#metadataFields}}
+                                                {{#title}}
+                                                    <div class="field" data-field-id="title" data-field="{{title.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/title}}
+                                                {{#description}}
+                                                    <div class="field" data-field-id="description" data-field="{{description.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/description}}
+                                                {{#keyword}}
+                                                    <div class="field" data-field-id="keyword" data-field="{{keyword.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/keyword}}
+                                                {{#forCode}}
+                                                    <div class="field" data-field-id="forCode" data-field="{{forCode.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/forCode}}
+                                                {{#extent}}
+                                                    <div class="field" data-field-id="extent" data-field="{{extent.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/extent}}
+                                            {{/metadataFields}}
                                         </div>
                                     {{/occurrences}}
                                 </div>
@@ -241,50 +239,48 @@
                                     <span class="groupName">{{displayName}}</span>
                                     {{#occurrences}}
                                         <div class="groupOccurrence">
-                                            {{#.}}
-                                                {{#metadataFields}}
-                                                    {{#contactGivenName}}
-                                                        <div class="field" data-field-id="contactGivenName" data-field="{{contactGivenName.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/contactGivenName}}
-                                                    {{#contactFamilyName}}
-                                                        <div class="field" data-field-id="contactFamilyName" data-field="{{contactFamilyName.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/contactFamilyName}}
-                                                    {{#contactEmail}}
-                                                        <div class="field" data-field-id="contactEmail" data-field="{{contactEmail.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/contactEmail}}
-                                                    {{#contactAffiliation}}
-                                                        <div class="field" data-field-id="contactAffiliation" data-field="{{contactAffiliation.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/contactAffiliation}}
-                                                    {{#contactOU}}
-                                                        <div class="field" data-field-id="contactOU" data-field="{{contactOU.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/contactOU}}
-                                                {{/metadataFields}}
-                                            {{/.}}
+                                            {{#metadataFields}}
+                                                {{#contactGivenName}}
+                                                    <div class="field" data-field-id="contactGivenName" data-field="{{contactGivenName.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/contactGivenName}}
+                                                {{#contactFamilyName}}
+                                                    <div class="field" data-field-id="contactFamilyName" data-field="{{contactFamilyName.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/contactFamilyName}}
+                                                {{#contactEmail}}
+                                                    <div class="field" data-field-id="contactEmail" data-field="{{contactEmail.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/contactEmail}}
+                                                {{#contactAffiliation}}
+                                                    <div class="field" data-field-id="contactAffiliation" data-field="{{contactAffiliation.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/contactAffiliation}}
+                                                {{#contactOU}}
+                                                    <div class="field" data-field-id="contactOU" data-field="{{contactOU.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/contactOU}}
+                                            {{/metadataFields}}
                                         </div>
                                     {{/occurrences}}
                                 </div>
@@ -303,50 +299,48 @@
                                     <span class="groupName">{{displayName}}</span>
                                     {{#occurrences}}
                                         <div class="groupOccurrence">
-                                            {{#.}}
-                                                {{#metadataFields}}
-                                                    {{#givenName}}
-                                                        <div class="field" data-field-id="givenName" data-field="{{givenName.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/givenName}}
-                                                    {{#familyName}}
-                                                        <div class="field" data-field-id="familyName" data-field="{{familyName.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/familyName}}
-                                                    {{#email}}
-                                                        <div class="field" data-field-id="email" data-field="{{email.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/email}}
-                                                    {{#creatorAffiliation}}
-                                                        <div class="field" data-field-id="creatorAffiliation" data-field="{{creatorAffiliation.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/creatorAffiliation}}
-                                                    {{#creatorOU}}
-                                                        <div class="field" data-field-id="creatorOU" data-field="{{creatorOU.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/creatorOU}}
-                                                {{/metadataFields}}
-                                            {{/.}}
+                                            {{#metadataFields}}
+                                                {{#givenName}}
+                                                    <div class="field" data-field-id="givenName" data-field="{{givenName.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/givenName}}
+                                                {{#familyName}}
+                                                    <div class="field" data-field-id="familyName" data-field="{{familyName.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/familyName}}
+                                                {{#email}}
+                                                    <div class="field" data-field-id="email" data-field="{{email.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/email}}
+                                                {{#creatorAffiliation}}
+                                                    <div class="field" data-field-id="creatorAffiliation" data-field="{{creatorAffiliation.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/creatorAffiliation}}
+                                                {{#creatorOU}}
+                                                    <div class="field" data-field-id="creatorOU" data-field="{{creatorOU.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/creatorOU}}
+                                            {{/metadataFields}}
                                         </div>
                                     {{/occurrences}}
                                 </div>
@@ -365,26 +359,24 @@
                                     <span class="groupName">{{displayName}}</span>
                                     {{#occurrences}}
                                         <div class="groupOccurrence">
-                                            {{#.}}
-                                                {{#metadataFields}}
-                                                    {{#grantId}}
-                                                        <div class="field" data-field-id="grantId" data-field="{{grantId.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/grantId}}
-                                                    {{#grantFundingBody}}
-                                                        <div class="field" data-field-id="grantFundingBody" data-field="{{grantFundingBody.displayName}}">
-                                                            <span class="fieldName">{{displayName}}</span>
-                                                            {{#occurrences}}
-                                                                <span class="fieldValue" property="">{{value}}</span>
-                                                            {{/occurrences}}
-                                                        </div>
-                                                    {{/grantFundingBody}}
-                                                {{/metadataFields}}
-                                            {{/.}}
+                                            {{#metadataFields}}
+                                                {{#grantId}}
+                                                    <div class="field" data-field-id="grantId" data-field="{{grantId.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/grantId}}
+                                                {{#grantFundingBody}}
+                                                    <div class="field" data-field-id="grantFundingBody" data-field="{{grantFundingBody.displayName}}">
+                                                        <span class="fieldName">{{displayName}}</span>
+                                                        {{#occurrences}}
+                                                            <span class="fieldValue" property="">{{value}}</span>
+                                                        {{/occurrences}}
+                                                    </div>
+                                                {{/grantFundingBody}}
+                                            {{/metadataFields}}
                                         </div>
                                     {{/occurrences}}
                                 </div>

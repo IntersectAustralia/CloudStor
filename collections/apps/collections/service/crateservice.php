@@ -43,11 +43,12 @@ class CrateService {
     private $selectedCrateMapper;
     private $packagingJobService;
     private $templateService;
+    private $collectionAnalyticService;
 
     public function __construct(SelectedCrateMapper $selectedCrateMapper, CrateMapper $crateMapper,
                                 FolderMapper $folderMapper, FolderService $folderService, FileMapper $fileMapper,
                                 FileService $fileService, PackagingJobService $packagingJobService,
-                                TemplateService $templateService) {
+                                TemplateService $templateService, CollectionAnalyticService $collectionAnalyticService) {
         $this->selectedCrateMapper = $selectedCrateMapper;
         $this->crateMapper = $crateMapper;
         $this->folderMapper = $folderMapper;
@@ -56,6 +57,7 @@ class CrateService {
         $this->fileService = $fileService;
         $this->packagingJobService = $packagingJobService;
         $this->templateService = $templateService;
+        $this->collectionAnalyticService = $collectionAnalyticService;
     }
 
     /**
@@ -113,92 +115,16 @@ class CrateService {
     }
 
     /**
-     * Updates a saved metadata occurrence value within a crate.
-     * @param $crateId - ID of the crate to update
-     * @param $categoryId - ID of the metadata category
-     * @param $groupId - ID of the metadata group if the occurrence is part of a group or null otherwise
-     * @param $groupOccurrenceId - ID of the group occurrence
-     * @param $fieldId - ID of the category field
-     * @param $fieldOccurrenceId - ID of the field occurrence
-     * @param $fieldOccurrenceValue - value to update the occurrence to
+     * Saves crate metadata, overwriting any previously saved value
+     * @param $crateId
+     * @param $metadata
      */
-    public function updateCrateMetadataOccurrence($crateId, $categoryId, $groupId, $groupOccurrenceId, $fieldId, $fieldOccurrenceId, $fieldOccurrenceValue) {
-        \OCP\Util::writeLog('collections', __METHOD__."($crateId, $categoryId, $groupId, $fieldId, $fieldOccurrenceId, $fieldOccurrenceValue)", \OCP\Util::DEBUG);
-        $crate = $this->crateMapper->find($crateId);
-        $savedMetadata = json_decode($crate->getSavedMetadata(), true);
-        $partOfGroup = !is_null($groupId) && (strlen($groupId) > 0);
-        if (!array_key_exists('categories', $savedMetadata)) {
-            $savedMetadata['categories'] = array();
-        }
-        // If the category hasn't been saved before then create the storage structure for that category and set the occurrence value, otherwise just set the occurrence value
-        $newFieldOccurrences = array($fieldId => array ('occurrences' => array($fieldOccurrenceId => $fieldOccurrenceValue)));
-        if (array_key_exists($categoryId, $savedMetadata['categories'])) {
-            $savedCategory = &$savedMetadata['categories'][$categoryId];
-            if ($partOfGroup) {
-                if (array_key_exists($groupOccurrenceId, $savedCategory['groups'][$groupId]['occurrences'])) {
-                    $savedCategory['groups'][$groupId]['occurrences'][$groupOccurrenceId]['fields'][$fieldId]['occurrences'][$fieldOccurrenceId] = $fieldOccurrenceValue;
-                } else {
-                    $savedCategory['groups'][$groupId]['occurrences'][$groupOccurrenceId] = array('fields' => $newFieldOccurrences);
-                }
-            } else {
-                $savedCategory['fields'][$fieldId]['occurrences'][$fieldOccurrenceId] = $fieldOccurrenceValue;
-            }
-        } else {
-            $savedMetadata['categories'][$categoryId] = array('fields' => array(), 'groups' => array());
-            $savedCategory = &$savedMetadata['categories'][$categoryId];
-            if ($partOfGroup) {
-                $savedCategory['groups'] = array($groupId => array('occurrences' => array($groupOccurrenceId => array('fields' => $newFieldOccurrences))));
-            } else {
-                $savedCategory['fields'] = $newFieldOccurrences;
-            }
-        }
-        $crate->setSavedMetadata(json_encode($savedMetadata));
-        $this->crateMapper->updateCrate($crate);
-    }
-
-    /**
-     * Deletes a saved metadata occurrence value within a crate.
-     * @param $crateId - ID of the crate to update
-     * @param $categoryId - ID of the metadata category
-     * @param $groupId - ID of the metadata group if the occurrence is part of a group or null otherwise
-     * @param $groupOccurrenceId - ID of the group occurrence
-     * @param $fieldId - ID of the category field
-     * @param $fieldOccurrenceId - ID of the field occurrence
-     */
-    public function deleteCrateMetadataOccurrence($crateId, $categoryId, $groupId, $groupOccurrenceId, $fieldId, $fieldOccurrenceId) {
-        \OCP\Util::writeLog('collections', __METHOD__."($crateId, $categoryId, $groupId, $groupOccurrenceId, $fieldId, $fieldOccurrenceId)", \OCP\Util::DEBUG);
-        $crate = $this->crateMapper->find($crateId);
-        $savedMetadata = json_decode($crate->getSavedMetadata(), true);
-        $partOfGroup = !is_null($groupId) && (strlen($groupId) > 0);
-        if ($partOfGroup) {
-            if (array_key_exists($fieldOccurrenceId, $savedMetadata['categories'][$categoryId]['groups'][$groupId]['occurrences'][$groupOccurrenceId]['fields'][$fieldId]['occurrences'])) {
-                unset($savedMetadata['categories'][$categoryId]['groups'][$groupId]['occurrences'][$groupOccurrenceId]['fields'][$fieldId]['occurrences'][$fieldOccurrenceId]);
-            }
-        } else {
-            if (array_key_exists($fieldOccurrenceId, $savedMetadata['categories'][$categoryId]['fields'][$fieldId]['occurrences'])) {
-                unset($savedMetadata['categories'][$categoryId]['fields'][$fieldId]['occurrences'][$fieldOccurrenceId]);
-            }
-        }
-        $crate->setSavedMetadata(json_encode($savedMetadata));
-        $this->crateMapper->updateCrate($crate);
-    }
-
-    /**
-     * Deletes a saved metadata group occurrence value within a crate.
-     * @param $crateId - ID of the crate to update
-     * @param $categoryId - ID of the metadata category
-     * @param $groupId - ID of the metadata group
-     * @param $groupOccurrenceId - ID of the group occurrence
-     */
-    public function deleteCrateMetadataGroupOccurrence($crateId, $categoryId, $groupId, $groupOccurrenceId) {
-        \OCP\Util::writeLog('collections', __METHOD__."($crateId, $categoryId, $groupId, $groupOccurrenceId)", \OCP\Util::DEBUG);
-        $crate = $this->crateMapper->find($crateId);
-        $savedMetadata = json_decode($crate->getSavedMetadata(), true);
-        if (array_key_exists($groupOccurrenceId, $savedMetadata['categories'][$categoryId]['groups'][$groupId]['occurrences'])) {
-            unset($savedMetadata['categories'][$categoryId]['groups'][$groupId]['occurrences'][$groupOccurrenceId]);
-        }
-        $crate->setSavedMetadata(json_encode($savedMetadata));
-        $this->crateMapper->updateCrate($crate);
+    public function saveCollectionMetadata($crateId, $metadata) {
+        \OCP\Util::writeLog('collections', __METHOD__."($crateId)", \OCP\Util::DEBUG);
+        $collection = $this->crateMapper->find($crateId);
+        // ToDo: validate all metadata satisfies schema validation criteria and handle if not satisfied
+        $collection->setSavedMetadata(json_encode($metadata));
+        $this->crateMapper->updateCrate($collection);
     }
 
     /**
@@ -284,6 +210,7 @@ class CrateService {
         }
         $crate = $this::innerCreateCrate($userId, $name);
         $newCrate = $this->crateMapper->newCrate($crate, $schemaPath);
+        $this->collectionAnalyticService->newCollectionAnalytic($newCrate);
         $this->updateSelectedCrate($userId,$newCrate->getId());
         return $newCrate;
     }
@@ -309,7 +236,9 @@ class CrateService {
         $crate = $this->crateMapper->find($crate_id);
         $rootFolder = $this->folderMapper->find($crate->getRootFolderId());
         $this->clearFolder($rootFolder, true);
-        return $this->crateMapper->deleteCrate($crate);
+        $deletedEntity = $this->crateMapper->deleteCrate($crate);
+        $this->collectionAnalyticService->setDeletionTimestamp($crate_id);
+        return $deletedEntity;
     }
 
     /**
@@ -575,13 +504,9 @@ class CrateService {
      * Exports the metadata of a given crate to the ownCloud Files directory
      * @param Crate $crate - The crate to publish
      * @return string - filename of the exported metadata file
-     * @throws CollectionsException - Thrown if the crate metadata schema isn't saved
      */
     public function exportMetadata(Crate $crate) {
         \OCP\Util::writeLog('collections', __METHOD__."($crate)", \OCP\Util::DEBUG);
-        if (is_null($crate->getMetadataSchema())) {
-            throw new CollectionsException("Collection doesn't contain any saved metadata");
-        }
         $xml = $this->crateMetadataToXML($crate);
         $newFile = $this->fileService->newFile($crate->getName().'.xml');
         $newFile->putContent($xml);

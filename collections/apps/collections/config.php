@@ -28,12 +28,14 @@ class Config {
 
     /**
      * Maximum size of a collection in megabytes at which a warning will be displayed when attempting to package.
+     * @todo This functionality has not been fully implemented
      * @var int
      */
     public static $PUBLISH_WARNING_MB = 100000;
 
     /**
      * Maximum size of a collection in megabytes at which the packaging functionality will be disabled.
+     * @todo This functionality has not been fully implemented
      * @var int
      */
     public static $PUBLISH_MAX_MB = 100000;
@@ -48,7 +50,7 @@ class Config {
     /**
      * @var string username of the developer user, which bypasses ACL list viewing restrictions for development purposes.
      */
-    public static $SCHEMA_DEVELOPER_USER = 'Add SCHEMA_DEVELOPER_USER';
+    public static $SCHEMA_DEVELOPER_USER = 'cloudstor@intersect.org.au';
 
     /**
      * Folder path for public schema, relative to the metadata schema directory.

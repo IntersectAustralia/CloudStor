@@ -20,13 +20,14 @@
 
 namespace OCA\collections\Service;
 
+use OCA\collections\Config;
 use PHPUnit\Framework\TestCase;
-use OCA\collections\Tests\Helper;
+use OCA\collections\Tests\TestHelper;
 
-include_once('Config.php');
-include_once('service/CrateService.php');
-include_once('service/TemplateService.php');
-include_once('tests/mocks/util.php');
+include_once(__DIR__.'/../Config.php');
+include_once(__DIR__.'/../service/CrateService.php');
+include_once(__DIR__.'/../service/TemplateService.php');
+include_once(__DIR__.'/../tests/mocks/util.php');
 
 class CollectionServiceTests extends TestCase{
 
@@ -54,11 +55,10 @@ class CollectionServiceTests extends TestCase{
         $collection->method('getMetadataSchema')->willReturn(file_get_contents(dirname(__FILE__) .
             '/examples/metadata-definition/collection.json'));
 
-        $owncloudDataPath = ''; // keep owncloud datapath blank since it is mocked out in Util.php
         $expectedPathSet = array('templateName' => 'collections_basic_readme.html.mustache',
-            'templateDirectory' => $owncloudDataPath . '/metadata/files/Public/templates',
-            'partialsDirectory' => $owncloudDataPath . '/metadata/files/Public/templates/partials');
-        $actualPathSet = Helper::invokeMethod($this->crateService, 'getReadmeTemplatePath', [$collection]);
+            'templateDirectory' => Config::$METADATA_ROOT_DIRECTORY . '/Public/templates',
+            'partialsDirectory' => Config::$METADATA_ROOT_DIRECTORY . '/Public/templates/partials');
+        $actualPathSet = TestHelper::invokeMethod($this->crateService, 'getReadmeTemplatePath', [$collection]);
         $this->assertEquals($expectedPathSet, $actualPathSet);
     }
 
@@ -74,11 +74,10 @@ class CollectionServiceTests extends TestCase{
         $collection->method('getMetadataSchema')->willReturn(file_get_contents(dirname(__FILE__) .
             '/examples/metadata-definition/collection_v1.0.json'));
 
-        $owncloudDataPath = ''; // keep owncloud datapath blank since it is mocked out in Util.php
         $expectedPathSet = array('templateName' => 'collections_basic_readme.html.mustache',
-            'templateDirectory' => $owncloudDataPath . '/metadata/files/Public/templates',
-            'partialsDirectory' => $owncloudDataPath . '/metadata/files/Public/templates/partials');
-        $actualPathSet = Helper::invokeMethod($this->crateService, 'getReadmeTemplatePath', [$collection]);
+            'templateDirectory' => Config::$METADATA_ROOT_DIRECTORY . '/Public/templates',
+            'partialsDirectory' => Config::$METADATA_ROOT_DIRECTORY . '/Public/templates/partials');
+        $actualPathSet = TestHelper::invokeMethod($this->crateService, 'getReadmeTemplatePath', [$collection]);
         $this->assertEquals($expectedPathSet, $actualPathSet);
     }
 

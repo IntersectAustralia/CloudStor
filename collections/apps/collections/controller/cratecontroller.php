@@ -209,27 +209,21 @@ class CrateController extends Controller {
     }
 
     /**
-     * Updates a saved metadata occurrence for a crate
+     * Saves collection metadata
      * @Ajax
      * @NoAdminRequired
      */
-    public function updateCrateMetadataOccurrence() {
+    public function saveMetadata(){
         \OCP\Util::writeLog('collections', __METHOD__, \OCP\Util::DEBUG);
         try {
             $crateId = $this->params('crate_id');
             $this->validateCrateAuthorization($crateId);
-            $categoryId = $this->params('category_id');
-            $groupId = $this->params('group_id');
-            $groupOccurrenceId = $this->params('group_occurrence_id');
-            $fieldId = $this->params('field_id');
-            $fieldOccurrenceId = $this->params('field_occurrence_id');
-            $value = $this->params('value');
-            $this->crateService->updateCrateMetadataOccurrence($crateId, $categoryId, $groupId, $groupOccurrenceId, $fieldId, $fieldOccurrenceId, $value);
-            return new JSONResponse(array('msg' => "collection metadata occurrence successfully updated"));
+            $this->crateService->saveCollectionMetadata($crateId, $this->params('metadata'));
+            return new JSONResponse(array('msg' => "Collection metadata saved"));
         } catch (\Exception $e) {
-            \OCP\Util::writeLog('collections', "Cannot update collection metadata occurrence {$e->getMessage()} : {$e->getTraceAsString()}", \OCP\Util::ERROR);
+            \OCP\Util::writeLog('collections', "Cannot save collection metadata {$e->getMessage()} : {$e->getTraceAsString()}", \OCP\Util::ERROR);
             $status = ($e->getCode() == Http::STATUS_UNAUTHORIZED) ? Http::STATUS_UNAUTHORIZED : Http::STATUS_INTERNAL_SERVER_ERROR;
-            $msg = "Unable to updated saved collection metadata";
+            $msg = "Unable to save collection metadata";
             if ($e instanceof CollectionsException) {
                 $msg = $e->getMessage();
             }
@@ -237,60 +231,6 @@ class CrateController extends Controller {
         }
     }
 
-    /**
-     * Deletes a saved metadata occurrence from a crate
-     * @Ajax
-     * @NoAdminRequired
-     */
-    public function deleteCrateMetadataOccurrence() {
-        \OCP\Util::writeLog('collections', __METHOD__, \OCP\Util::DEBUG);
-        try {
-            $crateId = $this->params('crate_id');
-            $this->validateCrateAuthorization($crateId);
-            $categoryId = $this->params('category_id');
-            $groupId = $this->params('group_id');
-            $groupOccurrenceId = $this->params('group_occurrence_id');
-            $fieldId = $this->params('field_id');
-            $fieldOccurrenceId = $this->params('field_occurrence_id');
-            $this->crateService->deleteCrateMetadataOccurrence($crateId, $categoryId, $groupId, $groupOccurrenceId, $fieldId, $fieldOccurrenceId);
-            return new JSONResponse(array('msg' => "collection metadata occurrence successfully deleted"));
-        } catch (\Exception $e) {
-            \OCP\Util::writeLog('collections', "Cannot delete collection metadata occurrence {$e->getMessage()} : {$e->getTraceAsString()}", \OCP\Util::ERROR);
-            $status = ($e->getCode() == Http::STATUS_UNAUTHORIZED) ? Http::STATUS_UNAUTHORIZED : Http::STATUS_INTERNAL_SERVER_ERROR;
-            $msg = "Unable to delete saved collection metadata";
-            if ($e instanceof CollectionsException) {
-                $msg = $e->getMessage();
-            }
-            return new JSONResponse(array('msg' => $msg), $status);
-        }
-    }
-
-    /**
-     * Deletes a saved metadata group occurrence from a crate
-     * @Ajax
-     * @NoAdminRequired
-     */
-    public function deleteCrateMetadataGroupOccurrence() {
-        \OCP\Util::writeLog('collections', __METHOD__, \OCP\Util::DEBUG);
-        try {
-            $crateId = $this->params('crate_id');
-            $this->validateCrateAuthorization($crateId);
-            $categoryId = $this->params('category_id');
-            $groupId = $this->params('group_id');
-            $groupOccurrenceId = $this->params('group_occurrence_id');
-            $this->crateService->deleteCrateMetadataGroupOccurrence($crateId, $categoryId, $groupId, $groupOccurrenceId);
-            return new JSONResponse(array('msg' => "collection metadata group occurrence successfully deleted"));
-        } catch (\Exception $e) {
-            \OCP\Util::writeLog('collections', "Cannot delete collection metadata group occurrence {$e->getMessage()} : {$e->getTraceAsString()}", \OCP\Util::ERROR);
-            $status = ($e->getCode() == Http::STATUS_UNAUTHORIZED) ? Http::STATUS_UNAUTHORIZED : Http::STATUS_INTERNAL_SERVER_ERROR;
-            $msg = "Unable to delete saved collection metadata group";
-            if ($e instanceof CollectionsException) {
-                $msg = $e->getMessage();
-            }
-            return new JSONResponse(array('msg' => $msg), $status);
-        }
-    }
-    
     /**
      * Create crate with name and description
      *
@@ -459,6 +399,7 @@ class CrateController extends Controller {
         $emailTemplateParams = array();
         $packagingJob = null;
         try {
+            ini_set('max_execution_time', 86400); /* If we can't zip it in a day... */
             $crateId = $this->params('crate_id');
             $this->validateCrateAuthorization($crateId);
             $collection = $this->crateService->getFullCrate($crateId);
@@ -561,6 +502,7 @@ class CrateController extends Controller {
         \OCP\Util::writeLog('collections', __METHOD__, \OCP\Util::DEBUG);
         $instituteId = Config::$INSTITUTE_ID;
         $schemaName = Config::$SCHEMA_NAME;
+        // ToDo: Lookup actual institute ID from AARNet rather than config file
         try {
             $schema = $this->crateService->getMetadataSchema($instituteId, $schemaName);
             return new JSONResponse($schema);

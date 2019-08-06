@@ -1,0 +1,13 @@
+<li><a href="CollectionData/{{path}}" target="_blank">{{name}}</a> {{#checksum}}<span class="checksum">(md5: {{checksum}})</span>{{/checksum}}</li>
+{{! Only have one <ul> for this directory }}
+{{#directoryContents.0}}
+    <ul>
+{{/directoryContents.0}}
+    {{! Recursively build the file tree }}
+    {{#directoryContents}}
+        {{> readme_file_tree}}
+    {{/directoryContents}}
+{{! Only have one </ul> for this directory }}
+{{#directoryContents.0}}
+    </ul>
+{{/directoryContents.0}}

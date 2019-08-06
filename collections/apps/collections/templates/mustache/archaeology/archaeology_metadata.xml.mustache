@@ -35,32 +35,30 @@
                 {{#artefacts}}
                     {{#occurrences}}
                         <collections:artefact>
-                            {{#.}}
-                                {{#metadataFields}}
-                                    {{#artefactid}}
+                            {{#metadataFields}}
+                                {{#artefactid}}
+                                    {{#occurrences}}
+                                        <collections:id>{{value}}</collections:id>
+                                    {{/occurrences}}
+                                {{/artefactid}}
+                                {{#description}}
+                                    {{#occurrences}}
+                                        <collections:description>{{value}}</collections:description>
+                                    {{/occurrences}}
+                                {{/description}}
+                                {{#datefound}}
+                                    {{#occurrences}}
+                                        <collections:date>{{value}}</collections:date>
+                                    {{/occurrences}}
+                                {{/datefound}}
+                                {{#keyword}}
+                                    <collections:keywords>
                                         {{#occurrences}}
-                                            <collections:id>{{value}}</collections:id>
+                                            <collections:keyword>{{value}}</collections:keyword>
                                         {{/occurrences}}
-                                    {{/artefactid}}
-                                    {{#description}}
-                                        {{#occurrences}}
-                                            <collections:description>{{value}}</collections:description>
-                                        {{/occurrences}}
-                                    {{/description}}
-                                    {{#datefound}}
-                                        {{#occurrences}}
-                                            <collections:date>{{value}}</collections:date>
-                                        {{/occurrences}}
-                                    {{/datefound}}
-                                    {{#keyword}}
-                                        <collections:keywords>
-                                            {{#occurrences}}
-                                                <collections:keyword>{{value}}</collections:keyword>
-                                            {{/occurrences}}
-                                        </collections:keywords>
-                                    {{/keyword}}
-                                {{/metadataFields}}
-                            {{/.}}
+                                    </collections:keywords>
+                                {{/keyword}}
+                            {{/metadataFields}}
                         </collections:artefact>
                     {{/occurrences}}
                 {{/artefacts}}

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A basic DCMI Terms record.  DCMI Type vocabulary and syntax encoding. -->
+
+<metadata xmlns:dc="http://purl.org/dc/elements/1.1/"
+          xmlns:dcterms="http://purl.org/dc/terms/"
+          xmlns:dcmitype="http://purl.org/dc/dcmitype/"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    {{#metadataCategories}}
+        {{#categoryParties}}
+            {{#metadataFields}}
+                <!-- Creator Name -->
+                {{#pCreatorName.occurrences}}
+                    <dc:creator>{{value}}</dc:creator>
+                {{/pCreatorName.occurrences}}
+
+                <!-- Contributor Name -->
+                {{#pContributorName.occurrences}}
+                    <dc:contributor>{{value}}</dc:contributor>
+                {{/pContributorName.occurrences}}
+
+                <!-- Publisher Name -->
+                {{#pPublisherName.occurrences}}
+                    <dc:publisher>{{value}}</dc:publisher>
+                {{/pPublisherName.occurrences}}
+            {{/metadataFields}}
+        {{/categoryParties}}
+
+        {{#categoryDescription}}
+            {{#metadataFields}}
+                <!-- Title -->
+                {{#deTitle.occurrences}}
+                    <dc:title>{{value}}</dc:title>
+                {{/deTitle.occurrences}}
+
+                <!-- Date Issued -->
+                {{#deDateIssued.occurrences}}
+                    <dcterms:issued xsi:type="dcterms:W3CDTF">{{value}}</dcterms:issued>
+                {{/deDateIssued.occurrences}}
+
+                <!-- Date Created -->
+                {{#deDateCreated.occurrences}}
+                    <dcterms:created>{{value}}</dcterms:created>
+                {{/deDateCreated.occurrences}}
+
+                <!-- Description -->
+                {{#deDescription.occurrences}}
+                    <dc:description>{{value}}</dc:description>
+                {{/deDescription.occurrences}}
+
+                <!-- Identifier -->
+                {{#deIdentifier.occurrences}}
+                    <dc:identifier>{{value}}</dc:identifier>
+                {{/deIdentifier.occurrences}}
+
+                <!-- DOI -->
+                {{#deDOI.occurrences}}
+                    <dc:identifier xsi:type="dcterms:URI">{{value}}</dc:identifier>
+                {{/deDOI.occurrences}}
+
+                <!-- Subject -->
+                {{#deSubject.occurrences}}
+                    <dc:subject>{{value}}</dc:subject>
+                {{/deSubject.occurrences}}
+
+                <!-- ANZSRC FOR -->
+                {{#deAnzsrcFOR.occurrences}}
+                    <dc:subject>{{value}}</dc:subject>
+                {{/deAnzsrcFOR.occurrences}}
+
+                <!-- ANZSRC SEO -->
+                {{#deAnzsrcSEO.occurrences}}
+                    <dc:subject>{{value}}</dc:subject>
+                {{/deAnzsrcSEO.occurrences}}
+            {{/metadataFields}}
+
+            {{#metadataGroups}}
+                {{#deCoverage.occurrences}}
+                    {{#metadataFields}}
+                        <!-- Temporal Coverage -->
+                        {{#dcoTemporalCoverage.occurrences}}
+                            <dc:coverage>{{value}}</dc:coverage>
+                        {{/dcoTemporalCoverage.occurrences}}
+
+                        <!-- Date From -->
+                        {{#dcoDateFrom.occurrences}}
+                            <dc:coverage xsi:type="dcterms:W3CDTF">{{value}}</dc:coverage>
+                        {{/dcoDateFrom.occurrences}}
+
+                        <!-- Date To -->
+                        {{#dcoDateTo.occurrences}}
+                            <dc:coverage xsi:type="dcterms:W3CDTF">{{value}}</dc:coverage>
+                        {{/dcoDateTo.occurrences}}
+
+                        <!-- Spatial Coverage -->
+                        {{#dcoSpatialCoverageLatitude.occurrences}}
+                            {{#value}}
+                                <dc:coverage xsi:type="dcterms:Point">{{.}}, {{dcoSpatialCoverageLongitude.occurrences.0.value}}</dc:coverage>
+                            {{/value}}
+                        {{/dcoSpatialCoverageLatitude.occurrences}}
+                    {{/metadataFields}}
+                {{/deCoverage.occurrences}}
+            {{/metadataGroups}}
+
+            {{#metadataFields}}
+                <!-- Format -->
+                {{#deFormat.occurrences}}
+                    <dcterms:FileFormat>{{value}}</dcterms:FileFormat>
+                {{/deFormat.occurrences}}
+
+                <!-- Object Type -->
+                {{#deObjectType.occurrences}}
+                    <dc:type xsi:type="dcterms:DCMIType">{{value}}</dc:type>
+                {{/deObjectType.occurrences}}
+
+                <!-- Language -->
+                {{#deLanguage.occurrences}}
+                    <dc:language xsi:type="dcterms:ISO639-3">{{value}}</dc:language>
+                {{/deLanguage.occurrences}}
+
+                <!-- Related Object -->
+                {{#deRelatedObject.occurrences}}
+                    <dc:relation>{{value}}</dc:relation>
+                {{/deRelatedObject.occurrences}}
+
+            {{/metadataFields}}
+        {{/categoryDescription}}
+
+        {{#categoryRights}}
+            {{#metadataFields}}
+                <!-- Rights -->
+                {{#riRightsInfo.occurrences}}
+                    <dc:rights>{{value}}</dc:rights>
+                {{/riRightsInfo.occurrences}}
+
+                <!-- Rights URI -->
+                {{#riRightsURI.occurrences}}
+                    <dc:rights xsi:type="dcterms:URI">{{value}}</dc:rights>
+                {{/riRightsURI.occurrences}}
+
+                <!-- Access Rights -->
+                {{#riAccessRights.occurrences}}
+                    <dcterms:accessRights>{{value}}</dcterms:accessRights>
+                {{/riAccessRights.occurrences}}
+
+                <!-- Licence -->
+                {{#riLicense.occurrences}}
+                    <dcterms:license>{{value}}</dcterms:license>
+                {{/riLicense.occurrences}}
+
+                <!-- Licence URI -->
+                {{#riLicenseURI.occurrences}}
+                    <dcterms:license xsi:type="dcterms:URI">{{value}}</dcterms:license>
+                {{/riLicenseURI.occurrences}}
+            {{/metadataFields}}
+        {{/categoryRights}}
+    {{/metadataCategories}}
+</metadata>

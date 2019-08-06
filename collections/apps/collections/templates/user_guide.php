@@ -28,8 +28,6 @@
         <div id="app-content">
             <div id="app-content-wrapper">
                 <div class="page-content">
-                    <div class="header"></div>
-
                     <div class="help-section">
                         <h2>Creating Collection</h2>
                         <p>By default every user will have a Collection named ‘New Collection’. You can rename this Collection to a more relevant name or you can create a new Collection using the ‘+’ button. Collection names must be unique. At the time of creation you can select a metadata schema, which will determine the set metadata fields that can be used to describe your Collection.</p>
@@ -47,18 +45,18 @@
 
                     <div class="help-section">
                         <h2>Renaming Collection</h2>
-                        <p>If you hover over the Collection name you will see an action named ‘Rename Collection’. The Collection name must be unique.</p>
+                        <p>You can rename a Collection by selecting the 'Rename' button in the top bar. The updated Collection name must be unique.</p>
                     </div>
 
                     <div class="help-section">
                         <h2>Organising Collection Files/Folders</h2>
-                        <p>Any file/folder added to a Collection can be renamed or moved via drag and drop in the Collections App. You also have the option to create new folders via the  ‘Add folder Item’ action that is displayed when you hover over a folder in Collections. Please note, that any changes to files/folders in your Collection will not affect your original files in the Files view. This means you can use Collections to organise your research data in a different way, with different folders and file names, from your original data.</p>
+                        <p>Any file/folder added to a Collection can be renamed or moved via drag and drop in the Collections App. You also have the option to create new folders via the  ‘Add folder Item’ action that is displayed when you hover the ellipsis(...) for any folder in the Collection. Please note, that any changes to files/folders in your Collection will not affect your original files in the Files view. This means you can use Collections to organise your research data in a different way, with different folders and file names, from your original data.</p>
                     </div>
 
                     <div class="help-section">
                         <h2>Adding Collection Metadata</h2>
                         <p>Collection metadata can be added via the right hand side panel. Each of the categories can be expanded to show the metadata fields. Please note that some metadata fields are mandatory and you cannot package or export your metadata unless they have been filled.</p>
-                        <p>Some fields are repeatable; for example you can have more than one Description. If a field is repeatable, it will have a ‘+’ icon next to it. Simply click this to add more of that field.</p>
+                        <p>Some fields are repeatable; for example you can have more than one Description. If a field is repeatable, it will have a button below it. Simply click this button to add repeats of that field. Please  note that the seperator between the files and metadata panel is adjustable and can be used to adjust the width of each panel to suit your preference.</p>
                     </div>
 
                     <div class="help-section">
@@ -74,7 +72,7 @@
 
                     <div class="help-section">
                         <h2>Packaging Collection</h2>
-                        <p>You can package your Collection to a CloudStor location of your choice by clicking ‘Package’. As part of the packaging process Collections will initially check the files in the Collection are still valid. The Collection will be packaged to your Files and will be a ZIP file named after your Collection name. The packaged Collection will contain your Collection files and metadata. Please ensure that you have adequate quota (at least your Collection size) for the packaged ZIP before packaging otherwise the packaging process will fail. The packaging process may take a few mins or up to an hour depending on the Collection size. The packaging process runs in the background so feel free to logout and you will receive an email notification notification once it’s complete.</p>
+                        <p>You can package your Collection to a CloudStor location of your choice by clicking ‘Package’. As part of the packaging process Collections will initially check the files in the Collection are still valid. The Collection will be packaged to your Files and will be a ZIP file named after your Collection name. The packaged Collection will contain your Collection files and metadata. Please ensure that you have adequate quota (at least your Collection size) for the packaged ZIP before packaging otherwise the packaging process will fail. The packaging process may take a few mins or up to an hour depending on the Collection size. The packaging process runs in the background so feel free to logout and you will receive an email notification once it’s complete.</p>
                     </div>
 
                     <div class="help-section">

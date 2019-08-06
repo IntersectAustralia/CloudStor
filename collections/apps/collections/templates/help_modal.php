@@ -28,7 +28,7 @@
 
       <div class="modal-body">
         <section>
-          <p>Collections has been developed through a collaboration between AARNET, and Intersect Australia Ltd.</p>
+          <p>Collections has been developed through a collaboration between AARNET, Western Sydney University and Intersect Australia Ltd.</p>
         </section>
         <p>Version: <?php p(\OCP\App::getAppVersion('collections')); ?></p>
       </div>

@@ -20,7 +20,7 @@
 namespace OCA\collections\Tests;
 
 
-class Helper {
+class TestHelper {
 
 
     /**

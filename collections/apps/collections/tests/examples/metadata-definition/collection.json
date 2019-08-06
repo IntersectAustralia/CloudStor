@@ -68,6 +68,7 @@
           "metadata_group":{
             "id":"collectionInformation",
             "display_name":"Collection Information",
+            "occurrence_display_name":null,
             "description":"Collection information",
             "tooltip":null,
             "min_occurs":1,
@@ -215,6 +216,7 @@
           "metadata_group":{
             "id":"contact",
             "display_name":"Primary Contact",
+            "occurrence_display_name":null,
             "description":"Primary Contact",
             "tooltip":"The person primarily responsible for handling enquiries and arranging access to the data set",
             "min_occurs":0,
@@ -361,7 +363,8 @@
           "type":"metadata_group",
           "metadata_group":{
             "id":"creators",
-            "display_name":"Creator",
+            "display_name":"Creators",
+            "occurrence_display_name":"Creator",
             "description":"Creator",
             "tooltip":"The person or persons primarily responsible for contributing to the creation of the data set",
             "min_occurs":1,
@@ -509,6 +512,7 @@
           "metadata_group":{
             "id":"researchGrants",
             "display_name":"Grants",
+            "occurrence_display_name":"Grant",
             "description":"Grants",
             "tooltip":"Details of any grants of funding supporting the creation of this data set",
             "min_occurs":0,

@@ -1,3 +1,4 @@
+{{% FILTERS }}
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:collections="https://schema.intersect.org.au/Collections/metadata/1.0/schema.xsd">
     <instituteDetails>
@@ -6,7 +7,10 @@
     </instituteDetails>
     <licence>Some licence</licence>
     <collections:identifier>{{package.guid}}</collections:identifier>
-    <myCollectionSize>{{package.size}}</myCollectionSize>
+    <myCollectionSize>
+        <orginal-value>{{package.size}}</orginal-value>
+        <format-humanFileSize>{{package.size | format.humanFileSize}}</format-humanFileSize>
+    </myCollectionSize>
     <myCollectionPublishDate>{{package.date.iso}}</myCollectionPublishDate>
     <myCollectionVersionInfo>{{package.description}}</myCollectionVersionInfo>
 
@@ -16,7 +20,11 @@
             {{#metadataFields}}
                 {{#title}}
                     {{#occurrences}}
-                        <dc:title>{{value}}</dc:title>
+                        <dc:title>
+                            <original-value>{{value}}</original-value>
+                            <format-case-upper>{{value | format.case.upper}}</format-case-upper>
+                            <format-case-lower>{{value | format.case.lower}}</format-case-lower>
+                        </dc:title>
                     {{/occurrences}}
                 {{/title}}
                 {{#description}}
@@ -24,6 +32,18 @@
                         <dc:description>{{value}}</dc:description>
                     {{/occurrences}}
                 {{/description}}
+                {{#monetary}}
+                    {{#occurrences}}
+                        <test:monetary>
+                            <original-value>{{value}}</original-value>
+                            <format-currency-default>{{value | format.currency.default}}</format-currency-default>
+                            <format-currency-AU>{{value | format.currency.AU}}</format-currency-AU>
+                            <format-currency-US>{{value | format.currency.US}}</format-currency-US>
+                            <format-currency-GB>{{value | format.currency.GB}}</format-currency-GB>
+                            <format-currency-EU>{{value | format.currency.EU}}</format-currency-EU>
+                        </test:monetary>
+                    {{/occurrences}}
+                {{/monetary}}
                 {{#language}}
                     {{#occurrences}}
                         <dc:language>{{value}}</dc:language>
@@ -49,30 +69,28 @@
                 {{#creators}}
                     {{#occurrences}}
                         <creators>
-                            {{#.}}
-                                {{#metadataFields}}
-                                    {{#given_name}}
-                                        {{#occurrences}}
-                                            <givenName>{{value}}</givenName>
-                                        {{/occurrences}}
-                                    {{/given_name}}
-                                    {{#phone}}
-                                        {{#occurrences}}
-                                            <phone>{{value}}</phone>
-                                        {{/occurrences}}
-                                    {{/phone}}
-                                    {{#email}}
-                                        {{#occurrences}}
-                                            <email>{{value}}</email>
-                                        {{/occurrences}}
-                                    {{/email}}
-                                    {{#dateOfBirth}}
-                                        {{#occurrences}}
-                                            <dc:date>{{value}}</dc:date>
-                                        {{/occurrences}}
-                                    {{/dateOfBirth}}
-                                {{/metadataFields}}
-                            {{/.}}
+                            {{#metadataFields}}
+                                {{#given_name}}
+                                    {{#occurrences}}
+                                        <givenName>{{value}}</givenName>
+                                    {{/occurrences}}
+                                {{/given_name}}
+                                {{#phone}}
+                                    {{#occurrences}}
+                                        <phone>{{value}}</phone>
+                                    {{/occurrences}}
+                                {{/phone}}
+                                {{#email}}
+                                    {{#occurrences}}
+                                        <email>{{value}}</email>
+                                    {{/occurrences}}
+                                {{/email}}
+                                {{#dateOfBirth}}
+                                    {{#occurrences}}
+                                        <dc:date>{{value}}</dc:date>
+                                    {{/occurrences}}
+                                {{/dateOfBirth}}
+                            {{/metadataFields}}
                         </creators>
                     {{/occurrences}}
                 {{/creators}}
@@ -98,20 +116,18 @@
                 {{#embargo}}
                     {{#occurrences}}
                         <embargo>
-                            {{#.}}
-                                {{#metadataFields}}
-                                    {{#embargoDetails}}
-                                        {{#occurrences}}
-                                            <embargoDetails>{{value}}</embargoDetails>
-                                        {{/occurrences}}
-                                    {{/embargoDetails}}
-                                    {{#retention}}
-                                        {{#occurrences}}
-                                            <retentionPeriod>{{value}}</retentionPeriod>
-                                        {{/occurrences}}
-                                    {{/retention}}
-                                {{/metadataFields}}
-                            {{/.}}
+                            {{#metadataFields}}
+                                {{#embargoDetails}}
+                                    {{#occurrences}}
+                                        <embargoDetails>{{value}}</embargoDetails>
+                                    {{/occurrences}}
+                                {{/embargoDetails}}
+                                {{#retention}}
+                                    {{#occurrences}}
+                                        <retentionPeriod>{{value}}</retentionPeriod>
+                                    {{/occurrences}}
+                                {{/retention}}
+                            {{/metadataFields}}
                         </embargo>
                     {{/occurrences}}
                 {{/embargo}}
@@ -122,7 +138,13 @@
             {{#metadataFields}}
                 {{#currentDate}}
                     {{#occurrences}}
-                        <dc:date>{{value}}</dc:date>
+                        <dc:date>
+                            <original-value>{{value}}</original-value>
+                            <format-date-iso-8601>{{value | format.date.iso-8601 }}</format-date-iso-8601>
+                            <format-date-short>{{value | format.date.short }}</format-date-short>
+                            <format-date-mid>{{value | format.date.mid }}</format-date-mid>
+                            <format-date-long>{{value | format.date.long }}</format-date-long>
+                        </dc:date>
                     {{/occurrences}}
                 {{/currentDate}}
                 {{#additionalDates}}
@@ -137,6 +159,21 @@
                 {{/noDefaultDate}}
             {{/metadataFields}}
         {{/dates}}
+
+        {{#selections}}
+            {{#metadataFields}}
+                {{#someSingleSelect}}
+                        {{#occurrences}}
+                            <selection>{{value}}</selection>
+                        {{/occurrences}}
+                {{/someSingleSelect}}
+                {{#anotherSingleSelect}}
+                        {{#occurrences}}
+                            <selection>{{value}}</selection>
+                        {{/occurrences}}
+                {{/anotherSingleSelect}}
+            {{/metadataFields}}
+        {{/selections}}
 
     {{/metadataCategories}}
 </metadata>

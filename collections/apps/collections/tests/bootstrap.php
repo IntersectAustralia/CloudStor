@@ -1,3 +1,3 @@
 <?php
 
-include_once('tests/TestHelper.php');
+include_once(__DIR__.'/TestHelper.php');

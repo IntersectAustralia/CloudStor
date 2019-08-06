@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A basic Dublin Core Elements v1.1 record.  No vocabularies or syntax included. -->
+
+<metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+    {{#metadataCategories}}
+        {{#categoryParties}}
+            {{#metadataFields}}
+                <!-- Creator Name -->
+                {{#pCreatorName.occurrences}}
+                    <dc:creator>{{value}}</dc:creator>
+                {{/pCreatorName.occurrences}}
+
+                <!-- Contributor Name -->
+                {{#pContributorName.occurrences}}
+                    <dc:contributor>{{value}}</dc:contributor>
+                {{/pContributorName.occurrences}}
+
+                <!-- Publisher Name -->
+                {{#pPublisherName.occurrences}}
+                    <dc:publisher>{{value}}</dc:publisher>
+                {{/pPublisherName.occurrences}}
+            {{/metadataFields}}
+        {{/categoryParties}}
+
+        {{#categoryDescription}}
+            {{#metadataFields}}
+                <!-- Title -->
+                {{#deTitle.occurrences}}
+                    <dc:title>{{value}}</dc:title>
+                {{/deTitle.occurrences}}
+
+                <!-- Date Issued -->
+                {{#deDateIssued.occurrences}}
+                    <dc:date>{{value}}</dc:date>
+                {{/deDateIssued.occurrences}}
+
+                <!-- Date Created -->
+                {{#deDateCreated.occurrences}}
+                    <dc:date>{{value}}</dc:date>
+                {{/deDateCreated.occurrences}}
+
+                <!-- Description -->
+                {{#deDescription.occurrences}}
+                    <dc:description>{{value}}</dc:description>
+                {{/deDescription.occurrences}}
+
+                <!-- Identifier -->
+                {{#deIdentifier.occurrences}}
+                    <dc:identifier>{{value}}</dc:identifier>
+                {{/deIdentifier.occurrences}}
+
+                <!-- DOI -->
+                {{#deDOI.occurrences}}
+                    <dc:identifier>{{value}}</dc:identifier>
+                {{/deDOI.occurrences}}
+
+                <!-- Subject -->
+                {{#deSubject.occurrences}}
+                    <dc:subject>{{value}}</dc:subject>
+                {{/deSubject.occurrences}}
+
+                <!-- ANZSRC FOR -->
+                {{#deAnzsrcFOR.occurrences}}
+                    <dc:subject>{{value}}</dc:subject>
+                {{/deAnzsrcFOR.occurrences}}
+
+                <!-- ANZSRC SEO -->
+                {{#deAnzsrcSEO.occurrences}}
+                    <dc:subject>{{value}}</dc:subject>
+                {{/deAnzsrcSEO.occurrences}}
+            {{/metadataFields}}
+
+            {{#metadataGroups}}
+                {{#deCoverage.occurrences}}
+                    {{#metadataFields}}
+                        <!-- Temporal Coverage -->
+                        {{#dcoTemporalCoverage.occurrences}}
+                            <dc:coverage>{{value}}</dc:coverage>
+                        {{/dcoTemporalCoverage.occurrences}}
+
+                        <!-- Date From -->
+                        {{#dcoDateFrom.occurrences}}
+                            <dc:coverage>{{value}}</dc:coverage>
+                        {{/dcoDateFrom.occurrences}}
+
+                        <!-- Date To -->
+                        {{#dcoDateTo.occurrences}}
+                            <dc:coverage>{{value}}</dc:coverage>
+                        {{/dcoDateTo.occurrences}}
+
+                        <!-- Spatial Coverage -->
+                        {{#dcoSpatialCoverage.occurrences}}
+                            <dc:coverage>{{value}}</dc:coverage>
+                        {{/dcoSpatialCoverage.occurrences}}
+                    {{/metadataFields}}
+                {{/deCoverage.occurrences}}
+            {{/metadataGroups}}
+
+            {{#metadataFields}}
+                <!-- Format -->
+                {{#deFormat.occurrences}}
+                    <dc:format>{{value}}</dc:format>
+                {{/deFormat.occurrences}}
+
+                <!-- Object Type -->
+                {{#deObjectType.occurrences}}
+                    <dc:type>{{value}}</dc:type>
+                {{/deObjectType.occurrences}}
+
+                <!-- Language -->
+                {{#deLanguage.occurrences}}
+                    <dc:language>{{value}}</dc:language>
+                {{/deLanguage.occurrences}}
+
+                <!-- Related Object -->
+                {{#deRelatedObject.occurrences}}
+                    <dc:relation>{{value}}</dc:relation>
+                {{/deRelatedObject.occurrences}}
+
+            {{/metadataFields}}
+        {{/categoryDescription}}
+
+        {{#categoryRights}}
+            {{#metadataFields}}
+                <!-- Rights -->
+                {{#riRightsInfo.occurrences}}
+                    <dc:rights>{{value}}</dc:rights>
+                {{/riRightsInfo.occurrences}}
+
+                <!-- Rights URI -->
+                {{#riRightsURI.occurrences}}
+                    <dc:rights>{{value}}</dc:rights>
+                {{/riRightsURI.occurrences}}
+            {{/metadataFields}}
+        {{/categoryRights}}
+    {{/metadataCategories}}
+</metadata>

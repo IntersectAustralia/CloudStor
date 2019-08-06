@@ -128,7 +128,7 @@
             "additionalProperties": false
         },
         "metadata_categories": {
-            "title": "Crate metadata categories",
+            "title": "Collection metadata categories",
             "description": "A set of metadata categories to display within the application metadata UI",
             "type": "array",
             "items": { "$ref": "#/definitions/metadata_category" }
@@ -138,8 +138,8 @@
 
     "definitions": {
         "metadata_category": {
-            "title": "Crate metadata category",
-            "description": "A category of metadata which describes the crate",
+            "title": "Collection metadata category",
+            "description": "A category of metadata which describes the collection",
             "type": "object",
             "required": [
                 "id",
@@ -270,6 +270,11 @@
                             "description": "A set of metadata fields to be displayed within this metadata group",
                             "type": "array",
                             "items": { "$ref": "#/definitions/metadata_field" }
+                        },
+                        "occurrence_display_name": {
+                            "title": "Group occurrence display name",
+                            "description": "Display name to use for an occurrence of the group",
+                            "type": ["string", "null"]
                         }
                     }
                 }
@@ -277,6 +282,7 @@
             "properties": {
                 "id": {},
                 "display_name": {},
+                "occurrence_display_name": {},
                 "description": {},
                 "tooltip": {},
                 "min_occurs": {},
@@ -288,7 +294,7 @@
 
         "metadata_field": {
             "title": "Metadata field",
-            "description": "A field of metadata which describes the crate",
+            "description": "A field of metadata which describes the collection",
             "allOf": [
                 { "$ref": "#/definitions/metadata_node" },
                 {
@@ -299,7 +305,7 @@
                     "properties": {
                         "mandatory": {
                             "title": "Required field indicator",
-                            "description": "Indicates whether this metadata field is required in order for the crate metadata to be considered valid",
+                            "description": "Indicates whether this metadata field is required in order for the collection metadata to be considered valid",
                             "type": "boolean"
                         },
                         "field": { "$ref": "#/definitions/field" }
@@ -331,16 +337,18 @@
                     "title": "Metadata field display type",
                     "description": "The type of metadata field to display",
                     "type": "string",
-                    "enum": ["text_field", "date_field"]
+                    "enum": ["text_field", "number_field", "date_field", "single_select_field"]
                 }
             },
             "patternProperties": {
-                "^(text|date)_field$": {
+                "^(text|number|date|single_select)_field$": {
                     "title": "Metadata field display type specification",
                     "description": "Specification of the previously selected metadata field display type",
                     "oneOf": [
                         { "$ref": "#/definitions/text_field" },
-                        { "$ref": "#/definitions/date_field" }
+                        { "$ref": "#/definitions/number_field" },
+                        { "$ref": "#/definitions/date_field" },
+                        { "$ref": "#/definitions/single_select_field" }
                     ]
                 }
             },
@@ -368,14 +376,42 @@
                 },
                 "placeholder": {
                     "title": "Text field placeholder",
-                    "description": "Placeholder value to intially display within the text field",
-                    "type": "string",
-                    "pattern": "^[a-zA-Z0-9_ \\s\\.-]*$"
+                    "description": "Placeholder value to initially display within the text field",
+                    "type": "string"
                 },
                 "value": {
                     "title": "Text field default value",
                     "description": "Default textual value to populate the text field with upon creation",
                     "type": ["string", "null"]
+                },
+                "num_rows": {
+                    "title": "Text Area Rows",
+                    "description": "Number of rows to display in the text field",
+                    "type": "integer",
+                    "pattern": "^[1-9]{1}[0-9]*$"
+                }
+            },
+            "additionalProperties": false
+        },
+
+        "number_field": {
+            "title": "Number based metadata field",
+            "description": "Specification of number field properties",
+            "type": "object",
+            "required": [
+                "placeholder",
+                "value"
+            ],
+            "properties": {
+                "placeholder": {
+                    "title": "Number field placeholder",
+                    "description": "Placeholder value to initially display within the number field",
+                    "type": "string"
+                },
+                "value": {
+                    "title": "Number field default value",
+                    "description": "Default number value to populate the field with upon creation",
+                    "type": ["number", "null"]
                 }
             },
             "additionalProperties": false
@@ -411,6 +447,32 @@
                 }
             },
             "additionalProperties": false
+        },
+
+        "single_select_field": {
+            "title": "Single select metadata field",
+            "description": "Specification of single select metadata field properties",
+            "type": "object",
+            "required": [
+                "options"
+            ],
+            "properties": {
+                "value": {
+                    "title": "Default selected value",
+                    "description": "Default value to have selected in the field upon creation, should match an option",
+                    "type": ["string", "null"]
+                },
+                "options": {
+                    "title": "Option set",
+                    "description": "Set of values to be available for selection",
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string",
+                        "minItems": 1
+                    }
+                }
+            }
         }
     }
 }

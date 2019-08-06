@@ -45,6 +45,21 @@ class OCCommonAPI {
     }
 
     /**
+     * Gets the display name of the currently logged in user.
+     *
+     * @return null|string
+     */
+    public static function getDisplayName() {
+        if(\OCP\Util::getVersion()[0] >= 8.1) {
+            $userId = \OC::$server->getUserSession()->getUser()->getUID();
+            $displayName = \OC::$server->getUserManager()->get($userId)->getDisplayName();
+        } else {
+            $displayName = \OCP\User::getDisplayName();
+        }
+        return $displayName;
+    }
+
+    /**
      * Gets the email address of the currently logged in user.
      *
      * @return null|string

@@ -37,7 +37,5 @@ return ['routes' => [
     ['name' => 'crate#check_crate', 'url' => '/crate/check', 'verb' => 'GET'],
     ['name' => 'crate#metadata_schema', 'url' => '/crate/metadata_schema', 'verb' => 'GET'],
     ['name' => 'crate#export_metadata', 'url' => '/crate/export_metadata', 'verb' => 'POST'],
-    ['name' => 'crate#update_crate_metadata_occurrence', 'url' => '/crate/update_occurrence', 'verb' => 'POST'],
-    ['name' => 'crate#delete_crate_metadata_occurrence', 'url' => '/crate/delete_occurrence', 'verb' => 'POST'],
-    ['name' => 'crate#delete_crate_metadata_group_occurrence', 'url' => '/crate/delete_group_occurrence', 'verb' => 'POST'],
+    ['name' => 'crate#save_metadata', 'url' => '/crate/save_metadata', 'verb' => 'POST']
 ]];

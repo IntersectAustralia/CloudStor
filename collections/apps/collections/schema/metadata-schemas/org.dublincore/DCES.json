@@ -1,0 +1,502 @@
+{
+  "id": "org.dublincore.DCES",
+  "display_name": "DCES",
+  "version": "1.0",
+  "scope": "org.dublincore",
+  "description": "Unqualified DC Schema based on Dublin Core Metadata Element Set, Version 1.1 (http://dublincore.org/documents/dces/)",
+  "readme_template": {
+    "template_directory": "org.dublincore\/templates",
+    "template_name": "DCES_readme.html.mustache",
+    "partials_directory": "org.dublincore\/templates\/partials"
+  },
+  "packaged_metadata_template": {
+    "template_directory": "org.dublincore\/templates",
+    "template_name": "DCES_packaged_metadata.xml.mustache",
+    "partials_directory": null
+  },
+  "exported_metadata_template": {
+    "template_directory": "org.dublincore\/templates",
+    "template_name": "DCES_exported_metadata.xml.mustache",
+    "partials_directory": null
+  },
+  "metadata_categories": [
+    {
+      "id": "categoryParties",
+      "display_name": "Parties",
+      "description": null,
+      "category_nodes": [
+        {
+          "type": "metadata_field",
+          "metadata_field": {
+            "id": "pCreatorName",
+            "display_name": "Creator Name",
+            "description": "The person primarily responsible for the creation of the data set",
+            "tooltip": "The person primarily responsible for the creation of the data set",
+            "mandatory": false,
+            "min_occurs": 1,
+            "max_occurs": 1,
+            "field": {
+              "type": "text_field",
+              "text_field": {
+                "char_limit": null,
+                "placeholder": "",
+                "value": null
+              }
+            }
+          }
+        },
+        {
+          "type": "metadata_field",
+          "metadata_field": {
+            "id": "pContributorName",
+            "display_name": "Contributor Name",
+            "description": "The persons involved in contributing to the creation of the data set",
+            "tooltip": "The persons involved in contributing to the creation of the data set",
+            "mandatory": false,
+            "min_occurs": 1,
+            "max_occurs": 1000,
+            "field": {
+              "type": "text_field",
+              "text_field": {
+                "char_limit": null,
+                "placeholder": "",
+                "value": null
+              }
+            }
+          }
+        },
+        {
+          "type": "metadata_field",
+          "metadata_field": {
+            "id": "pPublisherName",
+            "display_name": "Publisher Name",
+            "description": "The person responsible for the publication of the data set",
+            "tooltip": "The person responsible for the publication of the data set",
+            "mandatory": false,
+            "min_occurs": 1,
+            "max_occurs": 1000,
+            "field": {
+              "type": "text_field",
+              "text_field": {
+                "char_limit": null,
+                "placeholder": "",
+                "value": null
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "categoryDescription",
+      "display_name": "Description",
+      "description": null,
+      "category_nodes": [
+        {
+          "type":"metadata_field",
+          "metadata_field":
+          {
+            "id": "deTitle",
+            "display_name": "Title",
+            "description": "Name of the collection or dataset",
+            "tooltip": "Name of the collection or dataset",
+            "mandatory": true,
+            "min_occurs": 1,
+            "max_occurs": 1,
+            "field": {
+              "type": "text_field",
+              "text_field": {
+                "char_limit": null,
+                "placeholder": "",
+                "value": null
+              }
+            }
+          }
+        },
+        {
+          "type":"metadata_field",
+          "metadata_field":
+          {
+            "id": "deDateIssued",
+            "display_name": "Date Issued",
+            "description": "Date issued in ISO format",
+            "tooltip": "Date issued in ISO format",
+            "mandatory": false,
+            "min_occurs": 1,
+            "max_occurs": 1,
+            "field": {
+              "type": "date_field",
+              "date_field": {
+                "min_date": "1800-01-01",
+                "max_date": "2200-12-31",
+                "value": null
+              }
+            }
+          }
+        },
+        {
+          "type":"metadata_field",
+          "metadata_field":
+          {
+            "id": "deDateCreated",
+            "display_name": "Date Created",
+            "description": null,
+            "tooltip": null,
+            "mandatory": false,
+            "min_occurs": 1,
+            "max_occurs": 1,
+            "field": {
+              "type": "text_field",
+              "text_field": {
+                "char_limit": null,
+                "placeholder": "e.g. July-August 2017",
+                "value": null
+              }
+            }
+          }
+        },
+        {
+          "type":"metadata_field",
+          "metadata_field":
+          {
+            "id": "deDescription",
+            "display_name": "Description",
+            "description": "Collection description",
+            "tooltip": "Details about the contents of the data set",
+            "mandatory": true,
+            "min_occurs": 1,
+            "max_occurs": 1,
+            "field": {
+              "type": "text_field",
+              "text_field": {
+                "char_limit": null,
+                "placeholder": "",
+                "value": null
+              }
+            }
+          }
+        },
+        {
+          "type":"metadata_field",
+          "metadata_field":
+          {
+            "id": "deIdentifier",
+            "display_name": "Identifier",
+            "description": "Unique Handle identifying the dataset",
+            "tooltip": "Unique Identifier (e.g. 83tg3ud9d0)",
+            "mandatory": false,
+            "min_occurs": 1,
+            "max_occurs": 1,
+            "field": {
+              "type": "text_field",
+              "text_field": {
+                "char_limit": null,
+                "placeholder": "",
+                "value": null
+              }
+            }
+          }
+        },
+        {
+          "type":"metadata_field",
+          "metadata_field":
+          {
+            "id": "deDOI",
+            "display_name": "DOI",
+            "description": "DOI identifying the dataset",
+            "tooltip": "DOI (e.g. dx.doi.org/10.1060/xyz.abc)",
+            "mandatory": false,
+            "min_occurs": 1,
+            "max_occurs": 1,
+            "field": {
+              "type": "text_field",
+              "text_field": {
+                "char_limit": null,
+                "placeholder": "",
+                "value": null
+              }
+            }
+          }
+        },
+        {
+          "type":"metadata_field",
+          "metadata_field":
+          {
+            "id": "deSubject",
+            "display_name": "Subject",
+            "description": "Subject",
+            "tooltip": "Subject of dataset",
+            "mandatory": false,
+            "min_occurs": 1,
+            "max_occurs": 100,
+            "field": {
+              "type": "text_field",
+              "text_field": {
+                "char_limit": null,
+                "placeholder": "",
+                "value": null
+              }
+            }
+          }
+        },
+        {
+          "type":"metadata_field",
+          "metadata_field":
+          {
+            "id": "deAnzsrcFOR",
+            "display_name": "ANZSRC FOR",
+            "description": "ANZSRC Field of Research",
+            "tooltip": "ANZSRC Field of Research",
+            "mandatory": false,
+            "min_occurs": 1,
+            "max_occurs": 100,
+            "field": {
+              "type": "text_field",
+              "text_field": {
+                "char_limit": null,
+                "placeholder": "",
+                "value": null
+              }
+            }
+          }
+        },
+        {
+          "type":"metadata_field",
+          "metadata_field":
+          {
+            "id": "deAnzsrcSEO",
+            "display_name": "ANZSRC SEO",
+            "description": "ANZSRC Socio-Economic Objective",
+            "tooltip": "ANZSRC Socio-Economic Objective",
+            "mandatory": false,
+            "min_occurs": 1,
+            "max_occurs": 100,
+            "field": {
+              "type": "text_field",
+              "text_field": {
+                "char_limit": null,
+                "placeholder": "",
+                "value": null
+              }
+            }
+          }
+        },
+        {
+          "type": "metadata_group",
+          "metadata_group": {
+            "id": "deCoverage",
+            "display_name": "Coverage",
+            "occurrence_display_name": "Coverage",
+            "description": "Coverage",
+            "tooltip": "Coverage information relating to the data",
+            "min_occurs": 0,
+            "max_occurs": 10,
+            "metadata_fields": [
+              {
+                "id": "dcoTemporalCoverage",
+                "display_name": "Temporal Coverage",
+                "description": "Temporal Coverage",
+                "tooltip": "Temporal Coverage",
+                "mandatory": false,
+                "min_occurs": 1,
+                "max_occurs": 1,
+                "field": {
+                  "type": "text_field",
+                  "text_field": {
+                    "char_limit": null,
+                    "placeholder": "",
+                    "value": null
+                  }
+                }
+              },
+              {
+                "id": "dcoDateFrom",
+                "display_name": "Date From",
+                "description": "Date From",
+                "tooltip": "Date the data collection commenced",
+                "mandatory": false,
+                "min_occurs": 1,
+                "max_occurs": 1,
+                "field": {
+                  "type": "date_field",
+                  "date_field": {
+                    "min_date": "1800-01-01",
+                    "max_date": "2200-12-31",
+                    "value": null
+                  }
+                }
+              },
+              {
+                "id": "dcoDateTo",
+                "display_name": "Date To",
+                "description": "Date To",
+                "tooltip": "Date the data collection finished",
+                "mandatory": false,
+                "min_occurs": 1,
+                "max_occurs": 1,
+                "field": {
+                  "type": "date_field",
+                  "date_field": {
+                    "min_date": "1800-01-01",
+                    "max_date": "2200-12-31",
+                    "value": null
+                  }
+                }
+              },
+              {
+                "id": "dcoSpatialCoverage",
+                "display_name": "Spatial Coverage",
+                "description": "Geolocation of data collection",
+                "tooltip": "Location described as DCMIPoint (Lat,Long).",
+                "mandatory": false,
+                "min_occurs": 1,
+                "max_occurs": 1,
+                "field": {
+                  "type": "text_field",
+                  "text_field": {
+                    "char_limit": null,
+                    "placeholder": "e.g. -23.282872  12.8967",
+                    "value": null
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type":"metadata_field",
+          "metadata_field":
+          {
+            "id": "deFormat",
+            "display_name": "Format",
+            "description": "Format of Media",
+            "tooltip": "What format the data is in.  (e.g. text/csv)",
+            "mandatory": false,
+            "min_occurs": 1,
+            "max_occurs": 1,
+            "field": {
+              "type": "text_field",
+              "text_field": {
+                "char_limit": null,
+                "placeholder": "",
+                "value": null
+              }
+            }
+          }
+        },
+        {
+          "type":"metadata_field",
+          "metadata_field":
+          {
+            "id": "deObjectType",
+            "display_name": "Object Type",
+            "description": "Object Type",
+            "tooltip": "What type is the package [Collection/Dataset/Event]",
+            "mandatory": false,
+            "min_occurs": 1,
+            "max_occurs": 1,
+            "field": {
+              "type": "text_field",
+              "text_field": {
+                "char_limit": null,
+                "placeholder": "",
+                "value": null
+              }
+            }
+          }
+        },
+        {
+          "type":"metadata_field",
+          "metadata_field":
+          {
+            "id": "deLanguage",
+            "display_name": "Language",
+            "description": "Language",
+            "tooltip": "Language used in the data set",
+            "mandatory": false,
+            "min_occurs": 1,
+            "max_occurs": 1,
+            "field": {
+              "type": "text_field",
+              "text_field": {
+                "char_limit": null,
+                "placeholder": "",
+                "value": null
+              }
+            }
+          }
+        },
+        {
+          "type":"metadata_field",
+          "metadata_field":
+          {
+            "id": "deRelatedObject",
+            "display_name": "Related Object",
+            "description": "Related Object",
+            "tooltip": "Related Object",
+            "mandatory": false,
+            "min_occurs": 1,
+            "max_occurs": 1,
+            "field": {
+              "type": "text_field",
+              "text_field": {
+                "char_limit": null,
+                "placeholder": "",
+                "value": null
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "categoryRights",
+      "display_name": "Rights",
+      "description": null,
+      "category_nodes": [
+        {
+          "type":"metadata_field",
+          "metadata_field":
+          {
+            "id": "riRightsInfo",
+            "display_name": "Rights",
+            "description": "Rights Information",
+            "tooltip": "Rights Information",
+            "mandatory": true,
+            "min_occurs": 1,
+            "max_occurs": 1,
+            "field": {
+              "type": "text_field",
+              "text_field": {
+                "char_limit": null,
+                "placeholder": "",
+                "value": null
+              }
+            }
+          }
+        },
+        {
+          "type":"metadata_field",
+          "metadata_field":
+          {
+            "id": "riRightsURI",
+            "display_name": "Rights URI",
+            "description": "URI to Rights Information",
+            "tooltip": "URI to Rights Information",
+            "mandatory": false,
+            "min_occurs": 1,
+            "max_occurs": 1,
+            "field": {
+              "type": "text_field",
+              "text_field": {
+                "char_limit": null,
+                "placeholder": "",
+                "value": null
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

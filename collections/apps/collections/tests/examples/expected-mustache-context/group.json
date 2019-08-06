@@ -2,150 +2,94 @@
   "creators": {
     "displayName": "Creator",
     "occurrences": [
-      [
-        {
-          "metadataFields": [
-            {
-              "givenName": {
-                "displayName": "Given Name",
-                "occurrences": [
-                  {
-                    "value": "dave"
-                  }
-                ]
+      {
+        "metadataFields": {
+          "givenName": {
+            "displayName": "Given Name",
+            "occurrences": [
+              {
+                "value": "dave"
               }
-            }
-          ]
-        },
-        {
-          "metadataFields": [
-            {
-              "familyName": {
-                "displayName": "Family Name",
-                "occurrences": [
-                  {
-                    "value": "davidson"
-                  }
-                ]
+            ]
+          },
+          "familyName": {
+            "displayName": "Family Name",
+            "occurrences": [
+              {
+                "value": "davidson"
               }
-            }
-          ]
-        },
-        {
-          "metadataFields": [
-            {
-              "email": {
-                "displayName": "Email Address",
-                "occurrences": [
-                  {
-                    "value": "d@d.com"
-                  }
-                ]
+            ]
+          },
+          "email": {
+            "displayName": "Email Address",
+            "occurrences": [
+              {
+                "value": "d@d.com"
               }
-            }
-          ]
-        },
-        {
-          "metadataFields": [
-            {
-              "creatorAffiliation": {
-                "displayName": "Affiliated University or Institution",
-                "occurrences": [
-                  {
-                    "value": "Intersect"
-                  }
-                ]
+            ]
+          },
+          "creatorAffiliation": {
+            "displayName": "Affiliated University or Institution",
+            "occurrences": [
+              {
+                "value": "Intersect"
               }
-            }
-          ]
-        },
-        {
-          "metadataFields": [
-            {
-              "creatorOU": {
-                "displayName": "Faculty, School, Centre or Organisational Unit",
-                "occurrences": [
-                  {
-                    "value": "operations"
-                  }
-                ]
+            ]
+          },
+          "creatorOU": {
+            "displayName": "Faculty, School, Centre or Organisational Unit",
+            "occurrences": [
+              {
+                "value": "operations"
               }
-            }
-          ]
+            ]
+          }
         }
-      ],
-      [
-        {
-          "metadataFields": [
-            {
-              "givenName": {
-                "displayName": "Given Name",
-                "occurrences": [
-                  {
-                    "value": "bob"
-                  }
-                ]
+      },
+      {
+        "metadataFields": {
+          "givenName": {
+            "displayName": "Given Name",
+            "occurrences": [
+              {
+                "value": "bob"
               }
-            }
-          ]
-        },
-        {
-          "metadataFields": [
-            {
-              "familyName": {
-                "displayName": "Family Name",
-                "occurrences": [
-                  {
-                    "value": "bobson"
-                  }
-                ]
+            ]
+          },
+          "familyName": {
+            "displayName": "Family Name",
+            "occurrences": [
+              {
+                "value": "bobson"
               }
-            }
-          ]
-        },
-        {
-          "metadataFields": [
-            {
-              "email": {
-                "displayName": "Email Address",
-                "occurrences": [
-                  {
-                    "value": "b@b.com"
-                  }
-                ]
+            ]
+          },
+          "email": {
+            "displayName": "Email Address",
+            "occurrences": [
+              {
+                "value": "b@b.com"
               }
-            }
-          ]
-        },
-        {
-          "metadataFields": [
-            {
-              "creatorAffiliation": {
-                "displayName": "Affiliated University or Institution",
-                "occurrences": [
-                  {
-                    "value": "Intersect"
-                  }
-                ]
+            ]
+          },
+          "creatorAffiliation": {
+            "displayName": "Affiliated University or Institution",
+            "occurrences": [
+              {
+                "value": "Intersect"
               }
-            }
-          ]
-        },
-        {
-          "metadataFields": [
-            {
-              "creatorOU": {
-                "displayName": "Faculty, School, Centre or Organisational Unit",
-                "occurrences": [
-                  {
-                    "value": "ERA"
-                  }
-                ]
+            ]
+          },
+          "creatorOU": {
+            "displayName": "Faculty, School, Centre or Organisational Unit",
+            "occurrences": [
+              {
+                "value": "ERA"
               }
-            }
-          ]
+            ]
+          }
         }
-      ]
+      }
     ]
   }
 }

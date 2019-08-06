@@ -25,6 +25,7 @@ use OCP\Template;
 class Util {
 
     public static function renderTemplate($template, $params) {
+        // TODO: Use util method to get appName
         $template = new Template('collections', $template);
         foreach($params as $key => $value) {
             $template->assign($key, $value);
@@ -42,6 +43,7 @@ class Util {
     public static function getConfig() {
         $configFile = Util::joinPaths(Util::getDataPath(),'cr8it_config.json');
         $config = NULL; // Allows tests to work
+        // TODO: Throw a better error when there is invalid json or the config is not found
         if (file_exists($configFile)) {
             $config = json_decode(file_get_contents($configFile), true);
         }
